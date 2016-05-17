@@ -16,13 +16,38 @@ import java.util.ArrayList;
  ****************************************************************************/
 
 public class StandardDeck implements Deck {
+	boolean jokers;
+	ArrayList<Card> myDeck = new ArrayList<>(54);
+	
+	Card twoOfClubs = new Card("2", "Clubs");
+	Card jokerOfClubs = new Card("Joker", "Clubs");
 
+	// default no-arg constructor builds a full deck with Jokers
 	public StandardDeck() {
+		buildStdDeck();
 	}
 	
-	ArrayList<Card> myDeck = new ArrayList<>(52);
+	// convenience constructor builds a full deck with or without Jokers
+	public StandardDeck(boolean jokers) {
+		buildNoJokerDeck();
+	}
+	
+	public void buildStdDeck() {
+		myDeck.add(twoOfClubs);
+		myDeck.add(jokerOfClubs);		
+	}
+	
+	public void buildNoJokerDeck() {
+		if (jokers) {
+			buildStdDeck();
+		} else {
+			buildStdDeck();
+			myDeck.remove(jokerOfClubs);
+		}
+	}
 
 	public static void main(String[] args) {
-	
+		StandardDeck newDeck = new StandardDeck(true);
+		System.out.println(newDeck);
 	}
 }

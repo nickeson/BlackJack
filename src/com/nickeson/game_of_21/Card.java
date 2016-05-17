@@ -19,37 +19,11 @@ public class Card {
 	private String value;
 	private String suit;
 	
-	public Card() {
+	public Card(String value, String suit) {
+		String cardVal = this.value;	
+		String cardSuit = this.suit;
 	}
-
-	/**
-	 * @return the value
-	 */
-	public String getValue() {
-		return value;
-	}
-
-	/**
-	 * @param value the value to set
-	 */
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	/**
-	 * @return the suit
-	 */
-	public String getSuit() {
-		return suit;
-	}
-
-	/**
-	 * @param suit the suit to set
-	 */
-	public void setSuit(String suit) {
-		this.suit = suit;
-	}
-
+	
 	// public static void main(String[] args) {
 	// }
 }
