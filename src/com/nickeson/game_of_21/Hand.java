@@ -23,6 +23,6 @@ public class Hand {
 
 	public static void main(String[] args) {
 		ArrayList<Card> myCards = new ArrayList<>();
-
+		System.out.println(myCards);
 	}
 }

@@ -1,6 +1,7 @@
 package com.nickeson.game_of_21;
 
 //JDK 1.8.0
+//import java.util.Arrays;
 
 /****************************************************************************
  * <b>Title</b>: Card.java <p/>
@@ -15,12 +16,10 @@ package com.nickeson.game_of_21;
  ****************************************************************************/
 public class Card 
 {
-    private int suit, val;
-    private String[] cardSuit = {"Hearts", "Diamonds", "Spades", "Clubs", "NoSuit"};
-    private String[] cardValue = {"Ace", "King", "Queen", "Jack", "10",
-                                   "9", "8", "7", "6", "5", "4", "3", "2", "Joker"};
-
-    public Card(int suit, int val)
+    private String suit, val;
+    
+    // constructor requires Card suit & val to be passed
+    public Card(String suit, String val)
     {
         this.suit = suit; 
         this.val = val;
@@ -29,15 +28,18 @@ public class Card
     // override toString method for Card to print values as Strings
     public String toString()
     {  
-    	if (cardValue[val] != "Joker") {
-			String currCard = cardValue[val] + " of " + cardSuit[suit];
-	        return currCard;
+    	if (!val.equals("Joker")) {
+	    	String currCard = val + " of " + suit;
+	    	return currCard;
     	} else {
-    		// Jokers don't need suit printed
+    		// don't print suit for Jokers
     		return "Joker";
-    	}
-    }
+		}
+	}
     
+    // unit test main method
 //    public static void main (String[] args) {
-//   	}
+//    	System.out.println(Arrays.toString(StandardDeck.getSuits()));
+//    	System.out.println(Arrays.toString(StandardDeck.getCardVals()));
+//	}
 }

@@ -24,5 +24,6 @@ public class Player extends Person {
 
 	public static void main(String[] args) {
 		Hand myHand = new Hand();
+		System.out.println(myHand);
 	}
 }

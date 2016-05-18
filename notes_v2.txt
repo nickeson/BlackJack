@@ -1,0 +1,40 @@
+Nouns (Objects):
+----------------
+- Player (Name, Current Balance, Player Status, Win Status)
+	- Dealer (interface, use Overloaded Methods for Hit/Stand/Play Loop rules)
+
+- Shoe of Cards (ArrayList implementation? # of Decks, Shuffle Marker)
+- Deck of Cards (subclass of Shoe?, 52 cards)
+- Hand of Cards (ArrayList implementation?  Does it need to be it's own object? subclass of Deck? Totals calculated by Score/Win Calculator)
+- Single Card (separate object?, subclass of Hand?, Card Value, AceFlag)
+
+- Score/Win Calculator (hand total tested against win/bust/push scenarios)
+
+- Bet Settlement Module (Current Balance modified using win/loss/push rules)
+
+- The Bank (related to Bet Settlement Module in ways other than data storage method [config file])
+
+- User interface module (contains methods for data/message I/O, fields - NumOfPlayers, NumOfDecks, CurrPlayerBet, Player Status, Win Status, HitOrStand, SideRules, PlayAgain, ActivePlayersRemain, PlayerBalance)
+
+===============================================================================
+
+Verbs (Methods):
+----------------
+- Game Initialization (Define Players, Initial Player Balances)
+- Shuffle Cards (ArrayList of Cards, Collections Sort)
+	- Set/Check Shufle Marker (% of shoe from config file, default to 20-30%)
+- Deal Cards (HandValue, SoftHandValue)
+- UpdateHand (HandValue, SoftHandValue, AddCardValue)
+
+- Taking Bets (CurrentBalance, InitialBet, SideRulesBet, Player)
+- Settling Bets (WinStatus, InitialBet, SideRulesBet, CurrentBalance, Player, ConfigFileLoc)
+
+- Check player status (active, inactive, quit)
+- Check win status (win, bust, push)
+
+- Modify Config File based on input params (NumOfPlayers, Language, SideRules)
+
+- User Inputs Module (Hit/Stand prompt, NumOfPlayers, Language, SideRules)
+- User Outputs Module (GameInitMsgs, BetSettleMsgs, WinLossPushMsgs, PlayAgainMsg, DisplayDealerCards, SideRulesMsg, HighScoresDisplay)
+
+- Game Play 'Loop' Module (ActivePlayer, PlayerName, WinLossPushStatus, HandValue, SoftHandValue, SideRules, PlayerHandByPlayerName, InitialBet, SideRulesBet, PlayAgain, NumOfDecks,Shuffle, Score/Win Calculator)
