@@ -16,38 +16,48 @@ import java.util.ArrayList;
  ****************************************************************************/
 
 public class StandardDeck implements Deck {
-	boolean jokers;
-	ArrayList<Card> myDeck = new ArrayList<>(54);
+	boolean hasJokers;
+	private ArrayList<Card> stdDeck;
 	
-	Card twoOfClubs = new Card("2", "Clubs");
-	Card jokerOfClubs = new Card("Joker", "Clubs");
-
-	// default no-arg constructor builds a full deck with Jokers
-	public StandardDeck() {
-		buildStdDeck();
-	}
+	public StandardDeck(boolean hasJokers) {
+		// build a deck with 52 cards (no jokers)
+		stdDeck = new ArrayList<Card>();
 	
-	// convenience constructor builds a full deck with or without Jokers
-	public StandardDeck(boolean jokers) {
-		buildNoJokerDeck();
-	}
-	
-	public void buildStdDeck() {
-		myDeck.add(twoOfClubs);
-		myDeck.add(jokerOfClubs);		
-	}
-	
-	public void buildNoJokerDeck() {
-		if (jokers) {
-			buildStdDeck();
-		} else {
-			buildStdDeck();
-			myDeck.remove(jokerOfClubs);
+		/* loop through the suits and values arrays in Card, building new cards
+		 * for each value of each suit 
+		 */
+		for(int a = 0; a <= 3; a++)
+		{
+			// make sure to include Jokers (b <= 13)
+			for (int b = 0; b <= 12; b++)
+			{
+				// add cards using all values from Ace through 2
+				stdDeck.add(new Card(a,b));
+			}
+		}
+		
+		if (hasJokers == true) {
+			// add 2 Jokers (NoSuit)
+			stdDeck.add(new Card(4,13));
+			stdDeck.add(new Card(4,13));	
 		}
 	}
-
+	
+	// override toString to return Deck's ArrayList values as String instead of heap address
+	public String toString()
+	{
+		String result = "" + stdDeck;
+		return result;
+	}
+	
+	// unit test method for StandardDeck class
 	public static void main(String[] args) {
-		StandardDeck newDeck = new StandardDeck(true);
-		System.out.println(newDeck);
+		// create a new standard deck with Jokers named 'myDeck'
+		StandardDeck myDeck = new StandardDeck(true);
+		StandardDeck my2ndDeck = new StandardDeck(false);	
+		
+		// print out deck contents
+		System.out.println("Deck with Jokers: " + myDeck);
+		System.out.println("Deck without Jokers: " + my2ndDeck);	
 	}
 }

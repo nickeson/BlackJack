@@ -13,17 +13,31 @@ package com.nickeson.game_of_21;
  * @since May 17, 2016<p/>
  * updates:
  ****************************************************************************/
+public class Card 
+{
+    private int suit, val;
+    private String[] cardSuit = {"Hearts", "Diamonds", "Spades", "Clubs", "NoSuit"};
+    private String[] cardValue = {"Ace", "King", "Queen", "Jack", "10",
+                                   "9", "8", "7", "6", "5", "4", "3", "2", "Joker"};
 
-public class Card {
-
-	private String value;
-	private String suit;
-	
-	public Card(String value, String suit) {
-		String cardVal = this.value;	
-		String cardSuit = this.suit;
-	}
-	
-	// public static void main(String[] args) {
-	// }
+    public Card(int suit, int val)
+    {
+        this.suit = suit; 
+        this.val = val;
+    }
+    
+    // override toString method for Card to print values as Strings
+    public String toString()
+    {  
+    	if (cardValue[val] != "Joker") {
+			String currCard = cardValue[val] + " of " + cardSuit[suit];
+	        return currCard;
+    	} else {
+    		// Jokers don't need suit printed
+    		return "Joker";
+    	}
+    }
+    
+//    public static void main (String[] args) {
+//   	}
 }
