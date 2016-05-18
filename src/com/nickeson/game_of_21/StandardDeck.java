@@ -2,6 +2,7 @@ package com.nickeson.game_of_21;
 
 //JDK 1.8.0
 import java.util.ArrayList;
+import java.util.Collections;
 
 /****************************************************************************
  * <b>Title</b>: StandardDeck.java <p/>
@@ -16,16 +17,35 @@ import java.util.ArrayList;
  ****************************************************************************/
 
 public class StandardDeck implements Deck {
-	boolean hasJokers;
-	private ArrayList<Card> stdDeck;
+	// use 'Object', not 'Card' --> polymorphism for other Object types in deck
+	private ArrayList<Object> stdDeck = new ArrayList<>();
+	
+	// define suits and card values
 	private static String[] cardSuits = {"Hearts", "Diamonds", "Spades", "Clubs"};
     private static String[] cardValues = {"Ace", "King", "Queen", "Jack", "10",
                                    "9", "8", "7", "6", "5", "4", "3", "2", "Joker"};
 	
+    // build a deck with or without jokers by passing boolean arg to constructor
 	public StandardDeck(boolean hasJokers) {
-		stdDeck = new ArrayList<Card>();
+		buildDeck();
+		
+		if (hasJokers == true) {
+			// add 2 Jokers (they don't get a suit)
+			stdDeck.add(new Card("","Joker"));
+			stdDeck.add(new Card("","Joker"));	
+		}
+	}
 	
-		/* loop through the suits and values arrays in Card, building new cards
+	// build a deck with no jokers if no-arg constructor is called
+	public StandardDeck(){
+		buildDeck();
+		// add 2 Jokers (they don't get a suit)
+		stdDeck.add(new Card("","Joker"));
+		stdDeck.add(new Card("","Joker"));
+	}
+	
+	public void buildDeck() {
+		/* loop through the suits and values arrays, building new cards
 		 * for each value of each suit (no jokers)
 		 */
 		for (String ol : getSuits())
@@ -37,12 +57,10 @@ public class StandardDeck implements Deck {
 				}
 			}
 		}
-		
-		if (hasJokers == true) {
-			// add 2 Jokers (NoSuit)
-			stdDeck.add(new Card("Hearts","Joker"));
-			stdDeck.add(new Card("Hearts","Joker"));	
-		}
+	}
+	
+	public void shuffleDeck() {
+		Collections.shuffle(stdDeck);
 	}
 	
 	public static String[] getSuits() {
@@ -54,6 +72,7 @@ public class StandardDeck implements Deck {
     }
 	
  	// override toString to return Deck as String instead of hashcode
+    @Override
  	public String toString()
  	{
 	 	String result = "" + stdDeck;
@@ -62,9 +81,12 @@ public class StandardDeck implements Deck {
  	 
 	// unit test method for StandardDeck class
 	public static void main(String[] args) {
-		StandardDeck myDeck = new StandardDeck(true);
-		StandardDeck my2ndDeck = new StandardDeck(false);	
-		System.out.println("Deck with Jokers: " + myDeck);
-		System.out.println("Deck without Jokers: " + my2ndDeck);	
+		StandardDeck myDeck1 = new StandardDeck(false);
+		myDeck1.shuffleDeck();
+		StandardDeck myDeck2 = new StandardDeck(false);	
+		StandardDeck myDeck3 = new StandardDeck();	
+		System.out.println("Shuffled Deck without Jokers: " + myDeck1);
+		System.out.println("Deck without Jokers: " + myDeck2);
+		System.out.println("Deck with Jokers: " + myDeck3);	
 	 }
 }

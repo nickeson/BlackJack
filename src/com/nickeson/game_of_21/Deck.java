@@ -15,7 +15,6 @@ package com.nickeson.game_of_21;
  ****************************************************************************/
 
 public interface Deck {
-
-	public static void main(String[] args) {
-	}
+	public void buildDeck();
+	public void shuffleDeck();
 }

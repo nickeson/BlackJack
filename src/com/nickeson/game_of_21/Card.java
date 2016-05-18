@@ -26,6 +26,7 @@ public class Card
     }
     
     // override toString method for Card to print values as Strings
+    @Override
     public String toString()
     {  
     	if (!val.equals("Joker")) {
