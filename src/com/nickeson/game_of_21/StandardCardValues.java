@@ -14,13 +14,15 @@ package com.nickeson.game_of_21;
  * updates:
  ****************************************************************************/
 
-public enum StdCardSuit {
+public enum StandardCardValues {
 	
-	HEARTS("Hearts"), DIAMONDS("Diamonds"), SPADES("Spades"), CLUBS("Clubs");
+	ACE("Ace"), KING("King"), QUEEN("Queen"), JACK("Jack"), TEN("10"), NINE("9"),
+		EIGHT("8"), SEVEN("7"), SIX("6"), FIVE("5"), FOUR("4"), THREE("3"),
+		TWO("2"), JOKER("Joker");
 	
 	private final String value;
 	
-	private StdCardSuit(String value) {
+	private StandardCardValues(String value) {
 		this.value = value;
 	}
 	
@@ -28,6 +30,7 @@ public enum StdCardSuit {
 		return value;
 	}
 	
+	// provides 'values' instead of 'keys'
 	@Override
 	public String toString(){
 		return getValue();

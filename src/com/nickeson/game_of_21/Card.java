@@ -16,25 +16,33 @@ package com.nickeson.game_of_21;
  ****************************************************************************/
 public class Card 
 {
-    private String suit, val;
+    private String suit, val, jokerName;
     
-    // constructor requires Card suit & val to be passed
+    // constructor requires Card suit, val to be passed (at minimum)
     public Card(String suit, String val)
     {
         this.suit = suit; 
         this.val = val;
     }
     
+    // overloaded constructor also allows jokerName to be passed
+    public Card(String suit, String val, String jokerName)
+    {
+        this.suit = suit; 
+        this.val = val;
+        this.jokerName = jokerName;
+    }
+    
     // override toString method for Card to print values as Strings
     @Override
     public String toString()
     {  
-    	if (!val.equals("Joker")) {
+    	if (!val.equals(jokerName)) {
 	    	String currCard = val + " of " + suit;
 	    	return currCard;
     	} else {
     		// don't print suit for Jokers
-    		return "Joker";
+    		return jokerName;
 		}
 	}
     

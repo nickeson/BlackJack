@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /****************************************************************************
- * <b>Title</b>: StandardDeck.java <p/>
+ * <b>Title</b>: CustomDeck1.java <p/>
  * <b>Project</b>: game_of_21 <p/>
- * <b>Description: </b> A standard 52 card deck + 2 jokers<p/>
+ * <b>Description: </b> A custom card deck with and without Jokers<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -17,39 +17,57 @@ import java.util.Collections;
  ****************************************************************************/
 
 public class CustomDeck1 implements Deck {
+	// Build String Arrays sized by number of Enums defined
+	private String[] cardSuits = new String[CustomCardSuits1.values().length];	
+	private String[] cardValues = new String[CustomCardValues1.values().length];		
+	
 	// use 'Object', not 'Card' --> polymorphism for other Object types in deck
 	private ArrayList<Object> custDeck1 = new ArrayList<Object>();
 	
-	// define suits and card values
-	private static String[] cardSuits = {"BrokenHearts", "BloodDiamonds", "GardenSpades", "BookClubs"};
-    private static String[] cardValues = {"Ace", "King", "Queen", "Jack", "10",
-                                   "9", "8", "7", "6", "5", "4", "3", "2", "Joker"};
+	// setup joker location
+	private int jokerIndex = (CustomCardValues1.values().length -1);
 	
-    // build a deck with or without jokers by passing boolean arg to constructor
+    // constructor to build a deck with or without jokers if arg is passed
 	public CustomDeck1(boolean hasJokers) {
 		buildDeck();
 		
+		// add jokers
 		if (hasJokers == true) {
-			// add 2 Jokers (they don't get a suit)
-			custDeck1.add(new Card("","Joker"));
-			custDeck1.add(new Card("","Joker"));	
+			String jokerName = cardValues[jokerIndex];
+			
+			/* pass jokerName as card value, and as key for toString() override
+			 * so Jokers don't print with suit listed (they don't have one)
+			*/
+			custDeck1.add(new Card("", jokerName, jokerName));
+			custDeck1.add(new Card("", jokerName, jokerName));	
 		}
 	}
 	
-	// build a deck with no jokers if no-arg constructor is called
+	// constructor to build a deck with no jokers if no arg is passed
 	public CustomDeck1(){
 		buildDeck();
 	}
 	
 	public void buildDeck() {
-		/* loop through the suits and values arrays, building new cards
+		// fill String Arrays with Enum values from CustomCardSuits.values()
+		for (CustomCardSuits1 itr : CustomCardSuits1.values()) {
+			int ord = itr.ordinal();
+			cardSuits[ord] = "" + itr;			
+		}
+				
+		for (CustomCardValues1 ir : CustomCardValues1.values()) {
+			int odl = ir.ordinal();
+			cardValues[odl] = "" + ir;				
+		}	
+		
+		/* loop through the suits and values string arrays, building new cards
 		 * for each value of each suit (no jokers)
 		 */
-		for (String ol : getSuits())
+		for (String ol : cardSuits)
 		{
-			for (String il : getCardVals())
+			for (String il : cardValues)
 			{
-				if (!il.equals("Joker")) {
+				if (!il.equals(cardValues[jokerIndex])) {
 					custDeck1.add(new Card(ol,il));
 				}
 			}
@@ -60,14 +78,6 @@ public class CustomDeck1 implements Deck {
 		Collections.shuffle(custDeck1);
 	}
 	
-	public static String[] getSuits() {
-    	return cardSuits;
-	}
-    
-    public static String[] getCardVals() {
-    	return cardValues;
-    }
-	
  	// override toString to return Deck as String instead of hashcode
     @Override
  	public String toString()
@@ -76,12 +86,13 @@ public class CustomDeck1 implements Deck {
 	 	return result;
  	}
  	 
-	// unit test method for StandardDeck class
+	// unit test method
 	public static void main(String[] args) {
 		CustomDeck1 myDeck = new CustomDeck1(true);
-		myDeck.shuffleDeck();
-		CustomDeck1 my2ndDeck = new CustomDeck1(false);	
 		System.out.println("Deck with Jokers: " + myDeck);
-		System.out.println("Deck without Jokers: " + my2ndDeck);	
+		
+		CustomDeck1 my2ndDeck = new CustomDeck1(false);	
+		my2ndDeck.shuffleDeck();
+		System.out.println("Shuffled Deck without Jokers: " + my2ndDeck);	
 	 }
 }
