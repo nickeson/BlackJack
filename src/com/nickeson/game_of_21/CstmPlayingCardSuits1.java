@@ -14,17 +14,14 @@ package com.nickeson.game_of_21;
  * updates:
  ****************************************************************************/
 
-public enum CustomCardValues1 {
+public enum CstmPlayingCardSuits1 {
 	
-	WHIZ("Whiz"), CAESAR("Caesar"), RUPAUL("RuPaul"), NICHOLSON("Nicholson"), 
-	BODEREK("Bo Derek"), BEATLES("Beatles"), CRAZY("Crazy"), LUCKY("Lucky"), 
-	SIXSHOOTER("Six Shooter"), HIGHFIVE("High Five"), 
-	FOURONTHEFLOOR("Four On The Floor"), TRINITY("Trinity"), Deuce("Deuce"),
-	COLBERT("Colbert"); 
+	HEARTS("BlackHearts"), DIAMONDS("BloodDiamonds"), 
+	SPADES("GardenSpades"), CLUBS("BookClubs");
 	
 	private final String value;
 	
-	private CustomCardValues1(String value) {
+	private CstmPlayingCardSuits1(String value) {
 		this.value = value;
 	}
 	
@@ -32,7 +29,7 @@ public enum CustomCardValues1 {
 		return value;
 	}
 	
-	// provides 'values' instead of 'keys'
+	// provides 'values' instead of 'keys' for ENUM constants
 	@Override
 	public String toString(){
 		return getValue();

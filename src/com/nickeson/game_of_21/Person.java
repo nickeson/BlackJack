@@ -1,5 +1,7 @@
 package com.nickeson.game_of_21;
 
+import java.util.List;
+
 //JDK 1.8.0
 
 /****************************************************************************
@@ -15,13 +17,70 @@ package com.nickeson.game_of_21;
  ****************************************************************************/
 
 public class Person {
-	String fname;
-	String lname;
+	String firstName;
+	String lastName;
+	List<String> nickName;
+	String age;
 
-	// default constructor
+	/**
+	 * default no-arg constructor
+	 */
 	public Person() {
 	}
 
-	public static void main(String[] args) {
+	/**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * @param lastName the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	/**
+	 * @return the nickName
+	 */
+	public List<String> getNickName() {
+		return nickName;
+	}
+
+	/**
+	 * @param nickName the nickName to set
+	 */
+	public void setNickName(List<String> nickName) {
+		this.nickName = nickName;
+	}
+
+	/**
+	 * @return the age
+	 */
+	public String getAge() {
+		return age;
+	}
+
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(String age) {
+		this.age = age;
 	}
 }

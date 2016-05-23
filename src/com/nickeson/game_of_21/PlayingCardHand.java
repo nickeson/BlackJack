@@ -1,7 +1,6 @@
 package com.nickeson.game_of_21;
 
 //JDK 1.8.0
-import java.util.ArrayList;
 
 /****************************************************************************
  * <b>Title</b>: Hand.java <p/>
@@ -15,14 +14,33 @@ import java.util.ArrayList;
  * updates:
  ****************************************************************************/
 
-public class Hand {
+public class PlayingCardHand {
 	int score;
 	
-	public Hand() {
+	/**
+	 * default no-arg constructor
+	 */
+	public PlayingCardHand() {
+	}
+	
+	/**
+	 * add another PlayingCard to this hand instance
+	 */
+	public void addPlayingCard() {
+		
 	}
 
-	public static void main(String[] args) {
-		ArrayList<Card> myCards = new ArrayList<>();
-		System.out.println(myCards);
+	/**
+	 * @return the score
+	 */
+	public int getScore() {
+		return score;
+	}
+
+	/**
+	 * @param score the score to set
+	 */
+	public void setScore(int score) {
+		this.score = score;
 	}
 }

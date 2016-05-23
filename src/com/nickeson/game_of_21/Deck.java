@@ -15,8 +15,7 @@ package com.nickeson.game_of_21;
  ****************************************************************************/
 
 // this allows us to build a collection of cards, or any subtypes of cards (standard or crazy)
-public interface Deck<T extends Card> {
-//public interface Deck { // worked for Shoe.3 with everything but Shuffle method - casting problems from deck to arraylist of cards
+public interface Deck<T extends PlayingCard> {
 	/**
 	 * 
 	 */

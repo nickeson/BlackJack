@@ -1,7 +1,4 @@
 package com.nickeson.game_of_21;
-/*
- * Next up is to set this up to build a deck from standard cards (subtype of card)
- */
 
 //JDK 1.8.0
 import java.util.ArrayList;
@@ -20,13 +17,13 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
-public class StandardDeck implements Deck<Card> {
-	// initialize empty string array for card suits to correct size
-	private String[] cardSuits = new String[StandardCardSuits.values().length];	 
-	private List<Card> stdDeck = new ArrayList<Card>();
-	// initialize empty string array for card values to correct size
-	private static String[] cardValues = new String[StandardCardValues.values().length];
-	private static int jokerIndex = (StandardCardValues.values().length -1);
+public class StandardDeck implements Deck<PlayingCard> {
+	private List<PlayingCard> stdDeck = new ArrayList<PlayingCard>();
+	// initialize empty string arrays for card suits & values to correct sizes
+	private String[] cardSuits = new String[StdPlayingCardSuits.values().length];	 
+	private static String[] cardValues = new String[StdPlayingCardValues.values().length];
+	// setup location index for Joker
+	private static int jokerIndex = (StdPlayingCardValues.values().length -1);
 	
 	/**
 	 * constructor to build a deck with no jokers if no arg is passed 
@@ -39,11 +36,10 @@ public class StandardDeck implements Deck<Card> {
 	 * constructor to build a deck with or without jokers if arg is passed     
 	 * @param hasJokers
 	 */
-	public StandardDeck(boolean hasJokers) {
+	public StandardDeck(int numOfJokers) {
 		buildDeck();
-		if (hasJokers == true) {
+		for (int j = 0; j < numOfJokers; j++) {
 			addJoker();
-			addJoker();	
 		}
 	}
 	
@@ -53,25 +49,26 @@ public class StandardDeck implements Deck<Card> {
 	 */
 	public void buildDeck() {
 		// fill String Arrays with Enum values from StdCardSuits.values()
-		for (StandardCardSuits itr : StandardCardSuits.values()) {
+		for (StdPlayingCardSuits itr : StdPlayingCardSuits.values()) {
 			int ord = itr.ordinal();
 			cardSuits[ord] = "" + itr;			
 		}
 				
-		for (StandardCardValues ir : StandardCardValues.values()) {
+		for (StdPlayingCardValues ir : StdPlayingCardValues.values()) {
 			int odl = ir.ordinal();
 			cardValues[odl] = "" + ir;				
 		}	
 		
 		/* loop through the suits and values string arrays, building new cards
-		 * for each value of each suit
+		 * for each value of each suit, all face down
 		 */
 		for (String ol : cardSuits)
 		{
 			for (String il : cardValues)
 			{
 				if (!il.equals(cardValues[jokerIndex])) {
-					stdDeck.add(new Card(ol,il));
+					// params = (suit, value, isJoker, isFaceUp)
+					stdDeck.add(new PlayingCard(ol,il,false,false));
 				}
 			}
 		}
@@ -86,11 +83,12 @@ public class StandardDeck implements Deck<Card> {
 	}
 	
 	/**
-	 * add a Joker to the deck with the custom Joker name for this deck
+	 * add a face down Joker to deck with custom Joker name for this deck (no suit)
 	 */
 	public void addJoker() {
 		String jokerName = getJokerName();
-		stdDeck.add(new Card("", jokerName, jokerName));
+		// params = (suit, value, isJoker, isFaceUp)
+		stdDeck.add(new PlayingCard("",jokerName,true,false));
 	}
 	
 	/**
@@ -101,22 +99,21 @@ public class StandardDeck implements Deck<Card> {
 	}
 	
 	/**
-	 * prints deck suits and values rather than deck's hashcode
+	 * Override toString method to print Deck's String values instead of hashcode
 	 */
-    @Override
- 	public String toString()
- 	{
-	 	String result = "" + stdDeck;
-	 	return result;
- 	}
+	@Override
+	public String toString() {
+		String printDeck = "" + stdDeck;
+		return printDeck;
+	}
  	 
 	// unit test method
 	public static void main(String[] args) {
-		StandardDeck myDeck = new StandardDeck(true);
+		StandardDeck myDeck = new StandardDeck(2);
 		System.out.println("Deck with Jokers: " + myDeck);
 		
-		StandardDeck my2ndDeck = new StandardDeck(false);	
+		StandardDeck my2ndDeck = new StandardDeck();	
 		my2ndDeck.shuffleDeck();
 		System.out.println("Shuffled Deck without Jokers: " + my2ndDeck);	
-	 }
+		}
 }

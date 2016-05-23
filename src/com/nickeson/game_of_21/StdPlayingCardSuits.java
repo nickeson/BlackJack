@@ -14,19 +14,17 @@ package com.nickeson.game_of_21;
  * updates:
  ****************************************************************************/
 
-public enum StandardCardValues {
+public enum StdPlayingCardSuits {
 	
-	ACE("Ace"), KING("King"), QUEEN("Queen"), JACK("Jack"), TEN("10"), NINE("9"),
-		EIGHT("8"), SEVEN("7"), SIX("6"), FIVE("5"), FOUR("4"), THREE("3"),
-		TWO("2"), JOKER("Joker");
+	HEARTS("Hearts"), DIAMONDS("Diamonds"), SPADES("Spades"), CLUBS("Clubs");
 	
 	private final String value;
 	
-	private StandardCardValues(String value) {
+	private StdPlayingCardSuits(String value) {
 		this.value = value;
 	}
 	
-	// provides 'values' instead of 'keys'
+	// provides 'values' instead of 'keys' for ENUM constants
 	@Override
 	public String toString(){
 		return value;

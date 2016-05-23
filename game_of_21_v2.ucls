@@ -1,52 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.9" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.nickeson.game_of_21.StandardDeck" project="Game_Of_21" 
-    file="/Game_Of_21/src/com/nickeson/game_of_21/StandardDeck.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="531" y="87"/>    
+  <class id="1" language="java" name="com.nickeson.game_of_21.PlayingCard" project="Game_Of_21" 
+    file="/Game_Of_21/src/com/nickeson/game_of_21/PlayingCard.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="514" y="446"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.nickeson.game_of_21.Card" project="Game_Of_21" 
-    file="/Game_Of_21/src/com/nickeson/game_of_21/Card.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="529" y="220"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="false" protected="false" private="false" static="true"/>      
-      <operations public="true" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="com.nickeson.game_of_21.CustomDeck1" project="Game_Of_21" 
+  <class id="2" language="java" name="com.nickeson.game_of_21.CustomDeck1" project="Game_Of_21" 
     file="/Game_Of_21/src/com/nickeson/game_of_21/CustomDeck1.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="530" y="353"/>    
+    <position height="-1" width="-1" x="516" y="97"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.nickeson.game_of_21.Dealer" project="Game_Of_21" 
-    file="/Game_Of_21/src/com/nickeson/game_of_21/Dealer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="71" y="324"/>    
+  <class id="3" language="java" name="com.nickeson.game_of_21.PlayingCardHand" project="Game_Of_21" 
+    file="/Game_Of_21/src/com/nickeson/game_of_21/PlayingCardHand.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="285" y="270"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.nickeson.game_of_21.Hand" project="Game_Of_21" 
-    file="/Game_Of_21/src/com/nickeson/game_of_21/Hand.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="332" y="156"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="false" protected="false" private="false" static="true"/>      
-      <operations public="true" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="com.nickeson.game_of_21.Person" project="Game_Of_21" 
+  <class id="4" language="java" name="com.nickeson.game_of_21.Person" project="Game_Of_21" 
     file="/Game_Of_21/src/com/nickeson/game_of_21/Person.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="70" y="123"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
@@ -55,7 +37,7 @@
       <operations public="true" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="com.nickeson.game_of_21.Player" project="Game_Of_21" 
+  <class id="5" language="java" name="com.nickeson.game_of_21.Player" project="Game_Of_21" 
     file="/Game_Of_21/src/com/nickeson/game_of_21/Player.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="71" y="223"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
@@ -64,7 +46,7 @@
       <operations public="true" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <interface id="8" language="java" name="com.nickeson.game_of_21.Deck" project="Game_Of_21" 
+  <interface id="6" language="java" name="com.nickeson.game_of_21.Deck" project="Game_Of_21" 
     file="/Game_Of_21/src/com/nickeson/game_of_21/Deck.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="651" y="219"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
@@ -73,117 +55,61 @@
       <operations public="true" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </interface>  
-  <enumeration id="9" language="java" name="com.nickeson.game_of_21.StandardCardSuits" project="Game_Of_21" 
-    file="/Game_Of_21/src/com/nickeson/game_of_21/StandardCardSuits.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="818" y="62"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="false" protected="false" private="false" static="true"/>      
-      <operations public="true" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </enumeration>  
-  <enumeration id="10" language="java" name="com.nickeson.game_of_21.StandardCardValues" project="Game_Of_21" 
-    file="/Game_Of_21/src/com/nickeson/game_of_21/StandardCardValues.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1005" y="152"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="false" protected="false" private="false" static="true"/>      
-      <operations public="true" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </enumeration>  
-  <enumeration id="11" language="java" name="com.nickeson.game_of_21.CustomCardSuits1" project="Game_Of_21" 
-    file="/Game_Of_21/src/com/nickeson/game_of_21/CustomCardSuits1.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="817" y="380"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="false" protected="false" private="false" static="true"/>      
-      <operations public="true" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </enumeration>  
-  <enumeration id="12" language="java" name="com.nickeson.game_of_21.CustomCardValues1" project="Game_Of_21" 
-    file="/Game_Of_21/src/com/nickeson/game_of_21/CustomCardValues1.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1041" y="468"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="false" protected="false" private="false" static="true"/>      
-      <operations public="true" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </enumeration>  
-  <class id="13" language="java" name="com.nickeson.game_of_21.Shoe2" project="Game_Of_21" 
-    file="/Game_Of_21/src/com/nickeson/game_of_21/Shoe2.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="233" y="398"/>    
+  <class id="7" language="java" name="com.nickeson.game_of_21.StandardDeck" project="Game_Of_21" 
+    file="/Game_Of_21/src/com/nickeson/game_of_21/StandardDeck.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="656" y="83"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <dependency id="14">    
+  <realization id="8">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <generalization id="9">    
     <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="15">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="11"/>  
-  </dependency>  
-  <dependency id="16">    
-    <bendpoint x="728" y="152"/>    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <association id="17">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="18" name="stdDeck"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="20">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <dependency id="21">    
-    <bendpoint x="732" y="468"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <generalization id="22">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="7"/>  
+    <end type="TARGET" refId="4"/>  
   </generalization>  
-  <realization id="23">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <dependency id="24">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <association id="25">    
-    <bendpoint x="444" y="353"/>    
-    <bendpoint x="444" y="305"/>    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="26" name="custDeck1">        
-        <position height="16" width="61" x="410" y="361"/>      
-      </attribute>      
-      <multiplicity id="27" minimum="0" maximum="2147483647">        
-        <position height="14" width="21" x="453" y="377"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="28">    
+  <realization id="10">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="29">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="30" name="myDeck"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
+  </realization>  
+  <association id="11">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="12" name="stdDeck">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="13" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="14">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="15" name="custDeck1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="16" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="17">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="18" name="custDeck1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="19" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
