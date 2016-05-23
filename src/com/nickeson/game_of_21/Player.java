@@ -16,14 +16,40 @@ import java.util.ArrayList;
  ****************************************************************************/
 
 public class Player extends Person {
-	ArrayList<String> nickNames;
-	
+	private ArrayList<String> nickNames = new ArrayList<>();
 		
 	public Player() {
 	}
 
-	public static void main(String[] args) {
-		Hand myHand = new Hand();
-		System.out.println(myHand);
+	/**
+	 * @param nickNames - the nickName(s) to set
+	 */
+	// (uses varargs to allow multiple or no nicknames to be passed to method
+	public void setNickNames(String... nickNames) {
+		for (String nn : nickNames) {
+		this.nickNames.add(nn);
+		}
 	}
+	
+	/**
+	 * @return the nickName(s)
+	 */
+	public ArrayList<String> getNickNames() {
+		return nickNames;
+	}
+	
+	// unit test main method
+//	public static void main(String[] args) {
+//		Player testPlayer = new Player();
+//		Player testPlayer2 = new Player();
+//		Player testPlayer3 = new Player();
+		
+//		testPlayer.setNickNames();	
+//		testPlayer2.setNickNames("test1");
+//		testPlayer3.setNickNames("test2", "test3");
+		
+//		System.out.println(testPlayer.getNickNames());	
+//		System.out.println(testPlayer2.getNickNames());
+//		System.out.println(testPlayer3.getNickNames());	
+//	}
 }

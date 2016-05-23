@@ -26,13 +26,9 @@ public enum StandardCardValues {
 		this.value = value;
 	}
 	
-	public String getValue() {
-		return value;
-	}
-	
 	// provides 'values' instead of 'keys'
 	@Override
 	public String toString(){
-		return getValue();
+		return value;
 	}
 }

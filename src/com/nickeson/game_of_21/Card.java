@@ -1,7 +1,10 @@
 package com.nickeson.game_of_21;
 
 //JDK 1.8.0
-//import java.util.Arrays;
+/*
+ * Next up is to subclass card to StandardCard and CrazyCard so we can build
+ * a shoe from either card type, using generics.
+ */
 
 /****************************************************************************
  * <b>Title</b>: Card.java <p/>
@@ -16,39 +19,67 @@ package com.nickeson.game_of_21;
  ****************************************************************************/
 public class Card 
 {
-    private String suit, val, jokerName;
+    private String suit, value, jokerName;
     
-    // constructor requires Card suit, val to be passed (at minimum)
-    public Card(String suit, String val)
+    
+    /**
+     * 
+     * constructor requires Card suit, value to be passed (at minimum)
+     * @param suit
+     * @param value
+     */
+    public Card(String suit, String value)
     {
         this.suit = suit; 
-        this.val = val;
+        this.value = value;
     }
     
-    // overloaded constructor also allows jokerName to be passed
-    public Card(String suit, String val, String jokerName)
+    /**
+     * 
+     * @param suit
+     * @param value
+     * @param jokerName
+     */
+    public Card(String suit, String value, String jokerName)
     {
         this.suit = suit; 
-        this.val = val;
+        this.value = value;
         this.jokerName = jokerName;
     }
     
-    // override toString method for Card to print values as Strings
+    /**
+     * print card suits and values, rather than hashcode
+     */
     @Override
     public String toString()
     {  
-    	if (!val.equals(jokerName)) {
-	    	String currCard = val + " of " + suit;
+    	if (!value.equals(jokerName)) {
+	    	String currCard = value + " of " + suit;
 	    	return currCard;
     	} else {
     		// don't print suit for Jokers
     		return jokerName;
 		}
 	}
-    
-    // unit test main method
-//    public static void main (String[] args) {
-//    	System.out.println(Arrays.toString(StandardDeck.getSuits()));
-//    	System.out.println(Arrays.toString(StandardDeck.getCardVals()));
-//	}
+
+	/**
+	 * @return the suit
+	 */
+	public String getSuit() {
+		return suit;
+	}
+
+	/**
+	 * @return the value
+	 */
+	public String getVal() {
+		return value;
+	}
+
+	/**
+	 * @return the custom jokerName
+	 */
+	public String getJokerName() {
+		return jokerName;
+	}
 }

@@ -1,8 +1,12 @@
 package com.nickeson.game_of_21;
+/*
+ * Next up is to set this up to build a deck from standard cards (subtype of card)
+ */
 
 //JDK 1.8.0
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /****************************************************************************
  * <b>Title</b>: StandardDeck.java <p/>
@@ -16,38 +20,37 @@ import java.util.Collections;
  * updates:
  ****************************************************************************/
 
-public class StandardDeck implements Deck {
-	// Build String Arrays sized by number of Enums defined
-	private String[] cardSuits = new String[StandardCardSuits.values().length];	
-	private String[] cardValues = new String[StandardCardValues.values().length];		
+public class StandardDeck implements Deck<Card> {
+	// initialize empty string array for card suits to correct size
+	private String[] cardSuits = new String[StandardCardSuits.values().length];	 
+	private List<Card> stdDeck = new ArrayList<Card>();
+	// initialize empty string array for card values to correct size
+	private static String[] cardValues = new String[StandardCardValues.values().length];
+	private static int jokerIndex = (StandardCardValues.values().length -1);
 	
-	// use 'Object', not 'Card' --> polymorphism for other Object types in deck
-	private ArrayList<Object> stdDeck = new ArrayList<Object>();
-	
-	// setup joker location
-	private int jokerIndex = (StandardCardValues.values().length -1);
-	
-    // constructor to build a deck with or without jokers if arg is passed
-	public StandardDeck(boolean hasJokers) {
-		buildDeck();
-		
-		// add jokers
-		if (hasJokers == true) {
-			String jokerName = cardValues[jokerIndex];
-			
-			/* pass jokerName as card value, and as key for toString() override
-			 * so Jokers don't print with suit listed (they don't have one)
-			*/
-			stdDeck.add(new Card("", jokerName, jokerName));
-			stdDeck.add(new Card("", jokerName, jokerName));	
-		}
-	}
-	
-	// constructor to build a deck with no jokers if no arg is passed
+	/**
+	 * constructor to build a deck with no jokers if no arg is passed 
+	 */
 	public StandardDeck(){
 		buildDeck();
 	}
 	
+	/**
+	 * constructor to build a deck with or without jokers if arg is passed     
+	 * @param hasJokers
+	 */
+	public StandardDeck(boolean hasJokers) {
+		buildDeck();
+		if (hasJokers == true) {
+			addJoker();
+			addJoker();	
+		}
+	}
+	
+	/**
+	 * build a Standard Deck of cards with suits and values defined in
+	 * StandardCardSuits.java and StandardCardValues.java
+	 */
 	public void buildDeck() {
 		// fill String Arrays with Enum values from StdCardSuits.values()
 		for (StandardCardSuits itr : StandardCardSuits.values()) {
@@ -61,7 +64,7 @@ public class StandardDeck implements Deck {
 		}	
 		
 		/* loop through the suits and values string arrays, building new cards
-		 * for each value of each suit (no jokers)
+		 * for each value of each suit
 		 */
 		for (String ol : cardSuits)
 		{
@@ -74,11 +77,32 @@ public class StandardDeck implements Deck {
 		}
 	}
 	
+	/**
+	 * @return the custom Joker name for this deckType
+	 */
+	public static String getJokerName() {
+		String jokerName = cardValues[jokerIndex];
+		return jokerName;
+	}
+	
+	/**
+	 * add a Joker to the deck with the custom Joker name for this deck
+	 */
+	public void addJoker() {
+		String jokerName = getJokerName();
+		stdDeck.add(new Card("", jokerName, jokerName));
+	}
+	
+	/**
+	 * a method to shuffle this deckType
+	 */
 	public void shuffleDeck() {
 		Collections.shuffle(stdDeck);
 	}
 	
- 	// override toString to return Deck as String instead of hashcode
+	/**
+	 * prints deck suits and values rather than deck's hashcode
+	 */
     @Override
  	public String toString()
  	{

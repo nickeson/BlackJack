@@ -19,7 +19,10 @@ public class Dealer extends Player {
 	public Dealer() {
 	}
 
-	public static void main(String[] args) {
-
+	public void dealCards() {
+		// stuff goes here
 	}
+//	public static void main(String[] args) {
+
+//	}
 }

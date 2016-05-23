@@ -1,13 +1,17 @@
 package com.nickeson.game_of_21;
+/*
+ * Next up is to set this up to build a deck from standard cards (subtype of card)
+ */
 
 //JDK 1.8.0
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /****************************************************************************
  * <b>Title</b>: CustomDeck1.java <p/>
  * <b>Project</b>: game_of_21 <p/>
- * <b>Description: </b> A custom card deck with and without Jokers<p/>
+ * <b>Description: </b> A standard card deck with and without Jokers<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -16,40 +20,39 @@ import java.util.Collections;
  * updates:
  ****************************************************************************/
 
-public class CustomDeck1 implements Deck {
-	// Build String Arrays sized by number of Enums defined
+public class CustomDeck1 implements Deck<Card> {
+	// initialize empty string array for card suits to correct size
 	private String[] cardSuits = new String[CustomCardSuits1.values().length];	
-	private String[] cardValues = new String[CustomCardValues1.values().length];		
+	private List<Card> custDeck1 = new ArrayList<Card>();
+	// initialize empty string array for card values to correct size
+	private static String[] cardValues = new String[CustomCardValues1.values().length];		
+	private static int jokerIndex = (CustomCardValues1.values().length -1);
 	
-	// use 'Object', not 'Card' --> polymorphism for other Object types in deck
-	private ArrayList<Object> custDeck1 = new ArrayList<Object>();
-	
-	// setup joker location
-	private int jokerIndex = (CustomCardValues1.values().length -1);
-	
-    // constructor to build a deck with or without jokers if arg is passed
-	public CustomDeck1(boolean hasJokers) {
-		buildDeck();
-		
-		// add jokers
-		if (hasJokers == true) {
-			String jokerName = cardValues[jokerIndex];
-			
-			/* pass jokerName as card value, and as key for toString() override
-			 * so Jokers don't print with suit listed (they don't have one)
-			*/
-			custDeck1.add(new Card("", jokerName, jokerName));
-			custDeck1.add(new Card("", jokerName, jokerName));	
-		}
-	}
-	
-	// constructor to build a deck with no jokers if no arg is passed
+	/**
+	 * constructor to build a deck with no jokers if no arg is passed
+	 */
 	public CustomDeck1(){
 		buildDeck();
 	}
 	
+	 /**
+	  * constructor to build a deck with or without jokers if arg is passed 
+	  * @param hasJokers
+	  */
+	public CustomDeck1(boolean hasJokers) {
+		buildDeck();
+		if (hasJokers == true) {
+			addJoker();
+			addJoker();	
+		}
+	}
+	
+	/**
+	 * build a Custom Deck of Cards from suits and values defined in 
+	 * CustomCardSuits1.java and CustomCardValues1.java 
+	 */
 	public void buildDeck() {
-		// fill String Arrays with Enum values from CustomCardSuits.values()
+		// fill String Arrays with Enum values from StdCardSuits.values()
 		for (CustomCardSuits1 itr : CustomCardSuits1.values()) {
 			int ord = itr.ordinal();
 			cardSuits[ord] = "" + itr;			
@@ -61,7 +64,7 @@ public class CustomDeck1 implements Deck {
 		}	
 		
 		/* loop through the suits and values string arrays, building new cards
-		 * for each value of each suit (no jokers)
+		 * for each value of each suit
 		 */
 		for (String ol : cardSuits)
 		{
@@ -74,11 +77,32 @@ public class CustomDeck1 implements Deck {
 		}
 	}
 	
+	/**
+	 * @return the custom Joker name for this deckType
+	 */
+	public static String getJokerName() {
+		String jokerName = cardValues[jokerIndex];
+		return jokerName;
+	}
+	
+	/**
+ 	 * add a Joker to the deck with the custom Joker name for this deck 
+	 */
+	public void addJoker() {
+		String jokerName = getJokerName();
+		custDeck1.add(new Card("", jokerName, jokerName));
+	}
+	
+	/**
+	 * a method to shuffle this deckType
+	 */
 	public void shuffleDeck() {
 		Collections.shuffle(custDeck1);
 	}
 	
- 	// override toString to return Deck as String instead of hashcode
+	/**
+	 * prints deck suits and values rather than deck's hashcode
+	 */
     @Override
  	public String toString()
  	{

@@ -24,13 +24,9 @@ public enum StandardCardSuits {
 		this.value = value;
 	}
 	
-	public String getValue() {
-		return value;
-	}
-	
 	// provides 'values' instead of 'keys' for ENUM constants
 	@Override
 	public String toString(){
-		return getValue();
+		return value;
 	}
 }
