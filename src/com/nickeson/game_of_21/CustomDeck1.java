@@ -21,24 +21,24 @@ import java.util.List;
  ****************************************************************************/
 
 public class CustomDeck1 implements Deck<Card> {
-	// initialize empty string array for card suits to correct size
-	private String[] cardSuits = new String[CustomCardSuits1.values().length];	
 	private List<Card> custDeck1 = new ArrayList<Card>();
-	// initialize empty string array for card values to correct size
-	private static String[] cardValues = new String[CustomCardValues1.values().length];		
+	// initialize empty string arrays for card suits & values to correct sizes
+	private String[] cardSuits = new String[CustomCardSuits1.values().length];	 
+	private static String[] cardValues = new String[CustomCardValues1.values().length];
+	// setup location index for Joker
 	private static int jokerIndex = (CustomCardValues1.values().length -1);
 	
 	/**
-	 * constructor to build a deck with no jokers if no arg is passed
+	 * constructor to build a deck with no jokers if no arg is passed 
 	 */
 	public CustomDeck1(){
 		buildDeck();
 	}
 	
-	 /**
-	  * constructor to build a deck with or without jokers if arg is passed 
-	  * @param hasJokers
-	  */
+	/**
+	 * constructor to build a deck with or without jokers if arg is passed     
+	 * @param hasJokers
+	 */
 	public CustomDeck1(boolean hasJokers) {
 		buildDeck();
 		if (hasJokers == true) {
@@ -48,8 +48,8 @@ public class CustomDeck1 implements Deck<Card> {
 	}
 	
 	/**
-	 * build a Custom Deck of Cards from suits and values defined in 
-	 * CustomCardSuits1.java and CustomCardValues1.java 
+	 * build a Standard Deck of cards with suits and values defined in
+	 * CustomCardSuits1.java and CustomCardValues1.java
 	 */
 	public void buildDeck() {
 		// fill String Arrays with Enum values from StdCardSuits.values()
@@ -71,7 +71,7 @@ public class CustomDeck1 implements Deck<Card> {
 			for (String il : cardValues)
 			{
 				if (!il.equals(cardValues[jokerIndex])) {
-					custDeck1.add(new Card(ol,il));
+					custDeck1.add(new Card(ol,il,false));
 				}
 			}
 		}
@@ -86,11 +86,11 @@ public class CustomDeck1 implements Deck<Card> {
 	}
 	
 	/**
- 	 * add a Joker to the deck with the custom Joker name for this deck 
+	 * add a face down Joker to deck with custom Joker name for this deck (no suit)
 	 */
 	public void addJoker() {
 		String jokerName = getJokerName();
-		custDeck1.add(new Card("", jokerName, jokerName));
+		custDeck1.add(new Card("", jokerName, false));
 	}
 	
 	/**

@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 /****************************************************************************
- * <b>Title</b>: StandardDeck.java <p/>
+ * <b>Title</b>: Shoe5.java <p/>
  * <b>Project</b>: game_of_21 <p/>
  * <b>Description: </b> A standard card deck with and without Jokers<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
@@ -20,8 +20,8 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
-public class StandardDeck implements Deck<Card> {
-	private List<Card> stdDeck = new ArrayList<Card>();
+public class Shoe5 implements Deck<Card> {
+	private List<Card> shoe = new ArrayList<Card>();
 	// initialize empty string arrays for card suits & values to correct sizes
 	private String[] cardSuits = new String[StandardCardSuits.values().length];	 
 	private static String[] cardValues = new String[StandardCardValues.values().length];
@@ -31,7 +31,7 @@ public class StandardDeck implements Deck<Card> {
 	/**
 	 * constructor to build a deck with no jokers if no arg is passed 
 	 */
-	public StandardDeck(){
+	public Shoe5(){
 		buildDeck();
 	}
 	
@@ -39,7 +39,7 @@ public class StandardDeck implements Deck<Card> {
 	 * constructor to build a deck with or without jokers if arg is passed     
 	 * @param hasJokers
 	 */
-	public StandardDeck(boolean hasJokers) {
+	public Shoe5(boolean hasJokers) {
 		buildDeck();
 		if (hasJokers == true) {
 			addJoker();
@@ -71,7 +71,7 @@ public class StandardDeck implements Deck<Card> {
 			for (String il : cardValues)
 			{
 				if (!il.equals(cardValues[jokerIndex])) {
-					stdDeck.add(new Card(ol,il,false));
+					shoe.add(new Card(ol,il,false));
 				}
 			}
 		}
@@ -90,14 +90,14 @@ public class StandardDeck implements Deck<Card> {
 	 */
 	public void addJoker() {
 		String jokerName = getJokerName();
-		stdDeck.add(new Card("", jokerName, false));
+		shoe.add(new Card("", jokerName, false));
 	}
 	
 	/**
 	 * a method to shuffle this deckType
 	 */
 	public void shuffleDeck() {
-		Collections.shuffle(stdDeck);
+		Collections.shuffle(shoe);
 	}
 	
 	/**
@@ -106,16 +106,16 @@ public class StandardDeck implements Deck<Card> {
     @Override
  	public String toString()
  	{
-	 	String result = "" + stdDeck;
+	 	String result = "" + shoe;
 	 	return result;
  	}
  	 
 	// unit test method
 	public static void main(String[] args) {
-		StandardDeck myDeck = new StandardDeck(true);
+		Shoe5 myDeck = new Shoe5(true);
 		System.out.println("Deck with Jokers: " + myDeck);
 		
-		StandardDeck my2ndDeck = new StandardDeck(false);	
+		Shoe5 my2ndDeck = new Shoe5(false);	
 		my2ndDeck.shuffleDeck();
 		System.out.println("Shuffled Deck without Jokers: " + my2ndDeck);	
 	 }

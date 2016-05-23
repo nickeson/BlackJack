@@ -20,30 +20,32 @@ package com.nickeson.game_of_21;
 public class Card 
 {
     private String suit, value, jokerName;
-    
+    private boolean isFaceUp;
     
     /**
-     * 
      * constructor requires Card suit, value to be passed (at minimum)
      * @param suit
      * @param value
+     * @param isFaceUp
      */
-    public Card(String suit, String value)
+    public Card(String suit, String value, boolean isFaceUp)
     {
         this.suit = suit; 
         this.value = value;
+        this.isFaceUp = isFaceUp;
     }
     
     /**
-     * 
      * @param suit
      * @param value
      * @param jokerName
+     * @param isFaceUp
      */
-    public Card(String suit, String value, String jokerName)
+    public Card(String suit, String value, boolean isFaceUp, String jokerName)
     {
         this.suit = suit; 
         this.value = value;
+        this.isFaceUp = isFaceUp;
         this.jokerName = jokerName;
     }
     
@@ -81,5 +83,19 @@ public class Card
 	 */
 	public String getJokerName() {
 		return jokerName;
+	}
+
+	/**
+	 * @return isFaceUp true/false based on whether or not the card is face up
+	 */
+	public boolean isFaceUp() {
+		return isFaceUp;
+	}
+
+	/**
+	 * @param isFaceUp set whether or not the card is face up
+	 */
+	public void setFaceUp(boolean isFaceUp) {
+		this.isFaceUp = isFaceUp;
 	}
 }
