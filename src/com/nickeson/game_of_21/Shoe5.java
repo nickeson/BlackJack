@@ -1,4 +1,7 @@
 package com.nickeson.game_of_21;
+/*
+ * Next up is to set this up to build a deck from standard cards (subtype of card)
+ */
 
 //JDK 1.8.0
 import java.util.ArrayList;
@@ -6,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 /****************************************************************************
- * <b>Title</b>: StandardDeck.java <p/>
+ * <b>Title</b>: Shoe5.java <p/>
  * <b>Project</b>: game_of_21 <p/>
  * <b>Description: </b> A standard card deck with and without Jokers<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
@@ -17,39 +20,30 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
-<<<<<<< HEAD
-public class StandardDeck implements Deck<PlayingCard> {
-	private List<PlayingCard> stdDeck = new ArrayList<PlayingCard>();	
-	// initialize empty string arrays for card suits & values to correct sizes
-	private String[] cardSuits = new String[StdPlayingCardSuits.values().length];	 
-	private static String[] cardValues = new String[StdPlayingCardValues.values().length];
-	// setup location index for Joker
-	private static int jokerIndex = (StdPlayingCardValues.values().length -1);
-=======
-public class StandardDeck implements Deck<Card> {
-	private List<Card> stdDeck = new ArrayList<Card>();
+public class Shoe5 implements Deck<Card> {
+	private List<Card> shoe = new ArrayList<Card>();
 	// initialize empty string arrays for card suits & values to correct sizes
 	private String[] cardSuits = new String[StandardCardSuits.values().length];	 
 	private static String[] cardValues = new String[StandardCardValues.values().length];
 	// setup location index for Joker
 	private static int jokerIndex = (StandardCardValues.values().length -1);
->>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
 	
 	/**
 	 * constructor to build a deck with no jokers if no arg is passed 
 	 */
-	public StandardDeck(){
+	public Shoe5(){
 		buildDeck();
 	}
 	
 	/**
 	 * constructor to build a deck with or without jokers if arg is passed     
-	 * @param numOfJokers
+	 * @param hasJokers
 	 */
-	public StandardDeck(int numOfJokers) {
+	public Shoe5(boolean hasJokers) {
 		buildDeck();
-		for (int j = 0; j < numOfJokers; j++) {
+		if (hasJokers == true) {
 			addJoker();
+			addJoker();	
 		}
 	}
 	
@@ -59,30 +53,25 @@ public class StandardDeck implements Deck<Card> {
 	 */
 	public void buildDeck() {
 		// fill String Arrays with Enum values from StdCardSuits.values()
-		for (StdPlayingCardSuits itr : StdPlayingCardSuits.values()) {
+		for (StandardCardSuits itr : StandardCardSuits.values()) {
 			int ord = itr.ordinal();
 			cardSuits[ord] = "" + itr;			
 		}
 				
-		for (StdPlayingCardValues ir : StdPlayingCardValues.values()) {
+		for (StandardCardValues ir : StandardCardValues.values()) {
 			int odl = ir.ordinal();
 			cardValues[odl] = "" + ir;				
 		}	
 		
 		/* loop through the suits and values string arrays, building new cards
-		 * for each value of each suit, all face down
+		 * for each value of each suit
 		 */
 		for (String ol : cardSuits)
 		{
 			for (String il : cardValues)
 			{
 				if (!il.equals(cardValues[jokerIndex])) {
-<<<<<<< HEAD
-					// params = (suit, value, isJoker, isFaceUp)
-					stdDeck.add(new PlayingCard(ol,il,false,false));
-=======
-					stdDeck.add(new Card(ol,il,false));
->>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
+					shoe.add(new Card(ol,il,false));
 				}
 			}
 		}
@@ -101,44 +90,33 @@ public class StandardDeck implements Deck<Card> {
 	 */
 	public void addJoker() {
 		String jokerName = getJokerName();
-<<<<<<< HEAD
-		// params = (suit, value, isJoker, isFaceUp)
-		stdDeck.add(new PlayingCard("",jokerName,true,false));
-=======
-		stdDeck.add(new Card("", jokerName, false));
->>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
+		shoe.add(new Card("", jokerName, false));
 	}
 	
 	/**
 	 * a method to shuffle this deckType
 	 */
 	public void shuffleDeck() {
-		Collections.shuffle(stdDeck);
+		Collections.shuffle(shoe);
 	}
 	
 	/**
-	 * @return the List of Playing Cards in the Deck
+	 * prints deck suits and values rather than deck's hashcode
 	 */
-	public List<PlayingCard> getCards(){
-        return stdDeck;
-    }
-	
-	/**
-	 * Override toString method to print Deck's String values instead of hashcode
-	 */
-	@Override
-	public String toString() {
-		String printDeck = "" + stdDeck;
-		return printDeck;
-	}
+    @Override
+ 	public String toString()
+ 	{
+	 	String result = "" + shoe;
+	 	return result;
+ 	}
  	 
 	// unit test method
 	public static void main(String[] args) {
-		StandardDeck myDeck = new StandardDeck(2);
+		Shoe5 myDeck = new Shoe5(true);
 		System.out.println("Deck with Jokers: " + myDeck);
 		
-		StandardDeck my2ndDeck = new StandardDeck();	
+		Shoe5 my2ndDeck = new Shoe5(false);	
 		my2ndDeck.shuffleDeck();
 		System.out.println("Shuffled Deck without Jokers: " + my2ndDeck);	
-		}
+	 }
 }

@@ -19,8 +19,13 @@ package com.nickeson.game_of_21;
  ****************************************************************************/
 public class PlayingCard 
 {
+<<<<<<< HEAD:src/com/nickeson/game_of_21/PlayingCard.java
     private String suit, value;
     private boolean isFaceUp, isJoker;
+=======
+    private String suit, value, jokerName;
+    private boolean isFaceUp;
+>>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0:src/com/nickeson/game_of_21/Card.java
     
     /**
      * constructor requires Card suit, value to be passed (at minimum)
@@ -28,6 +33,7 @@ public class PlayingCard
      * @param value
      * @param isFaceUp
      */
+<<<<<<< HEAD:src/com/nickeson/game_of_21/PlayingCard.java
     public PlayingCard(String suit, String value, boolean isJoker, boolean isFaceUp)
     {
         this.suit = suit; 
@@ -35,6 +41,43 @@ public class PlayingCard
         this.isJoker = isJoker;
         this.isFaceUp = isFaceUp;
     }
+=======
+    public Card(String suit, String value, boolean isFaceUp)
+    {
+        this.suit = suit; 
+        this.value = value;
+        this.isFaceUp = isFaceUp;
+    }
+    
+    /**
+     * @param suit
+     * @param value
+     * @param jokerName
+     * @param isFaceUp
+     */
+    public Card(String suit, String value, boolean isFaceUp, String jokerName)
+    {
+        this.suit = suit; 
+        this.value = value;
+        this.isFaceUp = isFaceUp;
+        this.jokerName = jokerName;
+    }
+    
+    /**
+     * print card suits and values, rather than hashcode
+     */
+    @Override
+    public String toString()
+    {  
+    	if (!value.equals(jokerName)) {
+	    	String currCard = value + " of " + suit;
+	    	return currCard;
+    	} else {
+    		// don't print suit for Jokers
+    		return jokerName;
+		}
+	}
+>>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0:src/com/nickeson/game_of_21/Card.java
 
 	/**
 	 * @return the suit
@@ -58,6 +101,7 @@ public class PlayingCard
 	}
 
 	/**
+<<<<<<< HEAD:src/com/nickeson/game_of_21/PlayingCard.java
 	 * @param isFaceUp - sets whether or not the card is face up
 	 */
 	public void setFaceUp(boolean isFaceUp) {
@@ -99,4 +143,18 @@ public class PlayingCard
     	}
         return currCard;
     }
+=======
+	 * @return isFaceUp true/false based on whether or not the card is face up
+	 */
+	public boolean isFaceUp() {
+		return isFaceUp;
+	}
+
+	/**
+	 * @param isFaceUp set whether or not the card is face up
+	 */
+	public void setFaceUp(boolean isFaceUp) {
+		this.isFaceUp = isFaceUp;
+	}
+>>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0:src/com/nickeson/game_of_21/Card.java
 }

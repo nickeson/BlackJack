@@ -17,6 +17,7 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
+<<<<<<< HEAD
 public class CustomDeck1 implements Deck<PlayingCard> {
 	private List<PlayingCard> custDeck1 = new ArrayList<PlayingCard>();
 	// initialize empty string arrays for card suits & values to correct sizes
@@ -24,6 +25,15 @@ public class CustomDeck1 implements Deck<PlayingCard> {
 	private static String[] cardValues = new String[CstmPlayingCardValues1.values().length];
 	// setup location index for Joker
 	private static int jokerIndex = (CstmPlayingCardValues1.values().length -1);
+=======
+public class CustomDeck1 implements Deck<Card> {
+	private List<Card> custDeck1 = new ArrayList<Card>();
+	// initialize empty string arrays for card suits & values to correct sizes
+	private String[] cardSuits = new String[CustomCardSuits1.values().length];	 
+	private static String[] cardValues = new String[CustomCardValues1.values().length];
+	// setup location index for Joker
+	private static int jokerIndex = (CustomCardValues1.values().length -1);
+>>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
 	
 	/**
 	 * constructor to build a deck with no jokers if no arg is passed 
@@ -34,9 +44,15 @@ public class CustomDeck1 implements Deck<PlayingCard> {
 	
 	/**
 	 * constructor to build a deck with or without jokers if arg is passed     
+<<<<<<< HEAD
 	 * @param numOfJokers
 	 */
 	public CustomDeck1(int numOfJokers) {
+=======
+	 * @param hasJokers
+	 */
+	public CustomDeck1(boolean hasJokers) {
+>>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
 		buildDeck();
 		for (int j = 0; j < numOfJokers; j++) {
 			addJoker();
@@ -45,7 +61,11 @@ public class CustomDeck1 implements Deck<PlayingCard> {
 	
 	/**
 	 * build a Standard Deck of cards with suits and values defined in
+<<<<<<< HEAD
 	 * StandardCardSuits.java and StandardCardValues.java
+=======
+	 * CustomCardSuits1.java and CustomCardValues1.java
+>>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
 	 */
 	public void buildDeck() {
 		// fill String Arrays with Enum values from StdCardSuits.values()
@@ -67,8 +87,12 @@ public class CustomDeck1 implements Deck<PlayingCard> {
 			for (String il : cardValues)
 			{
 				if (!il.equals(cardValues[jokerIndex])) {
+<<<<<<< HEAD
 					// params = (suit, value, isJoker, isFaceUp)
 					custDeck1.add(new PlayingCard(ol,il,false,false));
+=======
+					custDeck1.add(new Card(ol,il,false));
+>>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
 				}
 			}
 		}
@@ -87,8 +111,12 @@ public class CustomDeck1 implements Deck<PlayingCard> {
 	 */
 	public void addJoker() {
 		String jokerName = getJokerName();
+<<<<<<< HEAD
 		// params = (suit, value, isJoker, isFaceUp)
 		custDeck1.add(new PlayingCard("",jokerName,true,false));
+=======
+		custDeck1.add(new Card("", jokerName, false));
+>>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
 	}
 	
 	/**
@@ -122,5 +150,10 @@ public class CustomDeck1 implements Deck<PlayingCard> {
 		CustomDeck1 my2ndDeck = new CustomDeck1();	
 		my2ndDeck.shuffleDeck();
 		System.out.println("Shuffled Deck without Jokers: " + my2ndDeck);	
+<<<<<<< HEAD
 		}
 }
+=======
+	 }
+}
+>>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
