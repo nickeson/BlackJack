@@ -19,7 +19,7 @@
       <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="127.0" width="169.0937500000001" x="553.781994047619" y="-354.59765625"/>
+          <y:Geometry height="157.04901413690476" width="169.0937500000001" x="633.2822420634923" y="-364.2446986607143"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="161.26318359375" x="3.915283203125057" y="3.0">StdPlayingCardsShoe<y:LabelModel>
@@ -30,12 +30,14 @@
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>numOfCards
+            <y:AttributeLabel>numOfDecks
 numOfJokers
-jokerName</y:AttributeLabel>
+jokerName
+List&lt;PlayingCard&gt; shoe</y:AttributeLabel>
             <y:MethodLabel>buildDeck()
 shuffleDeck()
 addJoker()
+getCards()
 </y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
@@ -46,10 +48,10 @@ addJoker()
       <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="152.0" width="148.31770833333326" x="393.65308779761926" y="-475.7152157738095"/>
+          <y:Geometry height="152.0" width="189.19921875000023" x="403.9390190972224" y="-459.6152157738095"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="39.95947265625" x="54.17911783854163" y="25.96875">Deck<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="39.95947265625" x="74.61987304687511" y="25.96875">Deck<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -58,11 +60,11 @@ addJoker()
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Interface" use3DEffect="true">
             <y:AttributeLabel>numOfJokers
-jokerName
-List&lt;T extends Card&gt;</y:AttributeLabel>
+jokerName</y:AttributeLabel>
             <y:MethodLabel>buildDeck()
 shuffleDeck()
-addJoker()</y:MethodLabel>
+addJoker()
+getCards()</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -98,10 +100,10 @@ age
       <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="99.23046875" width="144.0" x="402.81194196428584" y="-173.79138764880952"/>
+          <y:Geometry height="100.0" width="159.68204365079384" x="418.69760664682553" y="-174.17615327380952"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="130.48974609375" x="6.755126953125" y="3.0">PlayingCardHand<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="138.2275390625" x="10.727252294146922" y="3.0">PlayingCardsHand<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -110,9 +112,9 @@ age
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>score
-numOfCards
-List&lt;T extends Card&gt;</y:AttributeLabel>
-            <y:MethodLabel>addPlayingCard()</y:MethodLabel>
+List&lt;PlayingCard&gt; hand</y:AttributeLabel>
+            <y:MethodLabel>getHand()
+setHand()</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -122,7 +124,7 @@ List&lt;T extends Card&gt;</y:AttributeLabel>
       <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="116.0" width="111.0" x="582.828869047619" y="-182.17615327380952"/>
+          <y:Geometry height="101.0" width="111.0" x="662.3291170634923" y="-174.67615327380952"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="92.27685546875" x="9.361572265625" y="3.0">PlayingCard<y:LabelModel>
@@ -147,7 +149,7 @@ isFaceUp</y:AttributeLabel>
       <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="80.0" width="169.0937500000001" x="767.4877232142856" y="-362.59765625"/>
+          <y:Geometry height="80.0" width="169.0937500000001" x="846.9879712301588" y="-362.59765625"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="154.185546875" x="7.454101562500057" y="25.96875">StdPlayingCardSuits<y:LabelModel>
@@ -169,7 +171,7 @@ isFaceUp</y:AttributeLabel>
       <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="80.0" width="180.3437500000001" x="761.8627232142854" y="-271.34765625"/>
+          <y:Geometry height="80.0" width="180.3437500000001" x="841.3629712301587" y="-271.34765625"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="166.2587890625" x="7.042480468750057" y="25.96875">StdPlayingCardValues<y:LabelModel>
@@ -202,8 +204,7 @@ isFaceUp</y:AttributeLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>hand
-gameType</y:AttributeLabel>
+            <y:AttributeLabel>List&lt;PlayingCard&gt; hand</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
@@ -214,10 +215,10 @@ gameType</y:AttributeLabel>
       <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="100.0" width="139.0" x="227.7950148809527" y="-174.17615327380952"/>
+          <y:Geometry height="100.0" width="159.68204365079384" x="217.45399305555577" y="-174.17615327380952"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="97.7421875" x="20.62890625" y="3.0">Dealer_of_21<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="97.7421875" x="30.969928075396922" y="3.0">Dealer_of_21<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -225,9 +226,9 @@ gameType</y:AttributeLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>acctBalance</y:AttributeLabel>
+            <y:AttributeLabel>hand
+shoe</y:AttributeLabel>
             <y:MethodLabel>deal()
-getHand()
 playHand()</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
@@ -238,7 +239,7 @@ playHand()</y:MethodLabel>
       <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="29.5625" width="148.31770833333326" x="421.011408730159" y="-29.17615327380952"/>
+          <y:Geometry height="54.52249999999998" width="148.31770833333326" x="421.011408730159" y="-29.17615327380952"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="118.39111328125" x="14.963297526041629" y="3.0">21 GameEngine<y:LabelModel>
@@ -249,7 +250,7 @@ playHand()</y:MethodLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel/>
+            <y:AttributeLabel>gameType</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
@@ -349,7 +350,7 @@ Score Calculator<y:LabelModel>
       <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="29.5625" width="177.05729166666674" x="405.79501488095275" y="29.96484375"/>
+          <y:Geometry height="29.5625" width="177.05729166666674" x="406.6416170634923" y="59.52734375"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="142.6455078125" x="17.20589192708337" y="3.0">21 Game Initializer<y:LabelModel>
@@ -371,8 +372,8 @@ Score Calculator<y:LabelModel>
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="638.328869047619" y="-399.7152157738095"/>
+          <y:Path sx="0.0" sy="-75.49502418154759" tx="0.0" ty="0.0">
+            <y:Point x="717.8291170634923" y="-383.6152157738095"/>
           </y:Path>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
@@ -528,7 +529,7 @@ Score Calculator<y:LabelModel>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="538.0" y="-291.09765625"/>
+            <y:Point x="615.4" y="-282.85568452380954"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="diamond" target="none"/>

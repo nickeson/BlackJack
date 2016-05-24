@@ -39,7 +39,7 @@ public class CstmPlayingCards1_Shoe implements Deck<PlayingCard> {
 	/**
 	 * constructor to build a single-deck Shoe of Custom Playing Cards with or
 	 * without jokers
-	 * @param hasJokers
+	 * @param numOfJokers
 	 */
 	public CstmPlayingCards1_Shoe(int numOfJokers) {
 		buildDeck();
@@ -51,7 +51,7 @@ public class CstmPlayingCards1_Shoe implements Deck<PlayingCard> {
 	/**
 	 * constructor to build a Shoe of Custom Playing Cards of a specific 
 	 * number of decks, with or without Jokers
-	 * @param hasJokers
+	 * @param numOfJokers
 	 * @param numOfDecks
 	 */
 	public CstmPlayingCards1_Shoe(int numOfJokers, int numOfDecks) {
@@ -142,7 +142,14 @@ public class CstmPlayingCards1_Shoe implements Deck<PlayingCard> {
 	}
 	
 	/**
-	 * Override toString method to print StdShoe's String values instead of hashcode
+	 * @return the List of Playing Cards in the Shoe (a combo Deck)
+	 */
+	public List<PlayingCard> getCards(){
+        return shoe;
+    }
+	
+	/**
+	 * print CstmPlayingCards1_Shoe String values instead of hashcode
 	 */
 	@Override
 	public String toString() {

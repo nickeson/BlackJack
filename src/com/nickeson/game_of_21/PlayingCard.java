@@ -63,7 +63,7 @@ public class PlayingCard
 	public void setFaceUp(boolean isFaceUp) {
 		this.isFaceUp = isFaceUp;
 	}
-
+	
 	/**
 	 * @return the isJoker
 	 */
@@ -84,11 +84,18 @@ public class PlayingCard
     @Override
     public String toString() {
     	String currCard;
+    	String faceDirection;
+    	
+    	if (isFaceUp) {
+    		faceDirection = "(FU)";
+    	} else {
+    		faceDirection = "(FD)";
+    	}
     	
     	if (isJoker()) {
-    		currCard = "" + value;
+    		currCard = "" + value + faceDirection;
 		} else {
-	       currCard = value + " of " + suit;
+	       currCard = value + " of " + suit + faceDirection;
     	}
         return currCard;
     }

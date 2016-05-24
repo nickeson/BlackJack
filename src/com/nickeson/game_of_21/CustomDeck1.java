@@ -34,7 +34,7 @@ public class CustomDeck1 implements Deck<PlayingCard> {
 	
 	/**
 	 * constructor to build a deck with or without jokers if arg is passed     
-	 * @param hasJokers
+	 * @param numOfJokers
 	 */
 	public CustomDeck1(int numOfJokers) {
 		buildDeck();
@@ -97,6 +97,13 @@ public class CustomDeck1 implements Deck<PlayingCard> {
 	public void shuffleDeck() {
 		Collections.shuffle(custDeck1);
 	}
+	
+	/**
+	 * @return the List of Playing Cards in the Deck
+	 */
+	public List<PlayingCard> getCards(){
+        return custDeck1;
+    }
 	
 	/**
 	 * Override toString method to print Deck's String values instead of hashcode

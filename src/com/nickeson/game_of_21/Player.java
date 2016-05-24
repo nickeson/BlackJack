@@ -1,12 +1,14 @@
 package com.nickeson.game_of_21;
 
-//JDK 1.8.0
 import java.util.ArrayList;
+import java.util.Arrays;
+//JDK 1.8.0
+import java.util.List;
 
 /****************************************************************************
  * <b>Title</b>: Player.java <p/>
  * <b>Project</b>: game_of_21 <p/>
- * <b>Description: </b> Player class, subclass of Person<p/>
+ * <b>Description: </b> A subclass of Person for use in game play<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -16,40 +18,195 @@ import java.util.ArrayList;
  ****************************************************************************/
 
 public class Player extends Person {
-	private ArrayList<String> nickNames = new ArrayList<>();
-		
+	
+	private int acctBalance = 0; // whole dollar values only for our card game(s)
+	private PlayingCardsHand<PlayingCard> hand;
+	
+	/**
+	 * default no-arg constructor calls the super constructor which then 
+	 * reminds user that a minimum of firstName, lastName is required to instantiate
+	 * a Person (or Player, in this case)
+	 */
 	public Player() {
+		super();
+	}
+		
+	/**
+	 * constructor requires first and last names at minimum upon instantiation of Player
+	 * @param firstName
+	 * @param lastName
+	 */
+	public Player(String firstName, String lastName) {
+		super(firstName, lastName);
+	}
+	
+	/**
+	 * constructor allows first and last name fields and age to be set upon
+	 * instantiation of Player
+	 * @param firstName
+	 * @param lastName
+	 * @param age
+	 */
+	public Player(String firstName, String lastName, int age) {
+		super(firstName, lastName, age);
+	}
+	
+	/**
+	 * constructor allows all Person fields to be set upon instantiation of Player
+	 * @param firstName
+	 * @param lastName
+	 * @param age
+	 * @param genderIdentity
+	 */
+	public Player(String firstName, String lastName, int age, 
+			String genderIdentity) {
+		super(firstName, lastName, age, genderIdentity);
+	}
+	
+	/**
+	 * constructor allows all Person fields to be set upon instantiation of Player
+	 * @param firstName
+	 * @param lastName
+	 * @param age
+	 * @param genderIdentity
+	 * @param nickNames
+	 */
+	public Player(String firstName, String lastName, int age, 
+			String genderIdentity, List<String> nickNames) {
+		super(firstName, lastName, age, genderIdentity, nickNames);
+	}
+	
+	/** set the Player's firstName (variable inherited from Person.java)
+	 * @param firstName
+	 */
+	public void setFirstName(String firstName) {
+		super.setFirstName(firstName);
+	}
+	
+	/**
+	 * @return the Player's firstName (variable inherited from Person.java)
+	 */
+	public String getFirstName() {
+		return super.getFirstName();
+	}
+	
+	/** set the Player's lastName (variable inherited from Person.java)
+	 * @param lastName
+	 */
+	public void setLastName(String lastName) {
+		super.setLastName(lastName);
+	}
+	
+	/**
+	 * @return the Player's lastName (variable inherited from Person.java)
+	 */
+	public String getLastName() {
+		return super.getLastName();
+	}
+	
+	/**
+	 * set the Player's age (variable inherited from Person.java)
+	 * @param age
+	 */
+	public void setAge(int age) {
+		super.setAge(age);
+	}
+	
+	/**
+	 * @return the Player's age (variable inherited from Person.java)
+	 */
+	public int getAge() {
+		return super.getAge();
+	}
+	
+	/**
+	 * set the Player's genderIdentity (variable inherited from Person.java)
+	 * @param genderIdentity
+	 */
+	public void setGenderIdentity(String genderIdentity) {
+		super.setGenderIdentity(genderIdentity);
+	}
+	
+	/**
+	 * @return the Player's genderIdentity (variable inherited from Person.java)
+	 */
+	public String getGenderIdentity() {
+		return super.getGenderIdentity();
+	}
+	
+	/** set the Player's nickNames (variable inherited from Person.java)
+	 * @param nickNames
+	 */
+	public void setNickNames(List<String> nickNames) {
+		super.nickNames = nickNames;
+	}
+	
+	/**
+	 * @return the Player's nickName(s)
+	 */
+	public List<String> getNickNames() {
+		return super.nickNames;
 	}
 
 	/**
-	 * @param nickNames - the nickName(s) to set
+	 * @return the acctBalance
 	 */
-	// (uses varargs to allow multiple or no nicknames to be passed to method
-	public void setNickNames(String... nickNames) {
-		for (String nn : nickNames) {
-		this.nickNames.add(nn);
-		}
+	public int getAcctBalance() {
+		return acctBalance;
+	}
+
+	/**
+	 * @param acctBalance the acctBalance to set
+	 */
+	public void setAcctBalance(int acctBalance) {
+		this.acctBalance = acctBalance;
+	}
+
+	/**
+	 * @return the hand
+	 */
+	public PlayingCardsHand<PlayingCard> getHand() {
+		return hand;
+	}
+
+	/**
+	 * set the Player's hand
+	 * @param hand
+	 */
+	public void setHand(PlayingCardsHand<PlayingCard> hand) {
+		this.hand = hand;
 	}
 	
 	/**
-	 * @return the nickName(s)
+	 * Override toString() to print Person's field values, rather than hashcode
 	 */
-	public ArrayList<String> getNickNames() {
-		return nickNames;
+	@Override
+	public String toString() {
+		String result = getFirstName() + " " + getLastName() + " is " + getAge() + 
+				" years old, " + getGenderIdentity() + 
+				", and is also known as: " + getNickNames() + 
+				".  Account Balance: $" + getAcctBalance();
+		return result;
 	}
-	
 	// unit test main method
-//	public static void main(String[] args) {
-//		Player testPlayer = new Player();
-//		Player testPlayer2 = new Player();
-//		Player testPlayer3 = new Player();
+	public static void main(String[] args) {
+		// what happens when we try to create a null Player?
+		//System.out.println(new Player());
 		
-//		testPlayer.setNickNames();	
-//		testPlayer2.setNickNames("test1");
-//		testPlayer3.setNickNames("test2", "test3");
+		// create a sample Player & print out the values
+		Player testPlayer = new Player("Kris", "Nickeson", 39, "Male", 
+				(new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty"))));
+		testPlayer.setAcctBalance(50);
+		System.out.println(testPlayer);
 		
-//		System.out.println(testPlayer.getNickNames());	
-//		System.out.println(testPlayer2.getNickNames());
-//		System.out.println(testPlayer3.getNickNames());	
-//	}
+		// create a sample player 'piecemeal'
+		Player testPlayer2 = new Player();
+		testPlayer2.setFirstName("Niya");
+		testPlayer2.setLastName("Nolting");	
+		testPlayer2.setAge(42);
+		testPlayer2.setGenderIdentity("Female");
+		testPlayer2.setNickNames(new ArrayList<String>(Arrays.asList("Li'l Shorty", "Sweetie")));
+		testPlayer2.setAcctBalance(40);
+		System.out.println(testPlayer2);
+	}
 }

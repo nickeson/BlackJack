@@ -18,7 +18,7 @@ import java.util.List;
  ****************************************************************************/
 
 public class StandardDeck implements Deck<PlayingCard> {
-	private List<PlayingCard> stdDeck = new ArrayList<PlayingCard>();
+	private List<PlayingCard> stdDeck = new ArrayList<PlayingCard>();	
 	// initialize empty string arrays for card suits & values to correct sizes
 	private String[] cardSuits = new String[StdPlayingCardSuits.values().length];	 
 	private static String[] cardValues = new String[StdPlayingCardValues.values().length];
@@ -34,7 +34,7 @@ public class StandardDeck implements Deck<PlayingCard> {
 	
 	/**
 	 * constructor to build a deck with or without jokers if arg is passed     
-	 * @param hasJokers
+	 * @param numOfJokers
 	 */
 	public StandardDeck(int numOfJokers) {
 		buildDeck();
@@ -97,6 +97,13 @@ public class StandardDeck implements Deck<PlayingCard> {
 	public void shuffleDeck() {
 		Collections.shuffle(stdDeck);
 	}
+	
+	/**
+	 * @return the List of Playing Cards in the Deck
+	 */
+	public List<PlayingCard> getCards(){
+        return stdDeck;
+    }
 	
 	/**
 	 * Override toString method to print Deck's String values instead of hashcode
