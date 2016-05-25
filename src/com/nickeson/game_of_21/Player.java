@@ -20,6 +20,7 @@ import java.util.List;
 public class Player extends Person {
 	
 	private int acctBalance = 0; // whole dollar values only for our card game(s)
+	private int winBalance = 0;
 	private PlayingCardsHand<PlayingCard> hand;
 	
 	/**
@@ -160,6 +161,22 @@ public class Player extends Person {
 	 */
 	public void setAcctBalance(int acctBalance) {
 		this.acctBalance = acctBalance;
+	}
+
+	/**
+	 * winBalance is the total amount of money a Player has won from the Bank
+	 * @return the winBalance
+	 */
+	public int getWinBalance() {
+		return winBalance;
+	}
+
+	/**
+	 * winBalance is the total amount of money a Player has won from the Bank
+	 * @param winBalance the winBalance to set
+	 */
+	public void setWinBalance(int winBalance) {
+		this.winBalance = winBalance;
 	}
 
 	/**

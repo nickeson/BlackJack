@@ -17,7 +17,6 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
-<<<<<<< HEAD
 public class StandardDeck implements Deck<PlayingCard> {
 	private List<PlayingCard> stdDeck = new ArrayList<PlayingCard>();	
 	// initialize empty string arrays for card suits & values to correct sizes
@@ -25,15 +24,6 @@ public class StandardDeck implements Deck<PlayingCard> {
 	private static String[] cardValues = new String[StdPlayingCardValues.values().length];
 	// setup location index for Joker
 	private static int jokerIndex = (StdPlayingCardValues.values().length -1);
-=======
-public class StandardDeck implements Deck<Card> {
-	private List<Card> stdDeck = new ArrayList<Card>();
-	// initialize empty string arrays for card suits & values to correct sizes
-	private String[] cardSuits = new String[StandardCardSuits.values().length];	 
-	private static String[] cardValues = new String[StandardCardValues.values().length];
-	// setup location index for Joker
-	private static int jokerIndex = (StandardCardValues.values().length -1);
->>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
 	
 	/**
 	 * constructor to build a deck with no jokers if no arg is passed 
@@ -77,12 +67,8 @@ public class StandardDeck implements Deck<Card> {
 			for (String il : cardValues)
 			{
 				if (!il.equals(cardValues[jokerIndex])) {
-<<<<<<< HEAD
 					// params = (suit, value, isJoker, isFaceUp)
 					stdDeck.add(new PlayingCard(ol,il,false,false));
-=======
-					stdDeck.add(new Card(ol,il,false));
->>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
 				}
 			}
 		}
@@ -101,12 +87,8 @@ public class StandardDeck implements Deck<Card> {
 	 */
 	public void addJoker() {
 		String jokerName = getJokerName();
-<<<<<<< HEAD
 		// params = (suit, value, isJoker, isFaceUp)
 		stdDeck.add(new PlayingCard("",jokerName,true,false));
-=======
-		stdDeck.add(new Card("", jokerName, false));
->>>>>>> 43f4903ebc09e2f5c13c64420a6a50a55dee47e0
 	}
 	
 	/**
