@@ -127,20 +127,6 @@ public class Dealer extends Player {
 		return super.getGenderIdentity();
 	}
 	
-	/** set the Dealer's nickNames (variable inherited from Person.java)
-	 * @param nickNames
-	 */
-	public void setNickNames(List<String> nickNames) {
-		super.nickNames = nickNames;
-	}
-	
-	/**
-	 * @return the Dealer's nickName(s)
-	 */
-	public List<String> getNickNames() {
-		return super.nickNames;
-	}
-	
 	/**
 	 * set the Dealer's hand
 	 * @param hand

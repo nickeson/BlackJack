@@ -3,6 +3,7 @@ package com.nickeson.games.cardgames.blackjack;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.nickeson.games.cardgames.Person;
 import com.nickeson.games.cardgames.PlayingCard;
 
 //JDK 1.8.0
@@ -137,20 +138,6 @@ public class Player extends Person {
 		return super.getGenderIdentity();
 	}
 	
-	/** set the Player's nickNames (variable inherited from Person.java)
-	 * @param nickNames
-	 */
-	public void setNickNames(List<String> nickNames) {
-		super.nickNames = nickNames;
-	}
-	
-	/**
-	 * @return the Player's nickName(s)
-	 */
-	public List<String> getNickNames() {
-		return super.nickNames;
-	}
-
 	/**
 	 * @return the acctBalance
 	 */
