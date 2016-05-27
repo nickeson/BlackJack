@@ -1,10 +1,6 @@
 package com.nickeson.games.cardgames;
 
 //JDK 1.8.0
-/*
- * Next up is to subclass card to StandardCard and CrazyCard so we can build
- * a shoe from either card type, using generics.
- */
 
 /****************************************************************************
  * <b>Title</b>: Card.java <p/>
@@ -19,21 +15,21 @@ package com.nickeson.games.cardgames;
  ****************************************************************************/
 public class CardVO 
 {
-    private String suit, value;
-    private boolean isFaceUp, isJoker;
+    private String suit = null;
+    private String rank = null;
+    private int value = 0;
     
     /**
-     * constructor requires Card suit, value to be passed (at minimum)
+     * constructor requires Card suit, rank, value to be passed (at minimum)
      * @param suit
+     * @param rank
      * @param value
-     * @param isFaceUp
      */
-    public CardVO(String suit, String value, boolean isJoker, boolean isFaceUp)
+    public CardVO(String suit, String rank, int value)
     {
         this.suit = suit; 
+        this.rank = rank;
         this.value = value;
-        this.isJoker = isJoker;
-        this.isFaceUp = isFaceUp;
     }
 
 	/**
@@ -44,38 +40,41 @@ public class CardVO
 	}
 
 	/**
+	 * @return the rank
+	 */
+	public String getRank() {
+		return rank;
+	}
+	
+	/**
 	 * @return the value
 	 */
-	public String getValue() {
+	public int getValue() {
 		return value;
 	}
 
 	/**
-	 * @return isFaceUp returns true/false based on Card's isFaceUp value
+	 * @return boolean suit comparison
 	 */
-	public boolean isFaceUp() {
-		return isFaceUp;
-	}
-
-	/**
-	 * @param isFaceUp - sets whether or not the card is face up
-	 */
-	public void setFaceUp(boolean isFaceUp) {
-		this.isFaceUp = isFaceUp;
+	public boolean isSuit(String suit) {
+		if (this.suit == null || this.suit.length() == 0) return false;
+		return this.suit.equalsIgnoreCase(suit);
 	}
 	
 	/**
-	 * @return the isJoker
+	 * @return boolean rank comparison
 	 */
-	public boolean isJoker() {
-		return isJoker;
+	public boolean isRank(String rank) {
+		if (this.rank == null || this.rank.length() == 0) return false;
+		return this.rank.equalsIgnoreCase(rank);
 	}
-
+	
 	/**
-	 * @param isJoker set the boolean isJoker
+	 * @return boolean value comparison
 	 */
-	public void setJoker(boolean isJoker) {
-		this.isJoker = isJoker;
+	public boolean isValue(int value) {
+		if (this.value == 0) return false;
+		return true;
 	}
 	
 	/**
@@ -83,20 +82,13 @@ public class CardVO
      */
     @Override
     public String toString() {
-    	String currCard;
-    	String faceDirection;
-    	
-    	if (isFaceUp) {
-    		faceDirection = "(FU)";
-    	} else {
-    		faceDirection = "(FD)";
-    	}
-    	
-    	if (isJoker()) {
-    		currCard = "" + value + faceDirection;
-		} else {
-	       currCard = value + " of " + suit + faceDirection;
-    	}
+    	String currCard = rank + " of " + suit;
         return currCard;
+    }
+
+    // unit test
+    public static void main(String[] args) {
+    	CardVO card = new CardVO("Spades", "Ace", 11);
+    	System.out.println(card);
     }
 }
