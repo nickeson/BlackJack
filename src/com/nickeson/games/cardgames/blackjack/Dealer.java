@@ -22,7 +22,7 @@ import com.nickeson.games.cardgames.PlayingCard;
 
 public class Dealer extends Player {
 	
-	private StdPlayingCards_Shoe shoe;
+	private Shoe shoe;
 	
 	/**
 	 * no-arg constructor instantiates the Dealer (PC) as a Player
@@ -163,14 +163,14 @@ public class Dealer extends Player {
 	 * setup the Dealer's shoe of PlayingCards
 	 * @param shoe
 	 */
-	public void setShoe(StdPlayingCards_Shoe shoe) {
+	public void setShoe(Shoe shoe) {
 		this.shoe = shoe;
 	}
 
 	/**
 	 * @return the Dealer's shoe of PlayingCards
 	 */
-	public StdPlayingCards_Shoe getShoe() {
+	public Shoe getShoe() {
 		return shoe;
 	}
 
@@ -214,7 +214,7 @@ public class Dealer extends Player {
 		System.out.println("");
 		
 		// default Shoe is 6 decks, no Jokers, shuffled
-		StdPlayingCards_Shoe dlrShoe = new StdPlayingCards_Shoe(0, 6);
+		Shoe dlrShoe = new Shoe(0, 6);
 		dlrShoe.shuffleDeck();
 		Dealer tmpDealer3 = new Dealer();
 		tmpDealer3.setFirstName("Poncho");

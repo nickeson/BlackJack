@@ -8,7 +8,7 @@ import com.nickeson.games.cardgames.PlayingCard;
 import com.nickeson.games.cardgames.Deck;
 
 /****************************************************************************
- * <b>Title</b>: StdPlayingCards_Shoe.java <p/>
+ * <b>Title</b>: Shoe.java <p/>
  * <b>Project</b>: game_of_21 <p/>
  * <b>Description: </b> A Shoe of Standard PlayingCards of specified number of
  * Decks, with and without Jokers<p/>
@@ -20,7 +20,7 @@ import com.nickeson.games.cardgames.Deck;
  * updates:
  ****************************************************************************/
 
-public class StdPlayingCards_Shoe implements Deck<PlayingCard> {
+public class Shoe implements Deck<PlayingCard> {
 	private List<PlayingCard> shoe = new ArrayList<PlayingCard>();
 	// initialize empty string arrays for card suits & values to correct sizes
 	private static String[] cardSuits = new String[StdPlayingCardSuits.values().length];	 
@@ -34,7 +34,7 @@ public class StdPlayingCards_Shoe implements Deck<PlayingCard> {
 	 * constructor to build a single-Deck Shoe of Standard Playing Cards with 
 	 * no Jokers if no arg is passed 
 	 */
-	public StdPlayingCards_Shoe(){
+	public Shoe(){
 		buildDeck();
 	}
 	
@@ -43,7 +43,7 @@ public class StdPlayingCards_Shoe implements Deck<PlayingCard> {
 	 * without jokers
 	 * @param numOfJokers
 	 */
-	public StdPlayingCards_Shoe(int numOfJokers) {
+	public Shoe(int numOfJokers) {
 		buildDeck();
 		for (int j = 0; j < numOfJokers; j++) {
 			addJoker();
@@ -56,7 +56,7 @@ public class StdPlayingCards_Shoe implements Deck<PlayingCard> {
 	 * @param numOfJokers
 	 * @param numOfDecks
 	 */
-	public StdPlayingCards_Shoe(int numOfJokers, int numOfDecks) {
+	public Shoe(int numOfJokers, int numOfDecks) {
 		// minimum number of Decks is 1
 		if (numOfDecks < 1) {
 			System.out.println("Minimum Number of Decks is 1");
@@ -151,7 +151,7 @@ public class StdPlayingCards_Shoe implements Deck<PlayingCard> {
     }
 	
 	/**
-	 * print StdPlayingCards_Shoe String values instead of hashcode
+	 * print Shoe String values instead of hashcode
 	 */
 	@Override
 	public String toString() {
@@ -161,16 +161,16 @@ public class StdPlayingCards_Shoe implements Deck<PlayingCard> {
  	 
 	// unit test method
 	public static void main(String[] args) {
-		StdPlayingCards_Shoe testShoe = new StdPlayingCards_Shoe(1, 2);		
+		Shoe testShoe = new Shoe(1, 2);		
 		System.out.println("2 Deck Shoe with 1 Joker per Deck: " + testShoe);		
-		StdPlayingCards_Shoe myShoe = new StdPlayingCards_Shoe(2);
+		Shoe myShoe = new Shoe(2);
 		System.out.println("Shoe with 1 Joker per Deck: " + myShoe);
 		
-		StdPlayingCards_Shoe my2ndShoe = new StdPlayingCards_Shoe(0);	
+		Shoe my2ndShoe = new Shoe(0);	
 		my2ndShoe.shuffleDeck();
 		System.out.println("Shuffled Shoe without Jokers: " + my2ndShoe);	
 		
-		StdPlayingCards_Shoe my3rdShoe = new StdPlayingCards_Shoe(2, 1);
+		Shoe my3rdShoe = new Shoe(2, 1);
 		my3rdShoe.shuffleDeck();
 		System.out.println("Shuffled Shoe with Jokers: " + my3rdShoe);
 		}
