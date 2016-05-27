@@ -1,4 +1,4 @@
-package com.nickeson.game_of_21;
+package com.nickeson.games.cardgames.blackjack;
 
 /********************************************************************
  * <b>Title: </b>JamesCard.java<br/>
