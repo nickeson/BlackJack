@@ -1,4 +1,4 @@
-package com.nickeson.games.cardgames.blackjack;
+package com.nickeson.base.games.cardgames.blackjack;
 
 /********************************************************************
  * <b>Title: </b>JamesCard.java<br/>

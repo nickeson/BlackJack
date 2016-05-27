@@ -1,9 +1,10 @@
-package com.nickeson.games.cardgames.blackjack;
+package com.nickeson.base.games.cardgames;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.ArrayList;
+//import java.util.Arrays;
 import java.util.List;
-import com.nickeson.games.cardgames.PlayingCard;
+import com.nickeson.base.games.cardgames.Player;
+import com.nickeson.base.games.cardgames.Shoe;
 
 //JDK 1.8.0
 
@@ -214,17 +215,5 @@ public class Dealer extends Player {
 		System.out.println("");
 		
 		// default Shoe is 6 decks, no Jokers, shuffled
-		Shoe dlrShoe = new Shoe(0, 6);
-		dlrShoe.shuffleDeck();
-		Dealer tmpDealer3 = new Dealer();
-		tmpDealer3.setFirstName("Poncho");
-		tmpDealer3.setLastName("Sanchez");
-		tmpDealer3.setAge(69);
-		tmpDealer3.setGenderIdentity("Male");
-		tmpDealer3.setNickNames(new ArrayList<String>(Arrays.asList("RoughHands", "El mas excepcional jugador de Conga")));
-		tmpDealer3.setAcctBalance(30);
-		tmpDealer3.setShoe(dlrShoe);
-		System.out.println("Dealer " + tmpDealer3);
-		System.out.println("Dealer's shuffled Shoe contents: " + tmpDealer3.getShoe());
 	}
 }

@@ -1,4 +1,4 @@
-package com.nickeson.games.cardgames;
+package com.nickeson.base;
 
 import java.util.ArrayList;
 import java.util.Arrays;

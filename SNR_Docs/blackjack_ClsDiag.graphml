@@ -18,10 +18,10 @@
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="198.04901413690476" width="184.7187500000001" x="1394.9404869200694" y="-733.7892299107142"/>
+          <y:Geometry height="48.44901413690474" width="159.68204365079384" x="1407.4588400946727" y="-640.455431547619"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="161.26318359375" x="11.727783203125057" y="3.0">StdPlayingCardsShoe<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="161.26318359375" x="-0.7905699714780781" y="3.0">StdPlayingCardsShoe<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -29,17 +29,8 @@
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>numOfCards
-shuffleMarker
-numOfDecks
-numOfJokers
-jokerName
-List&lt;PlayingCard&gt; shoe
-shuffleMarker</y:AttributeLabel>
-            <y:MethodLabel>buildDeck()
-shuffleDeck()
-addJoker()
-getCards()
+            <y:AttributeLabel>numOfDecks</y:AttributeLabel>
+            <y:MethodLabel>
 </y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
@@ -49,10 +40,10 @@ getCards()
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="152.0" width="111.0" x="1431.7998619200696" y="-921.3289527529764"/>
+          <y:Geometry height="205.29641350211" width="124.60759493670912" x="1424.996064451715" y="-888.8670608235386"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="39.95947265625" x="35.520263671875" y="25.96875">Deck<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="39.95947265625" x="42.32406114022956" y="25.96875">Deck<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -60,12 +51,16 @@ getCards()
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Interface" use3DEffect="true">
-            <y:AttributeLabel>numOfJokers
-jokerName</y:AttributeLabel>
-            <y:MethodLabel>buildDeck()
-shuffleDeck()
-addJoker()
-getCards()</y:MethodLabel>
+            <y:AttributeLabel>OPT_NUM_JOKERS
+shuffleMarker</y:AttributeLabel>
+            <y:MethodLabel>build()
+addCard()
+discard()
+addAllCards()
+reset()
+shuffle()
+getTopCard()
+getDeck()</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -74,7 +69,7 @@ getCards()</y:MethodLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="111.44901413690474" width="111.0" x="1208.4224006410634" y="-745.1495489211309"/>
+          <y:Geometry height="111.44901413690474" width="111.0" x="1208.4224006410634" y="-779.0251526945823"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="54.6796875" x="28.16015625" y="3.0">Person<y:LabelModel>
@@ -99,7 +94,7 @@ nickNames</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="111.44901413690474" width="159.68204365079384" x="1407.4588400946727" y="-363.6607700892853"/>
+          <y:Geometry height="100.0" width="159.68204365079384" x="1407.4588400946727" y="-363.6607700892853"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="138.2275390625" x="10.727252294146922" y="3.0">PlayingCardsHand<y:LabelModel>
@@ -110,8 +105,7 @@ nickNames</y:AttributeLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>score
-List&lt;PlayingCard&gt; hand</y:AttributeLabel>
+            <y:AttributeLabel>cardFaceUp</y:AttributeLabel>
             <y:MethodLabel>addCard()
 removeCard()
 clearHand()</y:MethodLabel>
@@ -123,7 +117,7 @@ clearHand()</y:MethodLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="101.0" width="111.0" x="1431.7998619200696" y="-500.2004929315474"/>
+          <y:Geometry height="71.0" width="111.0" x="1431.7998619200696" y="-477.77598586309495"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="92.27685546875" x="9.361572265625" y="3.0">PlayingCard<y:LabelModel>
@@ -135,9 +129,8 @@ clearHand()</y:MethodLabel>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>suit
-value
-isJoker
-isFaceUp</y:AttributeLabel>
+rank
+value</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
@@ -147,49 +140,7 @@ isFaceUp</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="80.0" width="173.7759717184398" x="1614.273356410436" y="-733.7892299107142"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="154.185546875" x="9.795212421719896" y="25.96875">StdPlayingCardSuits<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Enum" use3DEffect="true">
-            <y:AttributeLabel>Enum Constants for Suits</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n6">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="80.0" width="174.71875000000023" x="1613.3305781288757" y="-615.7402157738095"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="166.2587890625" x="4.229980468750114" y="25.96875">StdPlayingCardValues<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="Enum" use3DEffect="true">
-            <y:AttributeLabel>Enum Constants for Values</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n7">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="58.0" width="111.0" x="1208.4224006410634" y="-598.0005347842259"/>
+          <y:Geometry height="48.44901413690468" width="111.0" x="1208.4224006410634" y="-588.4495489211306"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="50.45849609375" x="30.270751953125" y="3.0">Player<y:LabelModel>
@@ -200,18 +151,17 @@ isFaceUp</y:AttributeLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>acctBalance
-winBalance</y:AttributeLabel>
+            <y:AttributeLabel>screenName</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n8">
+    <node id="n6">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="85.84901413690471" width="111.0" x="1208.4224006410634" y="-492.62499999999966"/>
+          <y:Geometry height="85.84901413690471" width="111.0" x="1208.4224006410634" y="-460.873945147679"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="97.7421875" x="6.62890625" y="3.0">Dealer_of_21<y:LabelModel>
@@ -230,7 +180,7 @@ playHand()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n9">
+    <node id="n7">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -254,7 +204,7 @@ endGame()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n10">
+    <node id="n8">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -276,7 +226,7 @@ setOutput()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n11">
+    <node id="n9">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -302,11 +252,11 @@ handScoreEval()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n12">
+    <node id="n10">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="100.44901413690474" width="156.0" x="991.4329117063495" y="32.209002510128954"/>
+          <y:Geometry height="111.44901413690474" width="156.0" x="991.4329117063494" y="25.720339935724127"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="142.6455078125" x="6.67724609375" y="3.0">21 Game Initializer<y:LabelModel>
@@ -321,16 +271,17 @@ handScoreEval()</y:MethodLabel>
             <y:MethodLabel>outputMsgToView()
 readInputFromView()
 runConfigurator()
-buildShoe()</y:MethodLabel>
+buildShoe()
+buildDeck()</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n13">
+    <node id="n11">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="74.42633928571439" width="140.0468750000001" x="1694.6724006410634" y="58.2316773613193"/>
+          <y:Geometry height="58.0" width="140.0468750000001" x="1694.6724006410634" y="53.71450613736096"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="40.58154296875" x="49.73266601562506" y="3.0">Bank<y:LabelModel>
@@ -341,15 +292,14 @@ buildShoe()</y:MethodLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>playersAcctBalances
-playersWinBalances
-balanceLimit</y:AttributeLabel>
+            <y:AttributeLabel>acctBalance
+transactionHistory</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n14">
+    <node id="n12">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -374,11 +324,11 @@ updateBank()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n15">
+    <node id="n13">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="71.0" width="141.25" x="1368.4224006410634" y="61.65801664703369"/>
+          <y:Geometry height="71.0" width="141.25" x="1356.2974006410634" y="19.220339935724127"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="97.13916015625" x="22.055419921875" y="3.0">Configurator<y:LabelModel>
@@ -396,9 +346,8 @@ exportconfigValues()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n16">
+    <node id="n14">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="95.44901413690474" width="100.0" x="1376.9224006410634" y="-204.17768833808537"/>
@@ -418,9 +367,8 @@ exportconfigValues()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n17">
+    <node id="n15">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="95.44901413690474" width="133.0" x="1197.4224006410634" y="-76.22867420118061"/>
@@ -440,9 +388,8 @@ exportconfigValues()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n18">
+    <node id="n16">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="48.44901413690474" width="133.0" x="1360.4224006410634" y="-76.22867420118058"/>
@@ -462,9 +409,8 @@ exportconfigValues()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n19">
+    <node id="n17">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="198.04901413690476" width="141.25" x="1523.4224006410634" y="-151.02867420118065"/>
@@ -484,12 +430,11 @@ exportconfigValues()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n20">
+    <node id="n18">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="58.0" width="155.9999999999999" x="991.4329117063497" y="-57.50416713272824"/>
+          <y:Geometry height="48.44901413690474" width="155.9999999999999" x="991.4329117063496" y="-52.72867420118061"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="149.53271484375" x="3.233642578124943" y="25.96875">CardGameInitializer<y:LabelModel>
@@ -506,9 +451,8 @@ exportconfigValues()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n21">
+    <node id="n19">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="100.0" x="861.4329117063496" y="-124.92867420118068"/>
@@ -528,9 +472,8 @@ exportconfigValues()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n22">
+    <node id="n20">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="25.0" width="111.0" x="855.9329117063496" y="-217.9776883380854"/>
@@ -550,9 +493,8 @@ exportconfigValues()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n23">
+    <node id="n21">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.0" width="133.0" x="844.9329117063496" y="-172.95318126963303"/>
@@ -572,12 +514,11 @@ exportconfigValues()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n24">
+    <node id="n22">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="48.44901413690474" width="140.0468750000001" x="1193.8989631410634" y="-359.40045107886874"/>
+          <y:Geometry height="48.44901413690474" width="140.0468750000001" x="1193.8989631410634" y="-327.6493962265481"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="127.89990234375" x="6.073486328125057" y="25.96875">CardGameDealer<y:LabelModel>
@@ -594,12 +535,11 @@ exportconfigValues()</y:MethodLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n25">
+    <node id="n23">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:SVGNode>
-          <y:Geometry height="100.0" width="60.0" x="1096.4509224664603" y="-619.0005347842259"/>
+          <y:Geometry height="100.0" width="60.0" x="1096.4509224664603" y="-614.2250418526783"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="38.43603515625" x="10.781982421875" y="104.0">Actor<y:LabelModel>
@@ -614,6 +554,28 @@ exportconfigValues()</y:MethodLabel>
             <y:SVGContent refid="1"/>
           </y:SVGModel>
         </y:SVGNode>
+      </data>
+    </node>
+    <node id="n24">
+      <data key="d4"/>
+      <data key="d5"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="28.0" width="115.5522289727578" x="1429.5237474336907" y="-548.8912016369046"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="109.4091796875" x="3.0715246426289013" y="3.0">BlackJackDeck<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel/>
+            <y:MethodLabel/>
+          </y:UML>
+        </y:UMLClassNode>
       </data>
     </node>
     <edge id="e0" source="n0" target="n1">
@@ -637,17 +599,17 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e2" source="n4" target="n0">
+    <edge id="e2" source="n4" target="n24">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="14.015625"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_many_mandatory" target="none"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e3" source="n7" target="n2">
+    <edge id="e3" source="n5" target="n2">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -658,7 +620,7 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e4" source="n8" target="n7">
+    <edge id="e4" source="n6" target="n5">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -669,7 +631,18 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e5" source="n0" target="n5">
+    <edge id="e5" source="n5" target="n3">
+      <data key="d8"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="54.17135514444328" sy="24.219254719489232" tx="-69.63941910008157" ty="-50.01657606127037"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="diamond" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e6" source="n6" target="n3">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -680,53 +653,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e6" source="n0" target="n6">
+    <edge id="e7" source="n17" target="n16">
       <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="diamond" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e7" source="n7" target="n3">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="54.17135514444328" sy="28.993712230366555" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="diamond" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e8" source="n8" target="n0">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="55.489501953125" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="diamond" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e9" source="n8" target="n3">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="diamond" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e10" source="n19" target="n18">
-      <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -736,9 +664,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e11" source="n18" target="n16">
+    <edge id="e8" source="n16" target="n14">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -748,9 +675,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e12" source="n20" target="n17">
+    <edge id="e9" source="n18" target="n15">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -760,9 +686,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e13" source="n23" target="n10">
+    <edge id="e10" source="n21" target="n8">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -772,9 +697,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e14" source="n22" target="n10">
+    <edge id="e11" source="n20" target="n8">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -784,9 +708,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e15" source="n21" target="n10">
+    <edge id="e12" source="n19" target="n8">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -796,9 +719,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e16" source="n9" target="n10">
+    <edge id="e13" source="n7" target="n8">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -808,9 +730,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e17" source="n9" target="n16">
+    <edge id="e14" source="n7" target="n14">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -820,9 +741,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e18" source="n9" target="n17">
+    <edge id="e15" source="n7" target="n15">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -832,9 +752,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e19" source="n12" target="n20">
+    <edge id="e16" source="n10" target="n18">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -844,9 +763,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e20" source="n19" target="n11">
+    <edge id="e17" source="n17" target="n9">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -856,9 +774,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e21" source="n19" target="n14">
+    <edge id="e18" source="n17" target="n12">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="5.884864983936268" sy="19.24283854166643" tx="0.0" ty="0.0"/>
@@ -868,9 +785,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e22" source="n19" target="n13">
+    <edge id="e19" source="n17" target="n11">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -880,9 +796,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e23" source="n19" target="n15">
+    <edge id="e20" source="n17" target="n13">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -892,9 +807,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e24" source="n8" target="n24">
+    <edge id="e21" source="n6" target="n22">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -904,9 +818,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e25" source="n19" target="n7">
+    <edge id="e22" source="n17" target="n5">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -920,9 +833,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e26" source="n19" target="n24">
+    <edge id="e23" source="n17" target="n22">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -935,9 +847,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e27" source="n25" target="n7">
+    <edge id="e24" source="n23" target="n5">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -947,9 +858,8 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e28" source="n3" target="n4">
+    <edge id="e25" source="n3" target="n4">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -959,12 +869,23 @@ exportconfigValues()</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e29" source="n0" target="n4">
+    <edge id="e26" source="n24" target="n4">
+      <data key="d8"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="-14.015238196531714"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="diamond" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e27" source="n0" target="n24">
       <data key="d8"/>
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="-19.93716982886906"/>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="diamond" target="none"/>
           <y:BendStyle smoothed="false"/>

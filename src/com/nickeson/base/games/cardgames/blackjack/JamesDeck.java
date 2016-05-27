@@ -1,4 +1,4 @@
-package com.nickeson.games.cardgames.blackjack;
+package com.nickeson.base.games.cardgames.blackjack;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -58,7 +58,6 @@ public class JamesDeck {
 		mainDeck.shuffle();
 		System.out.println("Deck Size: " + mainDeck.getDeck().size());
 	}
-	
 	
 	protected void createDeck(int numJokers) {
 		for(int i=0; i < 4; i++) {

@@ -1,4 +1,4 @@
-package com.nickeson.games.cardgames;
+package com.nickeson.base.games.cardgames;
 
 //JDK 1.8.0
 /*

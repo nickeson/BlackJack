@@ -1,4 +1,4 @@
-package com.nickeson.games.cardgames;
+package com.nickeson.base.games.cardgames;
 
 import java.util.List;
 
@@ -12,34 +12,46 @@ import java.util.List;
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
- * @version 1.0
- * @since May 17, 2016<p/>
+ * @version 2.0
+ * @since May 27, 2016<p/>
  * updates:
  ****************************************************************************/
 
-// a collection of cards, or any subtypes of cards (standard or crazy)
-public interface Deck<T extends PlayingCard> {
+public interface Deck {
 	/**
-	 * must be implemented by concrete class
 	 * build a new Deck
 	 */
-	public void buildDeck();
+	public void build();
+
+	/**
+	 * add a Card to the Deck
+	 */
+	public void addCard();
+
+	/**
+	 * remove a Card from the Deck and put in discard pile
+	 */
+	public void discard();
 	
 	/**
-	 * must be implemented by concrete class 
+	 * reset the Deck to new
+	 */
+	public void reset();
+	
+	/**
 	 * shuffle the Deck
 	 */
-	public void shuffleDeck();
+	public void shuffle();
 	
 	/**
-	 * must be implemented by concrete class 
-	 * add a Joker to the Deck
+	 * returns the Deck's Top PlayingCard
+	 * @return
 	 */
-	public void addJoker();
+	public PlayingCard getTopCard();
 	
 	/**
-	 * must be implemented by concrete class 
-	 * @return list the Playing Cards in the Deck
+	 * returns a list of the PlayingCards in the Deck
+	 * @return
 	 */
-	public List<PlayingCard> getCards();
+	public List<PlayingCard> getDeck();
 }

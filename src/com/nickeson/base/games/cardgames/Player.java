@@ -1,10 +1,11 @@
-package com.nickeson.games.cardgames.blackjack;
+package com.nickeson.base.games.cardgames;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import com.nickeson.games.cardgames.Person;
-import com.nickeson.games.cardgames.PlayingCard;
+
+import com.nickeson.base.Person;
+import com.nickeson.base.games.cardgames.PlayingCard;
 
 //JDK 1.8.0
 
