@@ -1,12 +1,15 @@
 package com.nickeson.games.cardgames.blackjack;
 
-//JDK 1.8.0
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import com.nickeson.games.cardgames.Deck;
+import com.nickeson.games.cardgames.PlayingCard;
+
+//JDK 1.8.0
 
 /****************************************************************************
- * <b>Title</b>: StandardDeck.java <p/>
+ * <b>Title</b>: StdDeck.java <p/>
  * <b>Project</b>: game_of_21 <p/>
  * <b>Description: </b> A standard card deck with and without Jokers<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
@@ -17,7 +20,7 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
-public class StandardDeck implements Deck<PlayingCard> {
+public class StdDeck implements Deck<PlayingCard> {
 	private List<PlayingCard> stdDeck = new ArrayList<PlayingCard>();	
 	// initialize empty string arrays for card suits & values to correct sizes
 	private String[] cardSuits = new String[StdPlayingCardSuits.values().length];	 
@@ -28,7 +31,7 @@ public class StandardDeck implements Deck<PlayingCard> {
 	/**
 	 * constructor to build a deck with no jokers if no arg is passed 
 	 */
-	public StandardDeck(){
+	public StdDeck(){
 		buildDeck();
 	}
 	
@@ -36,7 +39,7 @@ public class StandardDeck implements Deck<PlayingCard> {
 	 * constructor to build a deck with or without jokers if arg is passed     
 	 * @param numOfJokers
 	 */
-	public StandardDeck(int numOfJokers) {
+	public StdDeck(int numOfJokers) {
 		buildDeck();
 		for (int j = 0; j < numOfJokers; j++) {
 			addJoker();
@@ -116,10 +119,10 @@ public class StandardDeck implements Deck<PlayingCard> {
  	 
 	// unit test method
 	public static void main(String[] args) {
-		StandardDeck myDeck = new StandardDeck(2);
+		StdDeck myDeck = new StdDeck(2);
 		System.out.println("Deck with Jokers: " + myDeck);
 		
-		StandardDeck my2ndDeck = new StandardDeck();	
+		StdDeck my2ndDeck = new StdDeck();	
 		my2ndDeck.shuffleDeck();
 		System.out.println("Shuffled Deck without Jokers: " + my2ndDeck);	
 		}

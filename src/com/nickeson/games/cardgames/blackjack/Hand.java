@@ -2,6 +2,7 @@ package com.nickeson.games.cardgames.blackjack;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.nickeson.games.cardgames.PlayingCard;
 
 //JDK 1.8.0
 

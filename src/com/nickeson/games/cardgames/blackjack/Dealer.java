@@ -3,6 +3,7 @@ package com.nickeson.games.cardgames.blackjack;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.nickeson.games.cardgames.PlayingCard;
 
 //JDK 1.8.0
 
@@ -22,7 +23,6 @@ import java.util.List;
 public class Dealer extends Player {
 	
 	private StdPlayingCards_Shoe shoe;
-	private CstmPlayingCards1_Shoe cstmShoe;
 	
 	/**
 	 * no-arg constructor instantiates the Dealer (PC) as a Player
@@ -189,20 +189,6 @@ public class Dealer extends Player {
 	}
 
 	/**
-	 * @param cstmShoe the cstmShoe to set
-	 */
-	public void setCstmShoe(CstmPlayingCards1_Shoe cstmShoe) {
-		this.cstmShoe = cstmShoe;
-	}
-	
-	/**
-	 * @return the cstmShoe
-	 */
-	public CstmPlayingCards1_Shoe getCstmShoe() {
-		return cstmShoe;
-	}
-
-	/**
 	 * deal a Hand of PlayingCards
 	 * include special rules for Dealer's hand
 	 */
@@ -240,18 +226,6 @@ public class Dealer extends Player {
 		System.out.println(tmpDealer);
 		
 		System.out.println("");
-		
-		// default Shoe is 6 decks, no Jokers, shuffled
-		CstmPlayingCards1_Shoe cstmDlrShoe = new CstmPlayingCards1_Shoe(0,1);
-		cstmDlrShoe.shuffleDeck();
-		Dealer tmpDealer2 = new Dealer("Kris", "Nickeson", 39, "Male", 
-				(new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty"))));
-		tmpDealer2.setAcctBalance(500);
-		tmpDealer2.setCstmShoe(cstmDlrShoe);
-		System.out.println("Dealer " + tmpDealer2);
-		System.out.println("Dealer's shuffled custom Shoe contents: " + tmpDealer2.getCstmShoe());
-		
-		System.out.println("");	
 		
 		// default Shoe is 6 decks, no Jokers, shuffled
 		StdPlayingCards_Shoe dlrShoe = new StdPlayingCards_Shoe(0, 6);

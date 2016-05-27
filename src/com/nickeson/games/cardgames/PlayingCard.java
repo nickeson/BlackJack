@@ -1,4 +1,4 @@
-package com.nickeson.games.cardgames.blackjack;
+package com.nickeson.games.cardgames;
 
 //JDK 1.8.0
 /*

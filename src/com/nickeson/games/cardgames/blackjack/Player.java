@@ -2,8 +2,10 @@ package com.nickeson.games.cardgames.blackjack;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-//JDK 1.8.0
 import java.util.List;
+import com.nickeson.games.cardgames.PlayingCard;
+
+//JDK 1.8.0
 
 /****************************************************************************
  * <b>Title</b>: Player.java <p/>
