@@ -44,14 +44,12 @@ public interface Deck {
 	public void shuffle();
 	
 	/**
-	 * returns the Deck's Top PlayingCardVO
-	 * @return
+	 * @return the Deck's Top Card
 	 */
 	public CardVO getTopCard();
 	
 	/**
-	 * returns a list of the PlayingCards in the Deck
-	 * @return
+	 * @return List of the Cards in the Deck
 	 */
 	public List<CardVO> getDeck();
 }
