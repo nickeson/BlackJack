@@ -1,10 +1,11 @@
-package com.nickeson.base.games.cardgames;
+package com.nickeson.games.cardgames;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import com.nickeson.base.games.cardgames.Deck;
-import com.nickeson.base.games.cardgames.PlayingCard;
+
+import com.nickeson.games.cardgames.Deck;
+import com.nickeson.games.cardgames.CardVO;
 
 //JDK 1.8.0
 
@@ -21,7 +22,7 @@ import com.nickeson.base.games.cardgames.PlayingCard;
  ****************************************************************************/
 
 public class StdDeck implements Deck {
-	private List<PlayingCard> stdDeck = new ArrayList<PlayingCard>();	
+	private List<CardVO> stdDeck = new ArrayList<CardVO>();	
 //	private String[] cardSuits = new String[4];	 
 //	private static String[] cardRanks = new String[13];
 //	private static String[] cardValues = new String[13];
@@ -62,7 +63,7 @@ public class StdDeck implements Deck {
 	public void reset(){
 	}
 	
-	public PlayingCard getTopCard(){
+	public CardVO getTopCard(){
 		return null;
 	}
 	
@@ -76,7 +77,7 @@ public class StdDeck implements Deck {
 	/**
 	 * @return the List of PlayingCards in the Deck
 	 */
-	public List<PlayingCard> getDeck(){
+	public List<CardVO> getDeck(){
         return stdDeck;
     }
 	

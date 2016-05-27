@@ -1,4 +1,4 @@
-package com.nickeson.base.games.cardgames;
+package com.nickeson.games.cardgames;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +17,8 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
-public class Hand<T extends PlayingCard> {
-	List<PlayingCard> hand;
+public class Hand<T extends CardVO> {
+	List<CardVO> hand;
 	int score;
 	
 	/**
@@ -26,7 +26,7 @@ public class Hand<T extends PlayingCard> {
 	 * blank hand
 	 */
 	public Hand() {
-		hand = new ArrayList<PlayingCard>();
+		hand = new ArrayList<CardVO>();
 	}
 	
 	/**
@@ -46,31 +46,31 @@ public class Hand<T extends PlayingCard> {
 	/**
 	 * @return the hand
 	 */
-	public List<PlayingCard> getHand() {
+	public List<CardVO> getHand() {
 		return hand;
 	}
 
 	/**
-	 * setup a hand of indeterminate size by assigning a List<PlayingCard> object
+	 * setup a hand of indeterminate size by assigning a List<PlayingCardVO> object
 	 * @param hand
 	 */
-	public void setHand(List<PlayingCard> hand) {
+	public void setHand(List<CardVO> hand) {
 		this.hand = hand;
 	}
 	
 	/**
-	 * Add a specific PlayingCard to the hand instance
+	 * Add a specific PlayingCardVO to the hand instance
 	 * @param c
 	 */
-	public void addCard(PlayingCard c) {
+	public void addCard(CardVO c) {
 		hand.add(c);
 	}
 	
 	/**
-	 * Remove a specific PlayingCard from the hand instance
+	 * Remove a specific PlayingCardVO from the hand instance
 	 * @param c
 	 */
-	public void removeCard(PlayingCard c) {
+	public void removeCard(CardVO c) {
 		hand.remove(c);
 	}
 	
@@ -92,9 +92,9 @@ public class Hand<T extends PlayingCard> {
 	
 	// unit test method
 //	public static void main(String[] args) {
-//		Hand<PlayingCard> hand = new Hand<>();
-//		hand.addCard(new PlayingCard("", "Joker", true, true));
-//		hand.addCard(new PlayingCard("Hearts", "Ace", false, false));	
+//		Hand<PlayingCardVO> hand = new Hand<>();
+//		hand.addCard(new PlayingCardVO("", "Joker", true, true));
+//		hand.addCard(new PlayingCardVO("Hearts", "Ace", false, false));	
 //		System.out.println(hand);
 //	}
 }

@@ -1,4 +1,4 @@
-package com.nickeson.base.games.cardgames.blackjack;
+package com.nickeson.games.cardgames.blackjack;
 
 /********************************************************************
  * <b>Title: </b>JamesCard.java<br/>
@@ -88,6 +88,4 @@ public class JamesCard {
 	public void setValue(int value) {
 		this.value = value;
 	}
-
 }
-

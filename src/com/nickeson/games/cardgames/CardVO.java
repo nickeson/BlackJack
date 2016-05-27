@@ -1,4 +1,4 @@
-package com.nickeson.base.games.cardgames;
+package com.nickeson.games.cardgames;
 
 //JDK 1.8.0
 /*
@@ -17,7 +17,7 @@ package com.nickeson.base.games.cardgames;
  * @since May 17, 2016<p/>
  * updates:
  ****************************************************************************/
-public class PlayingCard 
+public class CardVO 
 {
     private String suit, value;
     private boolean isFaceUp, isJoker;
@@ -28,7 +28,7 @@ public class PlayingCard
      * @param value
      * @param isFaceUp
      */
-    public PlayingCard(String suit, String value, boolean isJoker, boolean isFaceUp)
+    public CardVO(String suit, String value, boolean isJoker, boolean isFaceUp)
     {
         this.suit = suit; 
         this.value = value;

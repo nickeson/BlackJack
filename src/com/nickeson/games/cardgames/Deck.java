@@ -1,4 +1,4 @@
-package com.nickeson.base.games.cardgames;
+package com.nickeson.games.cardgames;
 
 import java.util.List;
 
@@ -44,14 +44,14 @@ public interface Deck {
 	public void shuffle();
 	
 	/**
-	 * returns the Deck's Top PlayingCard
+	 * returns the Deck's Top PlayingCardVO
 	 * @return
 	 */
-	public PlayingCard getTopCard();
+	public CardVO getTopCard();
 	
 	/**
 	 * returns a list of the PlayingCards in the Deck
 	 * @return
 	 */
-	public List<PlayingCard> getDeck();
+	public List<CardVO> getDeck();
 }

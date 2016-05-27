@@ -1,4 +1,4 @@
-package com.nickeson.base;
+package com.nickeson.games.cardgames;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,9 +7,9 @@ import java.util.List;
 //JDK 1.8.0
 
 /****************************************************************************
- * <b>Title</b>: Person.java <p/>
+ * <b>Title</b>: PersonVO.java <p/>
  * <b>Project</b>: game_of_21 <p/>
- * <b>Description: </b> A class to model a Person for game play<p/>
+ * <b>Description: </b> A class to model a PersonVO for game play<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -18,7 +18,7 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
-public class Person {
+public class PersonVO {
 	private String firstName;
 	private String lastName;
 	private int age;
@@ -26,19 +26,19 @@ public class Person {
 	List<String> nickNames;
 
 	/**
-	 * default no-arg constructor warns against creating a null Person
+	 * default no-arg constructor warns against creating a null PersonVO
 	 */
-	public Person() {
-		System.out.print("You have created an anonymous Person with null values " +
+	public PersonVO() {
+		System.out.print("You have created an anonymous PersonVO with null values " +
 				"that can be populated later.  ");
-		System.out.println("You should, however, instantiate a Person with " +
+		System.out.println("You should, however, instantiate a PersonVO with " +
 				"(at minimum): firstName, lastName.");
 	}
 	
 	/**
 	 * minimal constructor requires first & last name
 	 */
-	public Person(String firstName, String lastName) {
+	public PersonVO(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
@@ -50,7 +50,7 @@ public class Person {
 	 * @param lastName
 	 * @param age
 	 */
-	public Person(String firstName, String lastName, int age) {
+	public PersonVO(String firstName, String lastName, int age) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
@@ -64,7 +64,7 @@ public class Person {
 	 * @param age
 	 * @param genderIdentity
 	 */
-	public Person(String firstName, String lastName, int age, String genderIdentity) {
+	public PersonVO(String firstName, String lastName, int age, String genderIdentity) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
@@ -72,14 +72,14 @@ public class Person {
 	}
 	
 	/**
-	 * convenience constructor allows all Person fields to be set upon instantiation
+	 * convenience constructor allows all PersonVO fields to be set upon instantiation
 	 * @param firstName
 	 * @param lastName
 	 * @param age
 	 * @param genderIdentity
 	 * @param nickNames
 	 */
-	public Person(String firstName, String lastName, int age, 
+	public PersonVO(String firstName, String lastName, int age, 
 			String genderIdentity, List<String> nickNames) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -159,7 +159,7 @@ public class Person {
 	}
 	
 	/**
-	 * Override toString() to print Person's field values, rather than hashcode
+	 * Override toString() to print PersonVO's field values, rather than hashcode
 	 */
 	@Override
 	public String toString() {
@@ -171,9 +171,9 @@ public class Person {
 	
 	// unit test method
 	public static void main(String[] args) {
-		Person testPers = new Person("Kris", "Nickeson", 39, "Male", 
+		PersonVO testPers = new PersonVO("Kris", "Nickeson", 39, "Male", 
 				new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty")));
 		System.out.println(testPers);
-		System.out.println(new Person());
+		System.out.println(new PersonVO());
 	}
 }

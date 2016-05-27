@@ -1,11 +1,12 @@
-package com.nickeson.base.games.cardgames;
+package com.nickeson.games.cardgames;
 
 //JDK 1.8.0
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import com.nickeson.base.games.cardgames.Deck;
-import com.nickeson.base.games.cardgames.PlayingCard;
+
+import com.nickeson.games.cardgames.Deck;
+import com.nickeson.games.cardgames.CardVO;
 
 /****************************************************************************
  * <b>Title</b>: Shoe.java <p/>
@@ -21,7 +22,7 @@ import com.nickeson.base.games.cardgames.PlayingCard;
  ****************************************************************************/
 
 public class Shoe implements Deck {
-	private List<PlayingCard> shoe = new ArrayList<PlayingCard>();
+	private List<CardVO> shoe = new ArrayList<CardVO>();
 //	private static String[] cardSuits = new String[4];	 
 //	private static String[] cardRanks = new String[13];
 //	private static String[] cardValues = new String[13];
@@ -61,13 +62,13 @@ public class Shoe implements Deck {
 		Collections.shuffle(shoe);
 	}
 	
-	public PlayingCard getTopCard(){
+	public CardVO getTopCard(){
 		return null;
 	}
 	/**
 	 * @return the List of Playing Cards in the Shoe (a combo Deck)
 	 */
-	public List<PlayingCard> getDeck(){
+	public List<CardVO> getDeck(){
         return shoe;
     }
 	
