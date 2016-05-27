@@ -17,7 +17,7 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
-public class PlayingCardsHand<T extends PlayingCard> {
+public class Hand<T extends PlayingCard> {
 	List<PlayingCard> hand;
 	int score;
 	
@@ -25,7 +25,7 @@ public class PlayingCardsHand<T extends PlayingCard> {
 	 * we don't know number of cards in a hand (varies by game) so default to a
 	 * blank hand
 	 */
-	public PlayingCardsHand() {
+	public Hand() {
 		hand = new ArrayList<PlayingCard>();
 	}
 	
@@ -92,7 +92,7 @@ public class PlayingCardsHand<T extends PlayingCard> {
 	
 	// unit test method
 //	public static void main(String[] args) {
-//		PlayingCardsHand<PlayingCard> hand = new PlayingCardsHand<>();
+//		Hand<PlayingCard> hand = new Hand<>();
 //		hand.addCard(new PlayingCard("", "Joker", true, true));
 //		hand.addCard(new PlayingCard("Hearts", "Ace", false, false));	
 //		System.out.println(hand);

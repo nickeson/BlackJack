@@ -19,7 +19,7 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
-public class Dealer_of_21 extends Player {
+public class Dealer extends Player {
 	
 	private StdPlayingCards_Shoe shoe;
 	private CstmPlayingCards1_Shoe cstmShoe;
@@ -27,14 +27,14 @@ public class Dealer_of_21 extends Player {
 	/**
 	 * no-arg constructor instantiates the Dealer (PC) as a Player
 	 */
-	public Dealer_of_21() {
+	public Dealer() {
 		super("Dealer", "(PC)");
 	}
 	
 	/**
 	 * minimal constructor requires first & last name upon instantiating a Player/Dealer
 	 */
-	public Dealer_of_21(String firstName, String lastName) {
+	public Dealer(String firstName, String lastName) {
 		super(firstName, lastName);
 	}
 	
@@ -45,7 +45,7 @@ public class Dealer_of_21 extends Player {
 	 * @param lastName
 	 * @param age
 	 */
-	public Dealer_of_21(String firstName, String lastName, int age) {
+	public Dealer(String firstName, String lastName, int age) {
 		super(firstName, lastName, age);
 	}
 	
@@ -57,14 +57,14 @@ public class Dealer_of_21 extends Player {
 	 * @param age
 	 * @param genderIdentity
 	 */
-	public Dealer_of_21(String firstName, String lastName, int age, String genderIdentity) {
+	public Dealer(String firstName, String lastName, int age, String genderIdentity) {
 		super(firstName, lastName, age, genderIdentity);
 	}
 	
 	/**
 	 * constructor allows all Person fields to be set upon instantiation of Player/Dealer
 	 */
-	public Dealer_of_21(String firstName, String lastName, int age, 
+	public Dealer(String firstName, String lastName, int age, 
 			String genderIdentity, List<String> nickNames) {
 		super(firstName, lastName, age, genderIdentity, nickNames);
 	}
@@ -145,15 +145,15 @@ public class Dealer_of_21 extends Player {
 	 * set the Dealer's hand
 	 * @param hand
 	 */
-	public void setHand(PlayingCardsHand<PlayingCard> hand) {
+	public void setHand(Hand<PlayingCard> hand) {
 		super.setHand(hand);
 	}
 	
 	/**
 	 * @return the Dealer's hand
 	 */
-	public PlayingCardsHand<PlayingCard> getHand() {
-		PlayingCardsHand<PlayingCard> hand = super.getHand();
+	public Hand<PlayingCard> getHand() {
+		Hand<PlayingCard> hand = super.getHand();
 		return hand;
 	}
 
@@ -236,7 +236,7 @@ public class Dealer_of_21 extends Player {
 	
 	// unit test method
 	public static void main(String[] args) {
-		Dealer_of_21 tmpDealer = new Dealer_of_21();
+		Dealer tmpDealer = new Dealer();
 		System.out.println(tmpDealer);
 		
 		System.out.println("");
@@ -244,7 +244,7 @@ public class Dealer_of_21 extends Player {
 		// default Shoe is 6 decks, no Jokers, shuffled
 		CstmPlayingCards1_Shoe cstmDlrShoe = new CstmPlayingCards1_Shoe(0,1);
 		cstmDlrShoe.shuffleDeck();
-		Dealer_of_21 tmpDealer2 = new Dealer_of_21("Kris", "Nickeson", 39, "Male", 
+		Dealer tmpDealer2 = new Dealer("Kris", "Nickeson", 39, "Male", 
 				(new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty"))));
 		tmpDealer2.setAcctBalance(500);
 		tmpDealer2.setCstmShoe(cstmDlrShoe);
@@ -256,7 +256,7 @@ public class Dealer_of_21 extends Player {
 		// default Shoe is 6 decks, no Jokers, shuffled
 		StdPlayingCards_Shoe dlrShoe = new StdPlayingCards_Shoe(0, 6);
 		dlrShoe.shuffleDeck();
-		Dealer_of_21 tmpDealer3 = new Dealer_of_21();
+		Dealer tmpDealer3 = new Dealer();
 		tmpDealer3.setFirstName("Poncho");
 		tmpDealer3.setLastName("Sanchez");
 		tmpDealer3.setAge(69);

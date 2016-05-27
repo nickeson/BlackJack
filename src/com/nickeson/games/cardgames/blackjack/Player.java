@@ -21,7 +21,7 @@ public class Player extends Person {
 	
 	private int acctBalance = 0; // whole dollar values only for our card game(s)
 	private int winBalance = 0;
-	private PlayingCardsHand<PlayingCard> hand;
+	private Hand<PlayingCard> hand;
 	
 	/**
 	 * default no-arg constructor calls the super constructor which then 
@@ -182,7 +182,7 @@ public class Player extends Person {
 	/**
 	 * @return the hand
 	 */
-	public PlayingCardsHand<PlayingCard> getHand() {
+	public Hand<PlayingCard> getHand() {
 		return hand;
 	}
 
@@ -190,7 +190,7 @@ public class Player extends Person {
 	 * set the Player's hand
 	 * @param hand
 	 */
-	public void setHand(PlayingCardsHand<PlayingCard> hand) {
+	public void setHand(Hand<PlayingCard> hand) {
 		this.hand = hand;
 	}
 	
