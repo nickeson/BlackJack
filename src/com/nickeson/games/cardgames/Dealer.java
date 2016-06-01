@@ -11,8 +11,8 @@ import com.nickeson.games.cardgames.Shoe;
 
 /****************************************************************************
  * <b>Title</b>: Dealer.java <p/>
- * <b>Project</b>: game_of_21 <p/>
- * <b>Description: </b> Specific Dealer for game_of_21, provides ability to 
+ * <b>Project</b>: Blackjack <p/>
+ * <b>Description: </b> Specific Dealer for Blackjack, provides ability to 
  * deal cards and play the Dealer's hand<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>

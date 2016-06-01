@@ -6,7 +6,7 @@ import java.util.List;
 
 /****************************************************************************
  * <b>Title</b>: Deck.java <p/>
- * <b>Project</b>: game_of_21 <p/>
+ * <b>Project</b>: Blackjack <p/>
  * <b>Description: </b> A generic interface for collections of Playing Cards
  * for use in various games.<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
@@ -18,25 +18,53 @@ import java.util.List;
  ****************************************************************************/
 
 public interface Deck {
-	/**
-	 * build a new Deck
-	 */
-	public void build();
 
 	/**
-	 * add a Card to the Deck
+	 * add a CardVO to the Deck
 	 */
-	public void addCard();
-
-	/**
-	 * remove a Card from the Deck and put in discard pile
-	 */
-	public void discard();
+	public void addCard(CardVO card);
 	
 	/**
-	 * reset the Deck to new
+	 * add multiple CardVO to the Deck
 	 */
-	public void reset();
+	public void addCards(List<CardVO> cards);
+	
+	/**
+	 * @return the next CardVO in the Deck
+	 */
+	public CardVO getCard();
+	
+	/**
+	 * @param cardLoc
+	 * @return the CardVO at the location specified by deckLoc
+	 */
+	public CardVO getCard(int deckLoc);
+	
+	/**
+	 * @return the specific CardVO referenced by card, remove from deck and add
+	 * to inUse pile
+	 */
+	public CardVO getCard(CardVO card);
+	
+	/**
+	 * @return List of the CardVO in the Deck
+	 */
+	public List<CardVO> getDeck();
+	
+	/**
+	 * @return a CardVO from a random location in the Deck
+	 */
+	public CardVO getRandom();
+	
+	/**
+	 * remove a specific CardVO from the Deck
+	 */
+	public void removeCard(CardVO card);
+	
+	/**
+	 * add all CardVO from discard pile back to Deck
+	 */
+	public void addDiscards();
 	
 	/**
 	 * shuffle the Deck
@@ -44,12 +72,17 @@ public interface Deck {
 	public void shuffle();
 	
 	/**
-	 * @return the Deck's Top Card
+	 * sort the Deck
 	 */
-	public CardVO getTopCard();
+	public void sort();
 	
 	/**
-	 * @return List of the Cards in the Deck
+	 * @return the number of CardVO in the Deck
 	 */
-	public List<CardVO> getDeck();
+	public int size();
+	
+	/**
+	 * remove all CardVO from discard and inUse piles and add back to Deck
+	 */
+	public void reInitialize();
 }

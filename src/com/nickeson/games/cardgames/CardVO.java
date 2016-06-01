@@ -1,10 +1,15 @@
 package com.nickeson.games.cardgames;
 
+//import java.awt.image.BufferedImage;
+//import java.io.File;
+//import java.io.IOException;
+//import javax.imageio.ImageIO;
+
 //JDK 1.8.0
 
 /****************************************************************************
  * <b>Title</b>: Card.java <p/>
- * <b>Project</b>: game_of_21 <p/>
+ * <b>Project</b>: Blackjack <p/>
  * <b>Description: </b> A class to define a Playing Card<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
@@ -13,8 +18,8 @@ package com.nickeson.games.cardgames;
  * @since May 17, 2016<p/>
  * updates:
  ****************************************************************************/
-public class CardVO 
-{
+public class CardVO implements Comparable<CardVO> {
+
     private String suit = null;
     private String rank = null;
     private int value = 0;
@@ -25,8 +30,8 @@ public class CardVO
      * @param rank
      * @param value
      */
-    public CardVO(String suit, String rank, int value)
-    {
+    public CardVO(String suit, String rank, int value) {
+    
         this.suit = suit; 
         this.rank = rank;
         this.value = value;
@@ -38,6 +43,13 @@ public class CardVO
 	public String getSuit() {
 		return suit;
 	}
+	
+	/**
+	 * @param suit the suit to set
+	 */
+	public void setSuit(String suit) {
+		this.suit = suit;
+	}
 
 	/**
 	 * @return the rank
@@ -45,12 +57,26 @@ public class CardVO
 	public String getRank() {
 		return rank;
 	}
+
+	/**
+	 * @param rank the rank to set
+	 */
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
 	
 	/**
 	 * @return the value
 	 */
 	public int getValue() {
 		return value;
+	}
+
+	/**
+	 * @param value the value to set
+	 */
+	public void setValue(int value) {
+		this.value = value;
 	}
 
 	/**
@@ -82,13 +108,55 @@ public class CardVO
      */
     @Override
     public String toString() {
-    	String currCard = rank + " of " + suit;
+    	String currCard = null;
+    	
+    	if (suit != null && suit != "") {
+			currCard = rank + " of " + suit;
+    	} else {
+    		// don't print suit if it doesn't exist (i.e., Jokers)
+    		currCard = rank;
+    	}
         return currCard;
     }
+
+    // required to implement Comparator class
+    public int compareTo(CardVO c) {
+   	String currSuit = this.suit;
+  	String compSuit = c.getSuit();
+		int c1 = currSuit.compareTo(compSuit);
+		if (c1 < 0) {
+			return -1;
+		} else if (c1 > 0) {
+			return 1;
+		} else {
+
+		// if suit is identical, compare value
+//    	if (this.suit == c.getSuit()) {
+			if (this.value < c.getValue()) {
+				return 1;
+			} else {
+				return 0;
+			}
+//		} else {
+			// when suits are not identical, sort by suit
+//			return this.suit.compareTo(c.getSuit());
+		}
+	}
 
     // unit test
     public static void main(String[] args) {
     	CardVO card = new CardVO("Spades", "Ace", 11);
     	System.out.println(card);
+
+//		BufferedImage cardFace = null;
+//		try
+//		{
+//		  cardFace = ImageIO.read(new File("images/cardBack.png"));
+//		}
+//		catch (Exception e)
+//		{
+//		  e.printStackTrace();
+//		  System.exit(1);
+//		}
     }
 }

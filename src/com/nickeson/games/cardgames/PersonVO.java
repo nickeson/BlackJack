@@ -8,7 +8,7 @@ import java.util.List;
 
 /****************************************************************************
  * <b>Title</b>: PersonVO.java <p/>
- * <b>Project</b>: game_of_21 <p/>
+ * <b>Project</b>: Blackjack <p/>
  * <b>Description: </b> A class to model a PersonVO for game play<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>

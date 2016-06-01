@@ -7,7 +7,7 @@ import java.util.List;
 
 /****************************************************************************
  * <b>Title</b>: Hand.java <p/>
- * <b>Project</b>: game_of_21 <p/>
+ * <b>Project</b>: Blackjack <p/>
  * <b>Description: </b> A Player's Collection of Playing Cards<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>

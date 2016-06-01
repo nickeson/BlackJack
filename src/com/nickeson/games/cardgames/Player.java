@@ -10,7 +10,7 @@ import com.nickeson.games.cardgames.CardVO;
 
 /****************************************************************************
  * <b>Title</b>: Player.java <p/>
- * <b>Project</b>: game_of_21 <p/>
+ * <b>Project</b>: Blackjack <p/>
  * <b>Description: </b> A subclass of PersonVO for use in game play<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
