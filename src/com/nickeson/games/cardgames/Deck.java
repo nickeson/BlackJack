@@ -20,49 +20,49 @@ import java.util.List;
 public interface Deck {
 
 	/**
-	 * add a CardVO to the Deck
+	 * add a Card to the Deck
 	 */
-	public void addCard(CardVO card);
+	public void addCard(Card card);
 	
 	/**
-	 * add multiple CardVO to the Deck
+	 * add multiple Card to the Deck
 	 */
-	public void addCards(List<CardVO> cards);
+	public void addCards(List<Card> cards);
 	
 	/**
-	 * @return the next CardVO in the Deck
+	 * @return the next Card in the Deck
 	 */
-	public CardVO getCard();
+	public Card getCard();
 	
 	/**
-	 * @param cardLoc
-	 * @return the CardVO at the location specified by deckLoc
+	 * @param deckLoc
+	 * @return the Card at the location specified by deckLoc
 	 */
-	public CardVO getCard(int deckLoc);
+	public Card getCard(int deckLoc);
 	
 	/**
-	 * @return the specific CardVO referenced by card, remove from deck and add
+	 * @return the specific Card referenced by card, remove from deck and add
 	 * to inUse pile
 	 */
-	public CardVO getCard(CardVO card);
+	public Card getCard(Card card);
 	
 	/**
-	 * @return List of the CardVO in the Deck
+	 * @return List of the Card in the Deck
 	 */
-	public List<CardVO> getDeck();
+	public List<Card> getDeck();
 	
 	/**
-	 * @return a CardVO from a random location in the Deck
+	 * @return a Card from a random location in the Deck
 	 */
-	public CardVO getRandom();
+	public Card getRandom();
 	
 	/**
-	 * remove a specific CardVO from the Deck
+	 * remove a specific Card from the Deck
 	 */
-	public void removeCard(CardVO card);
+	public void removeCard(Card card);
 	
 	/**
-	 * add all CardVO from discard pile back to Deck
+	 * add all Card from discard pile back to Deck
 	 */
 	public void addDiscards();
 	
@@ -77,12 +77,12 @@ public interface Deck {
 	public void sort();
 	
 	/**
-	 * @return the number of CardVO in the Deck
+	 * @return the number of Card in the Deck
 	 */
 	public int size();
 	
 	/**
-	 * remove all CardVO from discard and inUse piles and add back to Deck
+	 * remove all Card from discard and inUse piles and add back to Deck
 	 */
 	public void reInitialize();
 }

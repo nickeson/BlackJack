@@ -18,7 +18,7 @@ package com.nickeson.games.cardgames;
  * @since May 17, 2016<p/>
  * updates:
  ****************************************************************************/
-public class CardVO implements Comparable<CardVO> {
+public class Card implements Comparable<Card> {
 
     private String suit = null;
     private String rank = null;
@@ -30,7 +30,7 @@ public class CardVO implements Comparable<CardVO> {
      * @param rank
      * @param value
      */
-    public CardVO(String suit, String rank, int value) {
+    public Card(String suit, String rank, int value) {
     
         this.suit = suit; 
         this.rank = rank;
@@ -120,7 +120,7 @@ public class CardVO implements Comparable<CardVO> {
     }
 
     // required to implement Comparator class
-    public int compareTo(CardVO c) {
+    public int compareTo(Card c) {
    	String currSuit = this.suit;
   	String compSuit = c.getSuit();
 		int c1 = currSuit.compareTo(compSuit);
@@ -145,7 +145,7 @@ public class CardVO implements Comparable<CardVO> {
 
     // unit test
     public static void main(String[] args) {
-    	CardVO card = new CardVO("Spades", "Ace", 11);
+    	Card card = new Card("Spades", "Ace", 11);
     	System.out.println(card);
 
 //		BufferedImage cardFace = null;

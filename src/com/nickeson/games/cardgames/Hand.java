@@ -17,8 +17,8 @@ import java.util.List;
  * updates:
  ****************************************************************************/
 
-public class Hand<T extends CardVO> {
-	List<CardVO> hand;
+public class Hand<T extends Card> {
+	List<Card> hand;
 	int score;
 	
 	/**
@@ -26,7 +26,7 @@ public class Hand<T extends CardVO> {
 	 * blank hand
 	 */
 	public Hand() {
-		hand = new ArrayList<CardVO>();
+		hand = new ArrayList<Card>();
 	}
 	
 	/**
@@ -46,7 +46,7 @@ public class Hand<T extends CardVO> {
 	/**
 	 * @return the hand
 	 */
-	public List<CardVO> getHand() {
+	public List<Card> getHand() {
 		return hand;
 	}
 
@@ -54,7 +54,7 @@ public class Hand<T extends CardVO> {
 	 * setup a hand of indeterminate size by assigning a List<PlayingCardVO> object
 	 * @param hand
 	 */
-	public void setHand(List<CardVO> hand) {
+	public void setHand(List<Card> hand) {
 		this.hand = hand;
 	}
 	
@@ -62,7 +62,7 @@ public class Hand<T extends CardVO> {
 	 * Add a specific PlayingCardVO to the hand instance
 	 * @param c
 	 */
-	public void addCard(CardVO c) {
+	public void addCard(Card c) {
 		hand.add(c);
 	}
 	
@@ -70,7 +70,7 @@ public class Hand<T extends CardVO> {
 	 * Remove a specific PlayingCardVO from the hand instance
 	 * @param c
 	 */
-	public void removeCard(CardVO c) {
+	public void removeCard(Card c) {
 		hand.remove(c);
 	}
 	

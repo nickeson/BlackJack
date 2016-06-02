@@ -17,22 +17,22 @@ import java.util.HashMap;
  * updates:
  ****************************************************************************/
 
-public class DeckOptionsVO {
+public class DeckOptions {
 	public static final Map<String, Object> deckOpt = new HashMap<String, Object>();
 
-	public DeckOptionsVO() {
+	public DeckOptions() {
 		// a standard deck has 2 Jokers
 		deckOpt.put("stdDeckNumJokers", new Integer(2));
 	}
 	
 	/**
-	 * @return the options from the DeckOptionsMapVO
+	 * @return the options from the DeckOptionsMap as Map
 	 */
-	public Map<String, Object> getDeckOptions() {
+	public static Map<String, Object> getDeckOptions() {
 		return deckOpt;
 	}
 	
 	// unit test
-	public static void main(String[] args) {
-	}
+//	public static void main(String[] args) {
+//	}
 }

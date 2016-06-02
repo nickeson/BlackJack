@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.nickeson.games.cardgames.CardVO;
+import com.nickeson.games.cardgames.Card;
 
 //JDK 1.8.0
 
 /****************************************************************************
  * <b>Title</b>: Player.java <p/>
  * <b>Project</b>: Blackjack <p/>
- * <b>Description: </b> A subclass of PersonVO for use in game play<p/>
+ * <b>Description: </b> A subclass of Person for use in game play<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -20,16 +20,16 @@ import com.nickeson.games.cardgames.CardVO;
  * updates:
  ****************************************************************************/
 
-public class Player extends PersonVO {
+public class Player extends Person {
 	
 	private int acctBalance = 0; // whole dollar values only for our card game(s)
 	private int winBalance = 0;
-	private Hand<CardVO> hand;
+	private Hand<Card> hand;
 	
 	/**
 	 * default no-arg constructor calls the super constructor which then 
 	 * reminds user that a minimum of firstName, lastName is required to instantiate
-	 * a PersonVO (or Player, in this case)
+	 * a Person (or Player, in this case)
 	 */
 	public Player() {
 		super();
@@ -56,7 +56,7 @@ public class Player extends PersonVO {
 	}
 	
 	/**
-	 * constructor allows all PersonVO fields to be set upon instantiation of Player
+	 * constructor allows all Person fields to be set upon instantiation of Player
 	 * @param firstName
 	 * @param lastName
 	 * @param age
@@ -68,7 +68,7 @@ public class Player extends PersonVO {
 	}
 	
 	/**
-	 * constructor allows all PersonVO fields to be set upon instantiation of Player
+	 * constructor allows all Person fields to be set upon instantiation of Player
 	 * @param firstName
 	 * @param lastName
 	 * @param age
@@ -80,7 +80,7 @@ public class Player extends PersonVO {
 		super(firstName, lastName, age, genderIdentity, nickNames);
 	}
 	
-	/** set the Player's firstName (variable inherited from PersonVO.java)
+	/** set the Player's firstName (variable inherited from Person.java)
 	 * @param firstName
 	 */
 	public void setFirstName(String firstName) {
@@ -88,13 +88,13 @@ public class Player extends PersonVO {
 	}
 	
 	/**
-	 * @return the Player's firstName (variable inherited from PersonVO.java)
+	 * @return the Player's firstName (variable inherited from Person.java)
 	 */
 	public String getFirstName() {
 		return super.getFirstName();
 	}
 	
-	/** set the Player's lastName (variable inherited from PersonVO.java)
+	/** set the Player's lastName (variable inherited from Person.java)
 	 * @param lastName
 	 */
 	public void setLastName(String lastName) {
@@ -102,14 +102,14 @@ public class Player extends PersonVO {
 	}
 	
 	/**
-	 * @return the Player's lastName (variable inherited from PersonVO.java)
+	 * @return the Player's lastName (variable inherited from Person.java)
 	 */
 	public String getLastName() {
 		return super.getLastName();
 	}
 	
 	/**
-	 * set the Player's age (variable inherited from PersonVO.java)
+	 * set the Player's age (variable inherited from Person.java)
 	 * @param age
 	 */
 	public void setAge(int age) {
@@ -117,14 +117,14 @@ public class Player extends PersonVO {
 	}
 	
 	/**
-	 * @return the Player's age (variable inherited from PersonVO.java)
+	 * @return the Player's age (variable inherited from Person.java)
 	 */
 	public int getAge() {
 		return super.getAge();
 	}
 	
 	/**
-	 * set the Player's genderIdentity (variable inherited from PersonVO.java)
+	 * set the Player's genderIdentity (variable inherited from Person.java)
 	 * @param genderIdentity
 	 */
 	public void setGenderIdentity(String genderIdentity) {
@@ -132,7 +132,7 @@ public class Player extends PersonVO {
 	}
 	
 	/**
-	 * @return the Player's genderIdentity (variable inherited from PersonVO.java)
+	 * @return the Player's genderIdentity (variable inherited from Person.java)
 	 */
 	public String getGenderIdentity() {
 		return super.getGenderIdentity();
@@ -171,7 +171,7 @@ public class Player extends PersonVO {
 	/**
 	 * @return the hand
 	 */
-	public Hand<CardVO> getHand() {
+	public Hand<Card> getHand() {
 		return hand;
 	}
 
@@ -179,12 +179,12 @@ public class Player extends PersonVO {
 	 * set the Player's hand
 	 * @param hand
 	 */
-	public void setHand(Hand<CardVO> hand) {
+	public void setHand(Hand<Card> hand) {
 		this.hand = hand;
 	}
 	
 	/**
-	 * Override toString() to print PersonVO's field values, rather than hashcode
+	 * Override toString() to print Person's field values, rather than hashcode
 	 */
 	@Override
 	public String toString() {

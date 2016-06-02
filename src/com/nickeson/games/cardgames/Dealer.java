@@ -64,14 +64,14 @@ public class Dealer extends Player {
 	}
 	
 	/**
-	 * constructor allows all PersonVO fields to be set upon instantiation of Player/Dealer
+	 * constructor allows all Person fields to be set upon instantiation of Player/Dealer
 	 */
 	public Dealer(String firstName, String lastName, int age, 
 			String genderIdentity, List<String> nickNames) {
 		super(firstName, lastName, age, genderIdentity, nickNames);
 	}
 	
-	/** set the Dealer's firstName (variable inherited from PersonVO.java)
+	/** set the Dealer's firstName (variable inherited from Person.java)
 	 * @param firstName
 	 */
 	public void setFirstName(String firstName) {
@@ -79,13 +79,13 @@ public class Dealer extends Player {
 	}
 	
 	/**
-	 * @return the Dealer's firstName (variable inherited from PersonVO.java)
+	 * @return the Dealer's firstName (variable inherited from Person.java)
 	 */
 	public String getFirstName() {
 		return super.getFirstName();
 	}
 	
-	/** set the Dealer's lastName (variable inherited from PersonVO.java)
+	/** set the Dealer's lastName (variable inherited from Person.java)
 	 * @param lastName
 	 */
 	public void setLastName(String lastName) {
@@ -93,14 +93,14 @@ public class Dealer extends Player {
 	}
 	
 	/**
-	 * @return the Dealer's lastName (variable inherited from PersonVO.java)
+	 * @return the Dealer's lastName (variable inherited from Person.java)
 	 */
 	public String getLastName() {
 		return super.getLastName();
 	}
 	
 	/**
-	 * set the Dealer's age (variable inherited from PersonVO.java)
+	 * set the Dealer's age (variable inherited from Person.java)
 	 * @param age
 	 */
 	public void setAge(int age) {
@@ -108,14 +108,14 @@ public class Dealer extends Player {
 	}
 	
 	/**
-	 * @return the Dealer's age (variable inherited from PersonVO.java)
+	 * @return the Dealer's age (variable inherited from Person.java)
 	 */
 	public int getAge() {
 		return super.getAge();
 	}
 	
 	/**
-	 * set the Dealer's genderIdentity (variable inherited from PersonVO.java)
+	 * set the Dealer's genderIdentity (variable inherited from Person.java)
 	 * @param genderIdentity
 	 */
 	public void setGenderIdentity(String genderIdentity) {
@@ -123,7 +123,7 @@ public class Dealer extends Player {
 	}
 	
 	/**
-	 * @return the Dealer's genderIdentity (variable inherited from PersonVO.java)
+	 * @return the Dealer's genderIdentity (variable inherited from Person.java)
 	 */
 	public String getGenderIdentity() {
 		return super.getGenderIdentity();
@@ -133,15 +133,15 @@ public class Dealer extends Player {
 	 * set the Dealer's hand
 	 * @param hand
 	 */
-	public void setHand(Hand<CardVO> hand) {
+	public void setHand(Hand<Card> hand) {
 		super.setHand(hand);
 	}
 	
 	/**
 	 * @return the Dealer's hand
 	 */
-	public Hand<CardVO> getHand() {
-		Hand<CardVO> hand = super.getHand();
+	public Hand<Card> getHand() {
+		Hand<Card> hand = super.getHand();
 		return hand;
 	}
 
@@ -191,7 +191,7 @@ public class Dealer extends Player {
 	
 	/**
 	 * Override the toString() method to print specific String when the Dealer
-	 * is the PC and not a human PersonVO/Player, otherwise print Dealer's field
+	 * is the PC and not a human Person/Player, otherwise print Dealer's field
 	 * values as Strings, rather than hashcode
 	 */
 	@Override

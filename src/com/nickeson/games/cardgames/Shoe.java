@@ -20,7 +20,7 @@ import java.util.List;
 
 public class Shoe {
 
-	private List<CardVO> shoe = new ArrayList<CardVO>();
+	private List<Card> shoe = new ArrayList<Card>();
 //	private static String[] cardSuits = new String[4];	 
 //	private static String[] cardRanks = new String[13];
 //	private static String[] cardValues = new String[13];
@@ -49,40 +49,40 @@ public class Shoe {
 	}
 	
 	/**
-	 * @return the next CardVO in the Shoe (starting with top card[0])
+	 * @return the next Card in the Shoe (starting with top card[0])
 	 */
-	public CardVO getCard() {
-		CardVO result = null;
+	public Card getCard() {
+		Card result = null;
 		return result;
 	}
 	
 	/**
 	 * @param shoeLoc
-	 * @return the CardVO from specific location (shoeLoc) in Shoe 
+	 * @return the Card from specific location (shoeLoc) in Shoe 
 	 */
-	public CardVO getCard(int shoeLoc) {
-		CardVO result = null;
+	public Card getCard(int shoeLoc) {
+		Card result = null;
 		return result;
 	}
 	
 	/**
 	 * @return the List of Playing Cards in the Shoe
 	 */
-	public List<CardVO> getShoe() {
+	public List<Card> getShoe() {
         return shoe;
     }
 	
 	/**
-	 * @return a CardVO from a random location in the Shoe
+	 * @return a Card from a random location in the Shoe
 	 */
-	public CardVO getRandom() {
-		CardVO result = null;
+	public Card getRandom() {
+		Card result = null;
 		return result;
 	}
 	
 	/**
 	 * remove a specific card from the Shoe at location cardLoc
-	 * @param card
+	 * @param cardLoc
 	 */
 	public void removeCard(int cardLoc) {
 	}
