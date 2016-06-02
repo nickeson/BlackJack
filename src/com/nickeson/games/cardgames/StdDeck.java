@@ -81,7 +81,6 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * add a Card to the Deck
 	 * @param card a Card to add to the Deck
 	 */
 	public void addCard(Card card) {
@@ -89,7 +88,6 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * add multiple Cards to the Deck
 	 * @param cards a List of one or more Cards to add to the Deck
 	 */
 	public void addCards(List<Card> cards) {
@@ -101,7 +99,7 @@ public class StdDeck implements Deck {
 	/**
 	 * Get the next Card in the Deck (starting with top Card [0]). Move card to
 	 * inUse pile and remove from Deck
-	 * @return Card
+	 * @return Card - the Card to get from the Deck
 	 */
 	public Card getCard() {
 		Card nextCard = null;
@@ -118,8 +116,8 @@ public class StdDeck implements Deck {
 	
 	/**
 	 * remove Card from Deck at 'deckLoc' and add to inUse pile
-	 * @param deckLoc the location in the deck from which to remove the Card
-	 * @return Card
+	 * @param deckLoc the location in the Deck from which to remove the Card
+	 * @return Card - the Card to get from the Deck
 	 */
 	public Card getCard(int deckLoc) {
 		Card card = null;
@@ -137,7 +135,7 @@ public class StdDeck implements Deck {
 	/**
 	 * return the specific Card, remove Card from Deck and add to inUse pile
 	 * @param card the specific Card to get from the Deck
-	 * @return Card
+	 * @return Card - the Card to get from the Deck
 	 */
 	public Card getCard(Card card) {
 		if (!deck.isEmpty()) {
@@ -158,18 +156,17 @@ public class StdDeck implements Deck {
 	}
 	
 	/** 
-	 * return a List of the Cards in the Deck
-	 * (Does not remove cards from Deck (or move to inUse or discards)
-	 * @return List<Card>
+	 * (Does not remove cards from the Deck (or move to inUse or discards)
+	 * @return List<Card> - a List of Cards in the Deck
 	 */
 	public List<Card> getDeck() {
 		return deck;
 	}
 	
 	/**
-	 * return a Card from a random location in the Deck, remove from Deck and 
+	 * return a Card from a random location in the Deck, remove from the Deck and 
 	 * add to inUse pile
-	 * @return Card
+	 * @return Card - the randomly drawn Card to get from the Deck
 	 */
 	public Card getRandom() {
 		Card card = null;
@@ -208,7 +205,7 @@ public class StdDeck implements Deck {
 
 
 	/**
-	 * remove specified Card from Deck or inUse pile to the discards pile
+	 * remove specified Card from the Deck or inUse pile to the discards pile
 	 * @param card the specific Card to discard
 	 */
 	public void discard(Card card) {
@@ -225,7 +222,7 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * move all Cards from discard pile back to Deck
+	 * move all Cards from discard pile back to the Deck
 	 */
 	public void addDiscards() {
 		if (!discards.isEmpty()) {
@@ -245,23 +242,15 @@ public class StdDeck implements Deck {
 		Collections.shuffle(deck);
 	}
 	
-//	/**
-//	 * ** NEEDS WORK **
-//	 * sort the Deck
-//	 */
-//	public void sort() {
-//		Collections.sort(deck);
-//	}
-	
 	/**
-	 * return the number of Cards in the Deck
+	 * @return size - the number of Cards in the Deck
 	 */
 	public int size() {
 		return deck.size();
 	}
 	
 	/**
-	 * remove all Cards from discard and inUse piles and add back to Deck, shuffle
+	 * remove all Cards from discard and inUse piles and add back to the Deck, shuffle
 	 */
 	public void reInitialize() {
 		for (Card c : inUse) {
@@ -276,7 +265,7 @@ public class StdDeck implements Deck {
 	}
 
 	/**
-	 * Override toString() method to print Deck's String values instead of hashcode
+	 * Override toString() method to print the Deck's String values instead of hashcode
 	 */
 	@Override
 	public String toString() {

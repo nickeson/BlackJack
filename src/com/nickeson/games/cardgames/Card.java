@@ -40,7 +40,7 @@ public class Card {
     }
 
 	/**
-	 * @return the Card suit
+	 * @return Card - the Card's suit
 	 */
 	public String getSuit() {
 		return suit;
@@ -54,7 +54,7 @@ public class Card {
 	}
 
 	/**
-	 * @return the Card rank
+	 * @return Card - the Card's rank
 	 */
 	public String getRank() {
 		return rank;
@@ -68,7 +68,7 @@ public class Card {
 	}
 	
 	/**
-	 * @return the Card value
+	 * @return Card - the Card's value
 	 */
 	public int getValue() {
 		return value;
@@ -82,7 +82,7 @@ public class Card {
 	}
 
 	/**
-	 * @return boolean Card suit comparison
+	 * @return boolean - a Card suit comparison
 	 */
 	public boolean isSuit(String suit) {
 		if (this.suit == null || this.suit.length() == 0) return false;
@@ -90,7 +90,7 @@ public class Card {
 	}
 	
 	/**
-	 * @return boolean Card rank comparison
+	 * @return boolean - a Card rank comparison
 	 */
 	public boolean isRank(String rank) {
 		if (this.rank == null || this.rank.length() == 0) return false;
@@ -98,7 +98,7 @@ public class Card {
 	}
 	
 	/**
-	 * @return boolean Card value comparison
+	 * @return boolean - a Card value comparison
 	 */
 	public boolean isValue(int value) {
 		if (this.value == 0) return false;
@@ -106,7 +106,7 @@ public class Card {
 	}
 	
 	/**
-     * print Card suits and values, rather than hashcode
+     * print Card suit and rank, rather than hashcode
      */
     @Override
     public String toString() {

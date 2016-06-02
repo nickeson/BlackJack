@@ -1,10 +1,8 @@
 package com.nickeson.games.cardgames;
 
-//import java.util.ArrayList;
-//import java.util.Arrays;
+import java.time.LocalDate;
 import java.util.List;
-
-import com.nickeson.games.cardgames.Player;
+import com.nickeson.games.Player;
 import com.nickeson.games.cardgames.Shoe;
 
 //JDK 1.8.0
@@ -40,34 +38,34 @@ public class Dealer extends Player {
 	}
 	
 	/**
-	 * convenience constructor allows first and last name & age fields to be set
+	 * convenience constructor allows first and last name & birthday fields to be set
 	 * upon instantiation of a Player/Dealer
 	 * @param firstName
 	 * @param lastName
-	 * @param age
+	 * @param birthday
 	 */
-	public Dealer(String firstName, String lastName, int age) {
-		super(firstName, lastName, age);
+	public Dealer(String firstName, String lastName, String birthday) {
+		super(firstName, lastName, birthday);
 	}
 	
 	/**
-	 * convenience constructor allows first & last names, age and genderIdentity
+	 * convenience constructor allows first & last names, birthday and genderIdentity
 	 * fields to be set upon instantiation of a Player/Dealer
 	 * @param firstName
 	 * @param lastName
-	 * @param age
+	 * @param birthday
 	 * @param genderIdentity
 	 */
-	public Dealer(String firstName, String lastName, int age, String genderIdentity) {
-		super(firstName, lastName, age, genderIdentity);
+	public Dealer(String firstName, String lastName, String birthday, String genderIdentity) {
+		super(firstName, lastName, birthday, genderIdentity);
 	}
 	
 	/**
 	 * constructor allows all Person fields to be set upon instantiation of Player/Dealer
 	 */
-	public Dealer(String firstName, String lastName, int age, 
+	public Dealer(String firstName, String lastName, String birthday, 
 			String genderIdentity, List<String> nickNames) {
-		super(firstName, lastName, age, genderIdentity, nickNames);
+		super(firstName, lastName, birthday, genderIdentity, nickNames);
 	}
 	
 	/** set the Dealer's firstName (variable inherited from Person.java)
@@ -99,18 +97,18 @@ public class Dealer extends Player {
 	}
 	
 	/**
-	 * set the Dealer's age (variable inherited from Person.java)
-	 * @param age
+	 * set the Dealer's birthday (variable inherited from Person.java)
+	 * @param birthday
 	 */
-	public void setAge(int age) {
-		super.setAge(age);
+	public void setDOB(String birthday) {
+		super.setDOB(birthday);
 	}
 	
 	/**
-	 * @return the Dealer's age (variable inherited from Person.java)
+	 * @return the Dealer's birthday (variable inherited from Person.java)
 	 */
-	public int getAge() {
-		return super.getAge();
+	public LocalDate getDOB() {
+		return super.getDOB();
 	}
 	
 	/**
@@ -199,7 +197,7 @@ public class Dealer extends Player {
 		if ((getFirstName().equals("Dealer")) && (getLastName().equals("(PC)"))){
 			result = "The PC is the Dealer";
 		} else {
-			result = getFirstName() + " " + getLastName() + " is " + getAge() + 
+			result = getFirstName() + " " + getLastName() + " is " + getDOB() + 
 					" years old, " + getGenderIdentity() + 
 					", and is also known as: " + getNickNames() +
 					".  Account Balance: $" + getAcctBalance();
@@ -208,12 +206,6 @@ public class Dealer extends Player {
 	}
 	
 	// unit test method
-	public static void main(String[] args) {
-		Dealer tmpDealer = new Dealer();
-		System.out.println(tmpDealer);
-		
-		System.out.println("");
-		
-		// default Shoe is 6 decks, no Jokers, shuffled
-	}
+//	public static void main(String[] args) {
+//	}
 }

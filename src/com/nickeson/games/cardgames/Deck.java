@@ -7,8 +7,8 @@ import java.util.List;
 /****************************************************************************
  * <b>Title</b>: Deck.java <p/>
  * <b>Project</b>: Blackjack <p/>
- * <b>Description: </b> A generic interface for collections of Playing Cards
- * for use in various games.<p/>
+ * <b>Description: </b> An interface for a collection of Playing Cards (Deck)
+ * for use in various card games.<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -20,47 +20,44 @@ import java.util.List;
 public interface Deck {
 
 	/**
-	 * add a Card to the Deck
 	 * @param card a Card to add to the Deck
 	 */
 	public void addCard(Card card);
 	
 	/**
-	 * add multiple Cards to the Deck
 	 * @param cards a List of one or more Cards to add to the Deck
 	 */
 	public void addCards(List<Card> cards);
 	
 	/**
-	 * remove next Card from Deck and add to inUse pile
-	 * @return Card
+	 * remove next Card from the Deck and add to inUse pile
+	 * @return Card - the next Card in the Deck
 	 */
 	public Card getCard();
 	
 	/**
-	 * remove Card from Deck at 'deckLoc' and add to inUse pile
-	 * @param deckLoc the location in the deck from which to remove the Card
-	 * @return Card
+	 * remove Card from the Deck at 'deckLoc' and add to inUse pile
+	 * @param deckLoc the location in the Deck from which to remove the Card
+	 * @return Card - the Card to get from the Deck
 	 */
 	public Card getCard(int deckLoc);
 	
 	/**
-	 * remove a specific Card from Deck and add to inUse pile
+	 * remove a specific Card from the Deck and add to inUse pile
 	 * @param card the specific Card to get from the Deck
-	 * @return Card
+	 * @return Card - the Card to get from the Deck
 	 */
 	public Card getCard(Card card);
 	
 	/**
-	 * return a List of the Cards in the Deck - 
-	 * (Does not remove cards from Deck or move to inUse or discards)
-	 * @return List<Card>
+	 * (Does not remove cards from the Deck or move to inUse or discards)
+	 * @return List<Card> - a List of Cards in the the Deck
 	 */
 	public List<Card> getDeck();
 	
 	/**
-	 * remove Card from Deck and add to inUse pile
-	 * @return Card
+	 * remove Card at random from the Deck and add to inUse pile
+	 * @return Card - the randomly drawn Card to get from the Deck
 	 */
 	public Card getRandom();
 	
@@ -71,7 +68,7 @@ public interface Deck {
 	public void removeCard(Card card);
 	
 	/**
-	 * add all Cards from discard pile back to Deck
+	 * add all Cards from discard pile to the Deck
 	 */
 	public void addDiscards();
 	
@@ -81,13 +78,12 @@ public interface Deck {
 	public void shuffle();
 	
 	/**
-	 * return the number of Cards in the deck
-	 * @return size
+	 * @return size - the number of Cards in the Deck
 	 */
 	public int size();
 	
 	/**
-	 * remove all Cards from discard and inUse piles and add back to Deck, shuffle
+	 * remove all Cards from discard and inUse piles and add to the Deck, shuffle
 	 */
 	public void reInitialize();
 }

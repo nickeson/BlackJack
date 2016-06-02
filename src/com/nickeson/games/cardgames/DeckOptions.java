@@ -7,8 +7,8 @@ import java.util.HashMap;
 
 /****************************************************************************
  * <b>Title</b>: DeckOptionsMap.java <p/>
- * <b>Project</b>: Blackjack <p/>
- * <b>Description: </b> A map of options for building a cardgame Deck<p/>
+ * <b>Project</b>: Card Games <p/>
+ * <b>Description: </b> A map of options for building a Deck of Playing Cards<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -18,15 +18,19 @@ import java.util.HashMap;
  ****************************************************************************/
 
 public class DeckOptions {
+
 	public static Map<String, Object> deckOpt = new HashMap<String, Object>();
 
+	/**
+	 * default constructor defines Deck options
+	 */
 	public DeckOptions() {
-		// a standard deck has 2 Jokers
+		// a standard Deck has 2 Jokers
 		deckOpt.put("stdDeckNumJokers", new Integer(2));
 	}
 	
 	/**
-	 * @return the options from the DeckOptionsMap as Map
+	 * @return the options from DeckOptions as a Map object
 	 */
 	public static Map<String, Object> getDeckOptions() {
 		return deckOpt;

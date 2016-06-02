@@ -1,10 +1,10 @@
-package com.nickeson.games.cardgames;
+package com.nickeson.games;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.time.LocalDate;
 import java.util.List;
-
+import com.nickeson.Person;
 import com.nickeson.games.cardgames.Card;
+import com.nickeson.games.cardgames.Hand;
 
 //JDK 1.8.0
 
@@ -45,39 +45,39 @@ public class Player extends Person {
 	}
 	
 	/**
-	 * constructor allows first and last name fields and age to be set upon
+	 * constructor allows first and last name fields and birthday to be set upon
 	 * instantiation of Player
 	 * @param firstName
 	 * @param lastName
-	 * @param age
+	 * @param birthday
 	 */
-	public Player(String firstName, String lastName, int age) {
-		super(firstName, lastName, age);
+	public Player(String firstName, String lastName, String birthday) {
+		super(firstName, lastName, birthday);
 	}
 	
 	/**
 	 * constructor allows all Person fields to be set upon instantiation of Player
 	 * @param firstName
 	 * @param lastName
-	 * @param age
+	 * @param birthday
 	 * @param genderIdentity
 	 */
-	public Player(String firstName, String lastName, int age, 
+	public Player(String firstName, String lastName, String birthday, 
 			String genderIdentity) {
-		super(firstName, lastName, age, genderIdentity);
+		super(firstName, lastName, birthday, genderIdentity);
 	}
 	
 	/**
 	 * constructor allows all Person fields to be set upon instantiation of Player
 	 * @param firstName
 	 * @param lastName
-	 * @param age
+	 * @param birthday
 	 * @param genderIdentity
 	 * @param nickNames
 	 */
-	public Player(String firstName, String lastName, int age, 
+	public Player(String firstName, String lastName, String birthday, 
 			String genderIdentity, List<String> nickNames) {
-		super(firstName, lastName, age, genderIdentity, nickNames);
+		super(firstName, lastName, birthday, genderIdentity, nickNames);
 	}
 	
 	/** set the Player's firstName (variable inherited from Person.java)
@@ -109,18 +109,18 @@ public class Player extends Person {
 	}
 	
 	/**
-	 * set the Player's age (variable inherited from Person.java)
-	 * @param age
+	 * set the Player's birthday (variable inherited from Person.java)
+	 * @param birthday
 	 */
-	public void setAge(int age) {
-		super.setAge(age);
+	public void setDOB(String birthday) {
+		super.setDOB(birthday);
 	}
 	
 	/**
-	 * @return the Player's age (variable inherited from Person.java)
+	 * @return the Player's dob (variable inherited from Person.java)
 	 */
-	public int getAge() {
-		return super.getAge();
+	public LocalDate getDOB() {
+		return super.getDOB();
 	}
 	
 	/**
@@ -188,31 +188,13 @@ public class Player extends Person {
 	 */
 	@Override
 	public String toString() {
-		String result = getFirstName() + " " + getLastName() + " is " + getAge() + 
+		String result = getFirstName() + " " + getLastName() + " is " + getDOB() + 
 				" years old, " + getGenderIdentity() + 
 				", and is also known as: " + getNickNames() + 
 				".  Account Balance: $" + getAcctBalance();
 		return result;
 	}
 	// unit test main method
-	public static void main(String[] args) {
-		// what happens when we try to create a null Player?
-		//System.out.println(new Player());
-		
-		// create a sample Player & print out the values
-		Player testPlayer = new Player("Kris", "Nickeson", 39, "Male", 
-				(new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty"))));
-		testPlayer.setAcctBalance(50);
-		System.out.println(testPlayer);
-		
-		// create a sample player 'piecemeal'
-		Player testPlayer2 = new Player();
-		testPlayer2.setFirstName("Niya");
-		testPlayer2.setLastName("Nolting");	
-		testPlayer2.setAge(42);
-		testPlayer2.setGenderIdentity("Female");
-		testPlayer2.setNickNames(new ArrayList<String>(Arrays.asList("Li'l Shorty", "Sweetie")));
-		testPlayer2.setAcctBalance(40);
-		System.out.println(testPlayer2);
-	}
+//	public static void main(String[] args) {
+//	}
 }
