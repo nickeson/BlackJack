@@ -21,48 +21,57 @@ public interface Deck {
 
 	/**
 	 * add a Card to the Deck
+	 * @param card a Card to add to the Deck
 	 */
 	public void addCard(Card card);
 	
 	/**
-	 * add multiple Card to the Deck
+	 * add multiple Cards to the Deck
+	 * @param cards a List of one or more Cards to add to the Deck
 	 */
 	public void addCards(List<Card> cards);
 	
 	/**
-	 * @return the next Card in the Deck
+	 * remove next Card from Deck and add to inUse pile
+	 * @return Card
 	 */
 	public Card getCard();
 	
 	/**
-	 * @param deckLoc
-	 * @return the Card at the location specified by deckLoc
+	 * remove Card from Deck at 'deckLoc' and add to inUse pile
+	 * @param deckLoc the location in the deck from which to remove the Card
+	 * @return Card
 	 */
 	public Card getCard(int deckLoc);
 	
 	/**
-	 * @return the specific Card referenced by card, remove from deck and add
-	 * to inUse pile
+	 * remove a specific Card from Deck and add to inUse pile
+	 * @param card the specific Card to get from the Deck
+	 * @return Card
 	 */
 	public Card getCard(Card card);
 	
 	/**
-	 * @return List of the Card in the Deck
+	 * return a List of the Cards in the Deck - 
+	 * (Does not remove cards from Deck or move to inUse or discards)
+	 * @return List<Card>
 	 */
 	public List<Card> getDeck();
 	
 	/**
-	 * @return a Card from a random location in the Deck
+	 * remove Card from Deck and add to inUse pile
+	 * @return Card
 	 */
 	public Card getRandom();
 	
 	/**
-	 * remove a specific Card from the Deck
+	 * remove a specific Card from the Deck, inUse and discards piles 
+	 * @param card the specific Card to remove from the Deck
 	 */
 	public void removeCard(Card card);
 	
 	/**
-	 * add all Card from discard pile back to Deck
+	 * add all Cards from discard pile back to Deck
 	 */
 	public void addDiscards();
 	
@@ -72,12 +81,13 @@ public interface Deck {
 	public void shuffle();
 	
 	/**
-	 * @return the number of Card in the Deck
+	 * return the number of Cards in the deck
+	 * @return size
 	 */
 	public int size();
 	
 	/**
-	 * remove all Card from discard and inUse piles and add back to Deck
+	 * remove all Cards from discard and inUse piles and add back to Deck, shuffle
 	 */
 	public void reInitialize();
 }

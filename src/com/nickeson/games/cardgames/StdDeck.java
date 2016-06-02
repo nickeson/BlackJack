@@ -11,11 +11,11 @@ import java.util.Random;
 /****************************************************************************
  * <b>Title</b>: StdDeck.java <p/>
  * <b>Project</b>: Blackjack <p/>
- * <b>Description: </b> A standard card deck with and without Jokers<p/>
+ * <b>Description: </b> A Standard Playing Card Deck using options from DeckOptions<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
- * @version 1.0
+ * @version 2.0
  * @since May 17, 2016<p/>
  * updates:
  ****************************************************************************/
@@ -82,6 +82,7 @@ public class StdDeck implements Deck {
 	
 	/**
 	 * add a Card to the Deck
+	 * @param card a Card to add to the Deck
 	 */
 	public void addCard(Card card) {
 		deck.add(card);
@@ -89,6 +90,7 @@ public class StdDeck implements Deck {
 	
 	/**
 	 * add multiple Cards to the Deck
+	 * @param cards a List of one or more Cards to add to the Deck
 	 */
 	public void addCards(List<Card> cards) {
 		for (Card card : cards) {
@@ -97,9 +99,9 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * @return nextCard
 	 * Get the next Card in the Deck (starting with top Card [0]). Move card to
-	 * inUse pile and remove from deck
+	 * inUse pile and remove from Deck
+	 * @return Card
 	 */
 	public Card getCard() {
 		Card nextCard = null;
@@ -115,8 +117,8 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * return the Card at the location specified by deckLoc 
-	 * @param deckLoc
+	 * remove Card from Deck at 'deckLoc' and add to inUse pile
+	 * @param deckLoc the location in the deck from which to remove the Card
 	 * @return Card
 	 */
 	public Card getCard(int deckLoc) {
@@ -133,7 +135,8 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * return the specific Card, remove Card from deck and add to inUse pile
+	 * return the specific Card, remove Card from Deck and add to inUse pile
+	 * @param card the specific Card to get from the Deck
 	 * @return Card
 	 */
 	public Card getCard(Card card) {
@@ -154,8 +157,9 @@ public class StdDeck implements Deck {
 		}
 	}
 	
-	/** return a List of the Cards in the Deck
-	 * Does not remove cards from deck (or move to inUse or discards)
+	/** 
+	 * return a List of the Cards in the Deck
+	 * (Does not remove cards from Deck (or move to inUse or discards)
 	 * @return List<Card>
 	 */
 	public List<Card> getDeck() {
@@ -173,9 +177,9 @@ public class StdDeck implements Deck {
 //	}
 	
 	/**
-	 * return a Card from a random location in the Deck, remove from deck and 
+	 * return a Card from a random location in the Deck, remove from Deck and 
 	 * add to inUse pile
-	 * @return a Card from a random location in the Deck
+	 * @return Card
 	 */
 	public Card getRandom() {
 		Card card = null;
@@ -193,28 +197,29 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * remove a specific Card from the Deck (remove from deck, inUse and discards)
+	 * remove a specific Card from the Deck (remove from Deck, inUse and discards)
+	 * @param card the specific Card to remove from the Deck
 	 */
 	public void removeCard(Card card) {
-		if (deck.contains(card)) {
-			deck.remove(card);
+		if (deck.contains(card) || inUse.contains(card) || discards.contains(card)) {
+			if (deck.contains(card)) {
+				deck.remove(card);
+			}
+			if (inUse.contains(card)) {
+				inUse.remove(card);
+			}
+			if (discards.contains(card)) {
+				discards.remove(card);
+			}
 		} else {
 			System.out.println("The Deck does not contain your Card");
 		}
-		if (inUse.contains(card)) {
-			inUse.remove(card);
-		} else {
-			System.out.println("The inUse pile does not contain your Card");
-		}
-		if (discards.contains(card)) {
-			discards.remove(card);
-		} else {
-			System.out.println("The discards pile does not contain your Card");
-		}
 	}
-	
+
+
 	/**
-	 * @param card remove specified card from deck or inUse pile to the discards pile
+	 * remove specified Card from Deck or inUse pile to the discards pile
+	 * @param card the specific Card to discard
 	 */
 	public void discard(Card card) {
 		discards.add(card);
@@ -233,10 +238,14 @@ public class StdDeck implements Deck {
 	 * move all Cards from discard pile back to Deck
 	 */
 	public void addDiscards() {
-		for (Card c : discards) {
-			deck.add(c);
+		if (!discards.isEmpty()) {
+			for (Card c : discards) {
+				deck.add(c);
+			}
+				discards.clear();
+		} else {
+			System.out.println("The discard pile is empty");
 		}
-			discards.clear();
 	}
 	
 	/**
@@ -255,14 +264,14 @@ public class StdDeck implements Deck {
 //	}
 	
 	/**
-	 * @return the number of Cards in the Deck
+	 * return the number of Cards in the Deck
 	 */
 	public int size() {
 		return deck.size();
 	}
 	
 	/**
-	 * remove all Cards from discard and inUse piles and add back to Deck
+	 * remove all Cards from discard and inUse piles and add back to Deck, shuffle
 	 */
 	public void reInitialize() {
 		for (Card c : inUse) {
@@ -273,10 +282,11 @@ public class StdDeck implements Deck {
 		}
 		inUse.clear();
 		discards.clear();
+		Collections.shuffle(deck);
 	}
 
 	/**
-	 * Override toString method to print Deck's String values instead of hashcode
+	 * Override toString() method to print Deck's String values instead of hashcode
 	 */
 	@Override
 	public String toString() {
@@ -331,7 +341,7 @@ public class StdDeck implements Deck {
 //		System.out.println(randCard);
 		
 		// test addDiscards()
-//		System.out.println("Initial Deck: " + mainDeck); // print initial deck
+//		System.out.println("Initial Deck: " + mainDeck); // print initial Deck
 //		Card one = mainDeck.getCard(0); // get 3 cards (move from main deck to inUse deck)
 //		Card two = mainDeck.getCard(0);	
 //		Card three = mainDeck.getCard(0);		
@@ -347,5 +357,13 @@ public class StdDeck implements Deck {
 //		System.out.println(mainDeck.getInUse()); // print inUse deck	
 //		mainDeck.addDiscards();
 //		System.out.println("After re-initializing: " + mainDeck);
+		
+		// test removeCard()
+//		Card mos = new Card("Spades", "Master", 1);
+//		mainDeck.addCard(mos);
+//		System.out.println("Added Master of Spades: " + mainDeck);
+//		mainDeck.removeCard(mos);
+//		System.out.println(mainDeck);
+//		mainDeck.removeCard(mos);	
 //	}
 }

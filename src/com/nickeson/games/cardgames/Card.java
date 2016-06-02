@@ -9,7 +9,7 @@ package com.nickeson.games.cardgames;
 
 /****************************************************************************
  * <b>Title</b>: Card.java <p/>
- * <b>Project</b>: Blackjack <p/>
+ * <b>Project</b>: Card Games <p/>
  * <b>Description: </b> A class to define a Playing Card<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
@@ -18,7 +18,9 @@ package com.nickeson.games.cardgames;
  * @since May 17, 2016<p/>
  * updates:
  ****************************************************************************/
-public class Card implements Comparable<Card> {
+
+//public class Card implements Comparable<Card> {
+public class Card {
 
     private String suit = null;
     private String rank = null;
@@ -26,9 +28,9 @@ public class Card implements Comparable<Card> {
     
     /**
      * constructor requires Card suit, rank, value to be passed (at minimum)
-     * @param suit
-     * @param rank
-     * @param value
+     * @param suit the Card's suit
+     * @param rank the Card's rank
+     * @param value the Card's value
      */
     public Card(String suit, String rank, int value) {
     
@@ -38,49 +40,49 @@ public class Card implements Comparable<Card> {
     }
 
 	/**
-	 * @return the suit
+	 * @return the Card suit
 	 */
 	public String getSuit() {
 		return suit;
 	}
 	
 	/**
-	 * @param suit the suit to set
+	 * @param suit the Card suit to set
 	 */
 	public void setSuit(String suit) {
 		this.suit = suit;
 	}
 
 	/**
-	 * @return the rank
+	 * @return the Card rank
 	 */
 	public String getRank() {
 		return rank;
 	}
 
 	/**
-	 * @param rank the rank to set
+	 * @param rank the Card rank to set
 	 */
 	public void setRank(String rank) {
 		this.rank = rank;
 	}
 	
 	/**
-	 * @return the value
+	 * @return the Card value
 	 */
 	public int getValue() {
 		return value;
 	}
 
 	/**
-	 * @param value the value to set
+	 * @param value the Card value to set
 	 */
 	public void setValue(int value) {
 		this.value = value;
 	}
 
 	/**
-	 * @return boolean suit comparison
+	 * @return boolean Card suit comparison
 	 */
 	public boolean isSuit(String suit) {
 		if (this.suit == null || this.suit.length() == 0) return false;
@@ -88,7 +90,7 @@ public class Card implements Comparable<Card> {
 	}
 	
 	/**
-	 * @return boolean rank comparison
+	 * @return boolean Card rank comparison
 	 */
 	public boolean isRank(String rank) {
 		if (this.rank == null || this.rank.length() == 0) return false;
@@ -96,7 +98,7 @@ public class Card implements Comparable<Card> {
 	}
 	
 	/**
-	 * @return boolean value comparison
+	 * @return boolean Card value comparison
 	 */
 	public boolean isValue(int value) {
 		if (this.value == 0) return false;
@@ -104,7 +106,7 @@ public class Card implements Comparable<Card> {
 	}
 	
 	/**
-     * print card suits and values, rather than hashcode
+     * print Card suits and values, rather than hashcode
      */
     @Override
     public String toString() {
@@ -120,33 +122,33 @@ public class Card implements Comparable<Card> {
     }
 
     // required to implement Comparator class
-    public int compareTo(Card c) {
-   	String currSuit = this.suit;
-  	String compSuit = c.getSuit();
-		int c1 = currSuit.compareTo(compSuit);
-		if (c1 < 0) {
-			return -1;
-		} else if (c1 > 0) {
-			return 1;
-		} else {
+//    public int compareTo(Card c) {
+//   	String currSuit = this.suit;
+//  	String compSuit = c.getSuit();
+//		int c1 = currSuit.compareTo(compSuit);
+//		if (c1 < 0) {
+//			return -1;
+//		} else if (c1 > 0) {
+//			return 1;
+//		} else {
 
 		// if suit is identical, compare value
 //    	if (this.suit == c.getSuit()) {
-			if (this.value < c.getValue()) {
-				return 1;
-			} else {
-				return 0;
-			}
+//			if (this.value < c.getValue()) {
+//				return 1;
+//			} else {
+//				return 0;
+//			}
 //		} else {
 			// when suits are not identical, sort by suit
 //			return this.suit.compareTo(c.getSuit());
-		}
-	}
+//		}
+//	}
 
     // unit test
-    public static void main(String[] args) {
-    	Card card = new Card("Spades", "Ace", 11);
-    	System.out.println(card);
+//    public static void main(String[] args) {
+//    	Card card = new Card("Spades", "Ace", 11);
+//    	System.out.println(card);
 
 //		BufferedImage cardFace = null;
 //		try
@@ -158,5 +160,5 @@ public class Card implements Comparable<Card> {
 //		  e.printStackTrace();
 //		  System.exit(1);
 //		}
-    }
+//    }
 }
