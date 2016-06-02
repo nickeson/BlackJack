@@ -166,16 +166,6 @@ public class StdDeck implements Deck {
 		return deck;
 	}
 	
-	// for testing only
-//	private List<Card> getInUse() {
-//		return inUse;
-//	}
-	
-	// for testing only
-//	private List<Card> getDiscards() {
-//		return discards;
-//	}
-	
 	/**
 	 * return a Card from a random location in the Deck, remove from Deck and 
 	 * add to inUse pile
@@ -296,74 +286,5 @@ public class StdDeck implements Deck {
  	 
 	// unit test method
 //	public static void main(String[] args) {
-		// test DeckOptions 
-//		StdDeck mainDeck = new StdDeck(new DeckOptions().getDeckOptions());
-		
-		// test shuffle()
-//		mainDeck.shuffle();
-//		System.out.println(mainDeck);
-
-		// test addCard()
-//		mainDeck.addCard(new Card("Spades", "Ace", 11));
-//		System.out.println(mainDeck);
-		
-		// test addCards()
-//		List<Card> cards = new ArrayList<Card>();
-//		cards.add(new Card("Hearts", "King", 10));
-//		cards.add(new Card("Spades", "King", 10));	
-//		mainDeck.addCards(cards);
-//		System.out.println(mainDeck);
-		
-		// test getCard() variants
-//		Card testCard = mainDeck.getCard();
-//		Card testCard = mainDeck.getCard(51);
-//		Card aos = new Card("Spades", "Ace", 1);
-//		mainDeck.addCard(aos);
-//		System.out.println(mainDeck); // print out mainDeck with added Ace of Spades
-//		Card testCard = mainDeck.getCard(aos);
-//		System.out.println(testCard);  // print out card we're going to get
-//		System.out.println(mainDeck); // print out mainDeck after we got the card
-//		System.out.println(mainDeck.getInUse()); // print out list of 'inUse' cards
-		
-		// test discard()
-//		mainDeck.discard(aos);
-//		System.out.println(mainDeck);
-//		System.out.println(mainDeck.getDiscards());
-		
-		// test getDeck()
-//		List<Card> newDeck = mainDeck.getDeck();
-//		Card aos = new Card("Spades", "Ace", 1);
-//		newDeck.add(aos);
-//		System.out.println(newDeck);
-		
-		// test getRandom()
-//		Card randCard = mainDeck.getRandom();
-//		System.out.println(randCard);
-		
-		// test addDiscards()
-//		System.out.println("Initial Deck: " + mainDeck); // print initial Deck
-//		Card one = mainDeck.getCard(0); // get 3 cards (move from main deck to inUse deck)
-//		Card two = mainDeck.getCard(0);	
-//		Card three = mainDeck.getCard(0);		
-//		System.out.println("inUse: " + mainDeck.getInUse()); // print inUse deck
-//		mainDeck.discard(one);
-//		mainDeck.discard(two);
-//		System.out.println("discards: " + mainDeck.getDiscards());
-//		System.out.println("inUse: " + mainDeck.getInUse());	
-//		mainDeck.reInitialize(); // test reinitialize
-//		mainDeck.discard(three);
-//		System.out.println(mainDeck); // print deck (should be missing discarded cards)
-//		System.out.println(mainDeck.getDiscards());	 // print discards deck
-//		System.out.println(mainDeck.getInUse()); // print inUse deck	
-//		mainDeck.addDiscards();
-//		System.out.println("After re-initializing: " + mainDeck);
-		
-		// test removeCard()
-//		Card mos = new Card("Spades", "Master", 1);
-//		mainDeck.addCard(mos);
-//		System.out.println("Added Master of Spades: " + mainDeck);
-//		mainDeck.removeCard(mos);
-//		System.out.println(mainDeck);
-//		mainDeck.removeCard(mos);	
 //	}
 }
