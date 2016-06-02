@@ -51,7 +51,7 @@ public class Hand<T extends Card> {
 	}
 
 	/**
-	 * setup a hand of indeterminate size by assigning a List<PlayingCardVO> object
+	 * setup a hand of indeterminate size by assigning a List<Card> object
 	 * @param hand
 	 */
 	public void setHand(List<Card> hand) {
@@ -59,7 +59,7 @@ public class Hand<T extends Card> {
 	}
 	
 	/**
-	 * Add a specific PlayingCardVO to the hand instance
+	 * Add a specific Card to the hand instance
 	 * @param c
 	 */
 	public void addCard(Card c) {
@@ -67,7 +67,7 @@ public class Hand<T extends Card> {
 	}
 	
 	/**
-	 * Remove a specific PlayingCardVO from the hand instance
+	 * Remove a specific Card from the hand instance
 	 * @param c
 	 */
 	public void removeCard(Card c) {
@@ -92,9 +92,9 @@ public class Hand<T extends Card> {
 	
 	// unit test method
 //	public static void main(String[] args) {
-//		Hand<PlayingCardVO> hand = new Hand<>();
-//		hand.addCard(new PlayingCardVO("", "Joker", true, true));
-//		hand.addCard(new PlayingCardVO("Hearts", "Ace", false, false));	
+//		Hand<Card> hand = new Hand<>();
+//		hand.addCard(new Card("", "Joker", true, true));
+//		hand.addCard(new Card("Hearts", "Ace", false, false));	
 //		System.out.println(hand);
 //	}
 }

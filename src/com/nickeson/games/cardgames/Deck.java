@@ -72,11 +72,6 @@ public interface Deck {
 	public void shuffle();
 	
 	/**
-	 * sort the Deck
-	 */
-	public void sort();
-	
-	/**
 	 * @return the number of Card in the Deck
 	 */
 	public int size();

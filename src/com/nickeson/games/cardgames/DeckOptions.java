@@ -18,7 +18,7 @@ import java.util.HashMap;
  ****************************************************************************/
 
 public class DeckOptions {
-	public static final Map<String, Object> deckOpt = new HashMap<String, Object>();
+	public static Map<String, Object> deckOpt = new HashMap<String, Object>();
 
 	public DeckOptions() {
 		// a standard deck has 2 Jokers

@@ -42,7 +42,6 @@ public class StdDeck implements Deck {
 		int numJokers = 0;
 		if (options.containsKey(OPT_NUM_JOKERS) && options.get(OPT_NUM_JOKERS) != null) 
 			numJokers = Integer.valueOf(options.get(OPT_NUM_JOKERS) + "");
-		
 		build(numJokers);
 	}
 	
@@ -89,7 +88,7 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * add multiple Card to the Deck
+	 * add multiple Cards to the Deck
 	 */
 	public void addCards(List<Card> cards) {
 		for (Card card : cards) {
@@ -98,8 +97,9 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * @return get the next Card in the Deck (starting with top[0])
-	 * move card to inUse pile and remove from deck
+	 * @return nextCard
+	 * Get the next Card in the Deck (starting with top Card [0]). Move card to
+	 * inUse pile and remove from deck
 	 */
 	public Card getCard() {
 		Card nextCard = null;
@@ -115,8 +115,9 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
+	 * return the Card at the location specified by deckLoc 
 	 * @param deckLoc
-	 * @return the Card at the location specified by deckLoc 
+	 * @return Card
 	 */
 	public Card getCard(int deckLoc) {
 		Card card = null;
@@ -132,8 +133,8 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * @return the specific Card referenced by card, remove from deck and add
-	 * to inUse pile
+	 * return the specific Card, remove Card from deck and add to inUse pile
+	 * @return Card
 	 */
 	public Card getCard(Card card) {
 		if (!deck.isEmpty()) {
@@ -153,25 +154,27 @@ public class StdDeck implements Deck {
 		}
 	}
 	
-	/**
-	 * @return List of the Card in the Deck
+	/** return a List of the Cards in the Deck
 	 * Does not remove cards from deck (or move to inUse or discards)
+	 * @return List<Card>
 	 */
 	public List<Card> getDeck() {
 		return deck;
 	}
 	
 	// for testing only
-	private List<Card> getInUseDeck() {
-		return inUse;
-	}
+//	private List<Card> getInUse() {
+//		return inUse;
+//	}
 	
 	// for testing only
-	private List<Card> getDiscards() {
-		return discards;
-	}
+//	private List<Card> getDiscards() {
+//		return discards;
+//	}
 	
 	/**
+	 * return a Card from a random location in the Deck, remove from deck and 
+	 * add to inUse pile
 	 * @return a Card from a random location in the Deck
 	 */
 	public Card getRandom() {
@@ -215,22 +218,19 @@ public class StdDeck implements Deck {
 	 */
 	public void discard(Card card) {
 		discards.add(card);
-		if (deck.contains(card)) {
-			deck.remove(card);
-			discards.add(card);
+		if (deck.contains(card) || inUse.contains(card)) {
+			if (deck.contains(card)) {
+				deck.remove(card);
+			} else {
+				inUse.remove(card);
+			}
 		} else {
 			System.out.println("The Deck does not contain your Card");
-		}
-		if (inUse.contains(card)) {
-			inUse.remove(card);
-			discards.add(card);
-		} else {
-			System.out.println("The inUse pile does not contain your Card");
 		}
 	}
 	
 	/**
-	 * move all Card from discard pile back to Deck
+	 * move all Cards from discard pile back to Deck
 	 */
 	public void addDiscards() {
 		for (Card c : discards) {
@@ -246,25 +246,33 @@ public class StdDeck implements Deck {
 		Collections.shuffle(deck);
 	}
 	
-	/**
-	 * ** NEEDS WORK **
-	 * sort the Deck
-	 */
-	public void sort() {
-		Collections.sort(deck);
-	}
+//	/**
+//	 * ** NEEDS WORK **
+//	 * sort the Deck
+//	 */
+//	public void sort() {
+//		Collections.sort(deck);
+//	}
 	
 	/**
-	 * @return the number of Card in the Deck
+	 * @return the number of Cards in the Deck
 	 */
 	public int size() {
 		return deck.size();
 	}
 	
 	/**
-	 * remove all Card from discard and inUse piles and add back to Deck
+	 * remove all Cards from discard and inUse piles and add back to Deck
 	 */
 	public void reInitialize() {
+		for (Card c : inUse) {
+			deck.add(c);
+		}
+		for (Card c : discards) {
+			deck.add(c);
+		}
+		inUse.clear();
+		discards.clear();
 	}
 
 	/**
@@ -277,12 +285,12 @@ public class StdDeck implements Deck {
 	}
  	 
 	// unit test method
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
 		// test DeckOptions 
-		StdDeck mainDeck = new StdDeck(new DeckOptions().getDeckOptions());
+//		StdDeck mainDeck = new StdDeck(new DeckOptions().getDeckOptions());
 		
 		// test shuffle()
-		mainDeck.shuffle();
+//		mainDeck.shuffle();
 //		System.out.println(mainDeck);
 
 		// test addCard()
@@ -305,7 +313,7 @@ public class StdDeck implements Deck {
 //		Card testCard = mainDeck.getCard(aos);
 //		System.out.println(testCard);  // print out card we're going to get
 //		System.out.println(mainDeck); // print out mainDeck after we got the card
-//		System.out.println(mainDeck.getInUseDeck()); // print out list of 'inUse' cards
+//		System.out.println(mainDeck.getInUse()); // print out list of 'inUse' cards
 		
 		// test discard()
 //		mainDeck.discard(aos);
@@ -323,21 +331,21 @@ public class StdDeck implements Deck {
 //		System.out.println(randCard);
 		
 		// test addDiscards()
-//		System.out.println(mainDeck); // print initial deck
+//		System.out.println("Initial Deck: " + mainDeck); // print initial deck
 //		Card one = mainDeck.getCard(0); // get 3 cards (move from main deck to inUse deck)
 //		Card two = mainDeck.getCard(0);	
 //		Card three = mainDeck.getCard(0);		
-//		System.out.println(mainDeck.getInUseDeck()); // print inUse deck
+//		System.out.println("inUse: " + mainDeck.getInUse()); // print inUse deck
 //		mainDeck.discard(one);
-//		mainDeck.discard(two);	
+//		mainDeck.discard(two);
+//		System.out.println("discards: " + mainDeck.getDiscards());
+//		System.out.println("inUse: " + mainDeck.getInUse());	
+//		mainDeck.reInitialize(); // test reinitialize
 //		mainDeck.discard(three);
 //		System.out.println(mainDeck); // print deck (should be missing discarded cards)
 //		System.out.println(mainDeck.getDiscards());	 // print discards deck
-//		System.out.println(mainDeck.getInUseDeck()); // print inUse deck	
+//		System.out.println(mainDeck.getInUse()); // print inUse deck	
 //		mainDeck.addDiscards();
-		System.out.println(mainDeck);
-		mainDeck.sort();
-		System.out.println(mainDeck);	
-		DeckOptions.getDeckOptions();
-	}
+//		System.out.println("After re-initializing: " + mainDeck);
+//	}
 }

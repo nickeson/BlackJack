@@ -46,7 +46,7 @@ size()</y:MethodLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="292.8519338757794" width="180.3501283697051" x="2965.8703184465066" y="-1161.0690842971933"/>
+          <y:Geometry height="247.827543631877" width="180.3501283697051" x="2965.8703184465066" y="-1161.0690842971935"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="39.95947265625" x="70.19532785672754" y="25.96875">Deck<y:LabelModel>
@@ -69,9 +69,6 @@ removeCard(int)
 discard(CardVO)
 addDiscards(List&lt;CardVO&gt;)
 shuffle()
-sort()
-sort(int)
-sort(String)
 size()
 reInitialize()</y:MethodLabel>
           </y:UML>
@@ -720,7 +717,7 @@ printHand()</y:MethodLabel>
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="43.32188309392859" ty="-102.520887618144"/>
+          <y:Path sx="0.0" sy="0.0" tx="43.32188309392859" ty="-80.00869249619268"/>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
           <y:BendStyle smoothed="false"/>
