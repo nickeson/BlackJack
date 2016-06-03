@@ -25,6 +25,7 @@ public class Card {
     private String suit = null;
     private String rank = null;
     private int value = 0;
+    // entry here for cardFace
     
     /**
      * constructor requires Card suit, rank, value to be passed (at minimum)

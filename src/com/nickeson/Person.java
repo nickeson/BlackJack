@@ -2,6 +2,8 @@ package com.nickeson;
 
 import java.time.LocalDate;
 import java.util.List;
+//import java.util.ArrayList;
+//import java.util.Arrays;
 
 //JDK 1.8.0
 
@@ -29,9 +31,9 @@ public class Person {
 	 */
 	public Person() {
 		System.out.print("You have created an anonymous Person with null values " +
-				"that can be populated later.  ");
-		System.out.println("You should, however, instantiate a Person with " +
-				"(at minimum): firstName, lastName.");
+				"that can be populated later.\n");
+		System.out.println("However, you should always instantiate a Person with (at minimum): " +
+				"firstName, lastName.");
 	}
 	
 	/**
@@ -168,26 +170,38 @@ public class Person {
 	 */
 	@Override
 	public String toString() {
-		String result = getFirstName() + " " + getLastName();
-			if (getDOB() != null) {
-				result += " was born on " + getDOB();
-			} else {
-				result += " has no D.O.B. available";
-			}
-			if (getGenderIdentity() != null) {
-				result += ", has a gender identity of " + getGenderIdentity();
-			} else {
-				result += " and has no gender identity available";
-			}
-			if (getNickNames() != null) {
-				result += ", and is also known as: " + getNickNames();
-			} else {
-				result += " and has no nickname(s) available";
-			}
-		return result;
+		String result = "Name: ";
+		if (getFirstName() != null) {
+			result += getFirstName() + " " + getLastName() + "\n";
+		} else {
+			result += "unavailable\n";
+		}
+		if (getDOB() != null) {
+			result += "DOB: " + getDOB() + "\n";
+		} else {
+			result += "DOB: unavailable\n";
+		}
+		if (getGenderIdentity() != null) {
+			result += "Gender Identity: " + getGenderIdentity() + "\n";
+		} else {
+			result += "Gender Identity: unavailable\n";
+		}
+		if (getNickNames() != null) {
+			result += "Nickname(s): " + getNickNames() + "\n";
+		} else {
+			result += "Nickname(s): unavailable\n";
+		}
+	return result;
 	}
 	
 	// unit test method
 //	public static void main(String[] args) {
+//		Person me = new Person("Kris", "Nickeson", "1976-11-15", "Male", 
+//			new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty")));
+//		Person me = new Person("Kris", "Nickeson");
+//		me.setDOB("1976-11-15");
+//		me.setGenderIdentity("Male");
+//		me.setNickNames(new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty")));
+//		System.out.println(me);
 //	}
 }
