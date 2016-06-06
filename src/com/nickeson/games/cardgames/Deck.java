@@ -31,33 +31,33 @@ public interface Deck {
 	
 	/**
 	 * remove next Card from the Deck and add to inUse pile
-	 * @return Card - the next Card in the Deck
+	 * @return the next Card in the Deck
 	 */
 	public Card getCard();
 	
 	/**
 	 * remove Card from the Deck at 'deckLoc' and add to inUse pile
 	 * @param deckLoc the location in the Deck from which to remove the Card
-	 * @return Card - the Card to get from the Deck
+	 * @return the Card from the Deck at 'deckLoc'
 	 */
 	public Card getCard(int deckLoc);
 	
 	/**
 	 * remove a specific Card from the Deck and add to inUse pile
 	 * @param card the specific Card to get from the Deck
-	 * @return Card - the Card to get from the Deck
+	 * @return the specific Card from the Deck
 	 */
 	public Card getCard(Card card);
 	
 	/**
 	 * (Does not remove cards from the Deck or move to inUse or discards)
-	 * @return List<Card> - a List of Cards in the the Deck
+	 * @return a List of Cards in the Deck
 	 */
 	public List<Card> getDeck();
 	
 	/**
 	 * remove Card at random from the Deck and add to inUse pile
-	 * @return Card - the randomly drawn Card to get from the Deck
+	 * @return a randomly drawn Card from the Deck
 	 */
 	public Card getRandom();
 	
@@ -78,7 +78,7 @@ public interface Deck {
 	public void shuffle();
 	
 	/**
-	 * @return size - the number of Cards in the Deck
+	 * @return the number of Cards in the Deck
 	 */
 	public int size();
 	

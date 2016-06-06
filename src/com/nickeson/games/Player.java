@@ -1,7 +1,5 @@
 package com.nickeson.games;
 
-//import java.util.Arrays;
-//import java.util.ArrayList;
 import java.util.List;
 import com.nickeson.Person;
 
@@ -115,7 +113,7 @@ public class Player extends Person {
 	}
 	
 	/**
-	 * @return screenName - the Player's screen name
+	 * @return the Player's screenName
 	 */
 	public String getScreenName() {
 		return screenName;
@@ -129,7 +127,7 @@ public class Player extends Person {
 	}
 	
 	/**
-	 * @return acctBalance - the Player's account balance
+	 * @return the Player's acctBalance
 	 */
 	public int getAcctBalance() {
 		return acctBalance;
@@ -162,19 +160,4 @@ public class Player extends Person {
 		}
 		return result;
 	}
-
-	// unit test main method
-//	public static void main(String[] args) {
-//		Player me = new Player("Kris", "Nickeson", "1976-11-15", "Male", 
-//				new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty")), "Bleh", 500);
-//		Player me = new Player();
-//		me.setFirstName("Kris");
-//		me.setLastName("Nickeson");
-//		me.setAcctBalance(500);
-//		me.setScreenName("Bleh");
-//		me.setDOB("1976-11-15"); // methods from parent class are available to child
-//		me.setGenderIdentity("Male");
-//		me.setNickNames(new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty")));
-//		System.out.println(me);
-//	}
 }

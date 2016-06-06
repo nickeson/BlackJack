@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 public class DeckOptions {
 
-	public static Map<String, Object> deckOpt = new HashMap<String, Object>();
+	private Map<String, Object> deckOpt = new HashMap<String, Object>();
 
 	/**
 	 * default constructor defines Deck options
@@ -32,11 +32,7 @@ public class DeckOptions {
 	/**
 	 * @return the options from DeckOptions as a Map object
 	 */
-	public static Map<String, Object> getDeckOptions() {
+	public Map<String, Object> getDeckOptions() {
 		return deckOpt;
 	}
-	
-	// unit test
-//	public static void main(String[] args) {
-//	}
 }

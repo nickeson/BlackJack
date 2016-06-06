@@ -2,8 +2,6 @@ package com.nickeson;
 
 import java.time.LocalDate;
 import java.util.List;
-//import java.util.ArrayList;
-//import java.util.Arrays;
 
 //JDK 1.8.0
 
@@ -96,7 +94,7 @@ public class Person {
 	}
 
 	/**
-	 * @return firstName - the Person's first name
+	 * @return the Person's firstName
 	 */
 	public String getFirstName() {
 		return firstName;
@@ -110,7 +108,7 @@ public class Person {
 	}
 
 	/**
-	 * @return lastName - the Person's last name
+	 * @return the Person's lastName
 	 */
 	public String getLastName() {
 		return lastName;
@@ -124,7 +122,7 @@ public class Person {
 	}
 
 	/**
-	 * @return dob - the Person's DateOfBirth as a LocalDate object
+	 * @return the Person's DateOfBirth (dob) as a LocalDate object
 	 */
 	public LocalDate getDOB() {
 		return dob;
@@ -138,7 +136,7 @@ public class Person {
 	}
 	
 	/**
-	 * @return genderIdentity - the Person's genderIdentity
+	 * @return the Person's genderIdentity
 	 */
 	public String getGenderIdentity() {
 		return genderIdentity;
@@ -159,7 +157,7 @@ public class Person {
 	}
 	
 	/**
-	 * @return nickNames - the Person's nickName(s) as a List of String objects
+	 * @return the Person's nickName(s) as a List of String objects
 	 */
 	public List<String> getNickNames() {
 		return nickNames;
@@ -193,15 +191,4 @@ public class Person {
 		}
 	return result;
 	}
-	
-	// unit test method
-//	public static void main(String[] args) {
-//		Person me = new Person("Kris", "Nickeson", "1976-11-15", "Male", 
-//			new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty")));
-//		Person me = new Person("Kris", "Nickeson");
-//		me.setDOB("1976-11-15");
-//		me.setGenderIdentity("Male");
-//		me.setNickNames(new ArrayList<String>(Arrays.asList("U-Turn", "MegaGiga", "Shorty")));
-//		System.out.println(me);
-//	}
 }

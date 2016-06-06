@@ -24,7 +24,7 @@ public class StdDeck implements Deck {
 	private List<Card> deck = new ArrayList<Card>();	
 	private List<Card> discards = new ArrayList<>();
 	private List<Card> inUse = new ArrayList<>();
-	private static final String[] suits = {"Hearts", "Diamonds", "Spades", "Clubs" };
+	private static final String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades" };
 	public static final String OPT_NUM_JOKERS = "stdDeckNumJokers";
 
 	/**
@@ -49,6 +49,12 @@ public class StdDeck implements Deck {
 	 * build a Standard Deck of cards
 	 */
 	protected void build(int numJokers) {
+		// add specific number of joker(s) so they're on the top of the Deck
+		for (int i=0; i < numJokers; i++) {
+			deck.add(new Card("", "Joker", 0));
+		}
+
+		// add the rest of the Cards
 		for(int i=0; i < 4; i++) {
 			for (int j = 0; j < 13; j++) {
 				String rank = "";
@@ -72,12 +78,6 @@ public class StdDeck implements Deck {
 				deck.add(new Card(suits[i], rank, j+1));
 			}
 		}
-		
-		// add specific number of joker(s)
-		for (int i=0; i < numJokers; i++) {
-			// suit, rank, value
-			deck.add(new Card("", "Joker", 0));
-		}
 	}
 	
 	/**
@@ -99,7 +99,7 @@ public class StdDeck implements Deck {
 	/**
 	 * Get the next Card in the Deck (starting with top Card [0]). Move card to
 	 * inUse pile and remove from Deck
-	 * @return Card - the Card to get from the Deck
+	 * @return the next Card from the Deck
 	 */
 	public Card getCard() {
 		Card nextCard = null;
@@ -117,7 +117,7 @@ public class StdDeck implements Deck {
 	/**
 	 * remove Card from Deck at 'deckLoc' and add to inUse pile
 	 * @param deckLoc the location in the Deck from which to remove the Card
-	 * @return Card - the Card to get from the Deck
+	 * @return the Card from the Deck at 'deckLoc'
 	 */
 	public Card getCard(int deckLoc) {
 		Card card = null;
@@ -135,7 +135,7 @@ public class StdDeck implements Deck {
 	/**
 	 * return the specific Card, remove Card from Deck and add to inUse pile
 	 * @param card the specific Card to get from the Deck
-	 * @return Card - the Card to get from the Deck
+	 * @return a specific Card from the Deck
 	 */
 	public Card getCard(Card card) {
 		if (!deck.isEmpty()) {
@@ -157,7 +157,7 @@ public class StdDeck implements Deck {
 	
 	/** 
 	 * (Does not remove cards from the Deck (or move to inUse or discards)
-	 * @return List<Card> - a List of Cards in the Deck
+	 * @return a List of Cards in the Deck
 	 */
 	public List<Card> getDeck() {
 		return deck;
@@ -166,7 +166,7 @@ public class StdDeck implements Deck {
 	/**
 	 * return a Card from a random location in the Deck, remove from the Deck and 
 	 * add to inUse pile
-	 * @return Card - the randomly drawn Card to get from the Deck
+	 * @return a randomly drawn Card from the Deck
 	 */
 	public Card getRandom() {
 		Card card = null;
@@ -243,7 +243,7 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * @return size - the number of Cards in the Deck
+	 * @return the number of Cards in the Deck
 	 */
 	public int size() {
 		return deck.size();
@@ -272,8 +272,4 @@ public class StdDeck implements Deck {
 		String printDeck = "" + deck;
 		return printDeck;
 	}
- 	 
-	// unit test method
-//	public static void main(String[] args) {
-//	}
 }

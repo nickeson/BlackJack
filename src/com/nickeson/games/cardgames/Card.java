@@ -1,10 +1,5 @@
 package com.nickeson.games.cardgames;
 
-//import java.awt.image.BufferedImage;
-//import java.io.File;
-//import java.io.IOException;
-//import javax.imageio.ImageIO;
-
 //JDK 1.8.0
 
 /****************************************************************************
@@ -19,13 +14,11 @@ package com.nickeson.games.cardgames;
  * updates:
  ****************************************************************************/
 
-//public class Card implements Comparable<Card> {
 public class Card {
 
     private String suit = null;
     private String rank = null;
     private int value = 0;
-    // entry here for cardFace
     
     /**
      * constructor requires Card suit, rank, value to be passed (at minimum)
@@ -102,8 +95,15 @@ public class Card {
 	 * @return boolean - a Card value comparison
 	 */
 	public boolean isValue(int value) {
-		if (this.value == 0) return false;
-		return true;
+		if (this.value == 0) {
+			return false;
+		} else {
+			if (this.value == value) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 	}
 	
 	/**
@@ -121,45 +121,4 @@ public class Card {
     	}
         return currCard;
     }
-
-    // required to implement Comparator class
-//    public int compareTo(Card c) {
-//   	String currSuit = this.suit;
-//  	String compSuit = c.getSuit();
-//		int c1 = currSuit.compareTo(compSuit);
-//		if (c1 < 0) {
-//			return -1;
-//		} else if (c1 > 0) {
-//			return 1;
-//		} else {
-
-		// if suit is identical, compare value
-//    	if (this.suit == c.getSuit()) {
-//			if (this.value < c.getValue()) {
-//				return 1;
-//			} else {
-//				return 0;
-//			}
-//		} else {
-			// when suits are not identical, sort by suit
-//			return this.suit.compareTo(c.getSuit());
-//		}
-//	}
-
-    // unit test
-//    public static void main(String[] args) {
-//    	Card card = new Card("Spades", "Ace", 11);
-//    	System.out.println(card);
-
-//		BufferedImage cardFace = null;
-//		try
-//		{
-//		  cardFace = ImageIO.read(new File("images/cardBack.png"));
-//		}
-//		catch (Exception e)
-//		{
-//		  e.printStackTrace();
-//		  System.exit(1);
-//		}
-//    }
 }
