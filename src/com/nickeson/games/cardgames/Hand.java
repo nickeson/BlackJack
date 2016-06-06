@@ -19,21 +19,20 @@ import java.util.List;
 
 public class Hand {
 
-	private List<Card> hand = null;
+	private List<Card> hand = new ArrayList<Card>();
 	
 	/**
-	 * unknown number of cards in a Hand (varies by game), so default to blank
+	 * default constructor builds empty Hand
 	 */
 	public Hand() {
-		hand = new ArrayList<Card>();
 	}
 	
 	/**
-	 * convenience constructor allows us to pass an ArrayList of Cards
-	 * @param hand an ArrayList of Cards passed to build Hand
+	 * convenience constructor - pass a List of Cards to build Hand
+	 * @param hand a List of Cards passed to build Hand
 	 */
-	public Hand(ArrayList<Card> hand) {
-		this.hand = new ArrayList<Card>(hand);
+	public Hand(List<Card> hand) {
+		this.hand = hand;
 	}
 
 	/**
@@ -48,7 +47,7 @@ public class Hand {
 	 * Add multiple Cards to the Hand
 	 * @param cards the Cards to add to the Hand
 	 */
-	public void addCard(ArrayList<Card> cards) {
+	public void addCard(List<Card> cards) {
 		for (Card c : cards) {
 			hand.add(c);
 		}
@@ -59,20 +58,38 @@ public class Hand {
 	 * @param c the Card to remove from the Hand
 	 */
 	public void discard(Card c) {
-		hand.remove(c);
-	}
-	
-	/**
-	 * Remove multiple Cards from the Hand
-	 * @param c an ArrayList of Cards to remove from the Hand
-	 */
-	public void discard(ArrayList<Card> cards) {
-		for (Card c : cards) {
-			hand.remove(c);
+		String c1 = c.toString();
+		String c2 = null;
+		for (Card card : hand) {
+			c2 = card.toString();
+			if (hand.contains(c) || (c1.equalsIgnoreCase(c2))) {
+				c = card;
+				hand.remove(c);
+				break;
+			}
 		}
 	}
 	
 	/**
+	 * Remove multiple Cards from the Hand
+	 * @param cards a List of Cards to remove from the Hand
+	 */
+	public void discard(List<Card> cards) {
+		String c2 = null;
+		for (Card c : cards) {
+		String c1 = c.toString();
+			for (Card card : hand) {
+				c2 = card.toString();
+				if ((c1.equalsIgnoreCase(c2))) {
+					hand.remove(card);
+					break;
+				}
+			}
+		}
+	}
+	
+	/**
+	 * returns a boolean result of whether or not Card exists in Hand
 	 * @param c the Card to check if it exists in Hand
 	 * @return a boolean result of whether or not Card exists in Hand
 	 */
@@ -81,9 +98,9 @@ public class Hand {
 		String c1String = c.toString();
 		String c2String = null;
 		
-		if (hand.contains(c)) { // compare Card objects directly
+		if (hand.contains(c)) {
 			result = true;
-		} else { 				// compare Cards by string values
+		} else {
 			for (Card card : hand) {
 					c2String = card.toString();
 					result = c1String.equalsIgnoreCase(c2String);
@@ -95,11 +112,34 @@ public class Hand {
 	}
 	
 	/**
-	 * Sorts the cards in the hand so that cards of the same suit are grouped
+	 * Does not remove Card from Hand - returns Card if it exists in Hand
+	 * @param c a Card to get from the Hand if it exists in Hand
+	 * @return the Card to get from the Hand
+	 */
+	public Card getCard(Card c) {
+		Card result = null;
+		for (Card card : hand) {
+			if ((card == c) || (card.toString().equalsIgnoreCase(c.toString()))) {
+				result = card;
+				break;
+			}
+		} return result;
+	}
+	
+	/**
+	 * returns the Hand as a List of Cards
+	 * @return the Hand as a List of Cards
+	 */
+	public List<Card> getHand() {
+		return hand;
+	}
+	
+	/**
+	 * Sorts the cards in the Hand so that cards of the same suit are grouped
 	 * together, and within a suit the cards are sorted by value.
 	 */
 	public void sortBySuit() {
-	   ArrayList<Card> tmpHand = new ArrayList<>();
+	   List<Card> tmpHand = new ArrayList<>();
 	   while (hand.size() > 0) {
 	      int pos = 0;  // first card's position
 	      Card c = (Card)hand.get(0);  // first card
@@ -120,17 +160,17 @@ public class Hand {
 	}
 	
 	/**
-	 * Sorts the cards in the hand so that cards of the same value are grouped
-	 * together.  Cards with the same value are sorted by suit.
+	 * Sorts the cards in the Hand so that cards of the same value are grouped
+	 * together, and within a value the Cards are sorted by suit.
 	 */
 	public void sortByValue() {
-	   ArrayList<Card> tmpHand = new ArrayList<>();
+	   List<Card> tmpHand = new ArrayList<>();
 	   while (hand.size() > 0) {
 	      int pos = 0;  // first card's position
 	      Card c = (Card)hand.get(0);  // first card
 	      for (int i = 1; i < hand.size(); i++) {
 	         Card c1 = (Card)hand.get(i);
-	         if ( c1.getValue() < c.getValue() ||
+	         if (c1.getValue() < c.getValue() ||
 	                 ((c1.getValue() == c.getValue()) && 
 					 (c1.getSuit().compareToIgnoreCase(c.getSuit()) < 0)))
 	         {
@@ -145,30 +185,24 @@ public class Hand {
 	}
 	
 	/**
-	 * Remove all Cards from the hand instance
+	 * Remove all Cards from the Hand instance
 	 */
 	public void clearHand() {
 		hand.clear();
 	}
 	
 	/**
+	 * returns the number of Cards in the Hand
 	 * @return the number of Cards in the Hand
 	 */
 	public int size() {
-		int result = 0;
+		int result = 0; // print 0 if Hand has no cards (rather than 'null')
 		result = hand.size();
 		return result;
 	}
 	
 	/**
-	 * @return the hand as a List of Cards
-	 */
-	public List<Card> getHand() {
-		return hand;
-	}
-	
-	/**
-	 * print value of hand as String instead of hashcode
+	 * print value of Hand as String instead of hashcode
 	 */
 	@Override
 	public String toString() {
@@ -184,6 +218,8 @@ public class Hand {
 		
 		// add all cards in Deck to hand, casting List<Card> from Deck to ArrayList<Card> for hand
 //		hand.addCard((ArrayList<Card>)stdDeck.getDeck());
+//		Card testCard = new Card("Clubs", "Ace", 1);
+//		hand.addCard(testCard);
 
 //		System.out.println("Hand before sorting: " + hand);
 //		hand.sortBySuit();
@@ -191,6 +227,25 @@ public class Hand {
 //		System.out.println("Hand after sorting: " + hand);	
 		
 		// testing inHand()
-//		System.out.println(hand.inHand(new Card("Diamonds", "3", 1)));
+//		System.out.println(hand.inHand(new Card("Clubs", "3", 3)));
+
+		// testing discard()
+//		Card testCard2 = new Card("Clubs", "Ace", 1);
+//		Card testCard3 = new Card("Clubs", "Ace", 1);	
+//		Card testCard4 = new Card("Spades1", "Ace", 1);	
+//		List<Card> testArrayList = new ArrayList<Card>();
+//		testArrayList.add(testCard2);
+//		testArrayList.add(testCard3);		
+//		testArrayList.add(testCard4);
+//		System.out.println("Hand before discards: " + hand);
+//		System.out.println(testArrayList);
+//		hand.discard(testArrayList);
+//		hand.discard(testCard2);
+//		hand.discard(testCard2);
+//		System.out.println(hand);
+
+		// testing getCard()
+//		Card testCard5 = new Card("Clubs", "Ace", 1);
+//		System.out.println(hand.getCard(testCard5));
 //	}
 }
