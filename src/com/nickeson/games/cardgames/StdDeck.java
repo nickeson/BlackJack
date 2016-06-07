@@ -24,7 +24,7 @@ public class StdDeck implements Deck {
 	private List<Card> deck = new ArrayList<Card>();	
 	private List<Card> discards = new ArrayList<>();
 	private List<Card> inUse = new ArrayList<>();
-	private static final String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades" };
+	private static final String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs" };
 	public static final String OPT_NUM_JOKERS = "stdDeckNumJokers";
 
 	/**

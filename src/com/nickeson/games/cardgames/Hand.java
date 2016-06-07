@@ -136,7 +136,7 @@ public class Hand {
 	
 	/**
 	 * Sorts the cards in the Hand so that cards of the same suit are grouped
-	 * together, and within a suit the cards are sorted by value.
+	 * together, and within a suit the cards are sorted by value ascending.
 	 */
 	public void sortBySuit() {
 	   List<Card> tmpHand = new ArrayList<>();
@@ -145,7 +145,7 @@ public class Hand {
 	      Card c = (Card)hand.get(0);  // first card
 	      for (int i = 1; i < hand.size(); i++) {
 	         Card c1 = (Card)hand.get(i);
-	         if ((c1.getSuit().compareToIgnoreCase(c.getSuit()) < 0) 
+	         if ((c1.getSuit().compareToIgnoreCase(c.getSuit()) > 0) 
 	        		 || ((c1.getSuit() == c.getSuit()) 
 					 && (c1.getValue() < c.getValue())))
 	         {
@@ -161,7 +161,8 @@ public class Hand {
 	
 	/**
 	 * Sorts the cards in the Hand so that cards of the same value are grouped
-	 * together, and within a value the Cards are sorted by suit.
+	 * together, and within a value the Cards are sorted by suit - values proceed
+	 * in an ascending fashion
 	 */
 	public void sortByValue() {
 	   List<Card> tmpHand = new ArrayList<>();
@@ -172,7 +173,7 @@ public class Hand {
 	         Card c1 = (Card)hand.get(i);
 	         if (c1.getValue() < c.getValue() ||
 	                 ((c1.getValue() == c.getValue()) && 
-					 (c1.getSuit().compareToIgnoreCase(c.getSuit()) < 0)))
+					 (c1.getSuit().compareToIgnoreCase(c.getSuit()) > 0)))
 	         {
 	             pos = i;
 	             c = c1;

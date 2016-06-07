@@ -141,6 +141,14 @@ public class Player extends Person {
 	}
 
 	/**
+	 * players have the option to Hit (get another Card from Dealer) or 
+	 * Stand (no more Cards, run HandCalculator)
+	 */
+	public void hitOrStand() {
+
+	}
+	
+	/**
 	 * Override toString() to print Person's field values, rather than hashcode
 	 */
 	@Override

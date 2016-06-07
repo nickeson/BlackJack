@@ -1,5 +1,7 @@
 package com.nickeson.games.cardgames;
 
+import com.nickeson.games.Player;
+
 //JDK 1.8.0
 
 /****************************************************************************
@@ -18,9 +20,9 @@ public interface Dealer {
 	
 	/**
 	 * deal a single Card by removing it from the Card collection (deck/shoe), 
-	 * then adding it to a Player's Hand and inUse pile
+	 * then adding it to a Player's Hand and inUse pile - Card has a boolean value faceUp
 	 */
-	public void dealCard();
+	public void dealCard(Player player, boolean faceUp);
 	
 	/**
 	 * deal a Hand of Cards by removing the Cards from the Card collection, 
