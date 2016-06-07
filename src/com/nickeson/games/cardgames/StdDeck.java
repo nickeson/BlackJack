@@ -35,8 +35,8 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * convenience constructor allows us to pass an options map and build Deck
-	 * using options from the map
+	 * convenience constructor allows us to pass an options Map and build Deck
+	 * using options from the Map
 	 */
 	public StdDeck(Map<String, Object> options) {
 		int numJokers = 0;
@@ -81,6 +81,7 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
+	 * add a specific Card to the Deck
 	 * @param card a Card to add to the Deck
 	 */
 	public void addCard(Card card) {
@@ -88,6 +89,7 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
+	 * add a List of Cards to the Deck
 	 * @param cards a List of one or more Cards to add to the Deck
 	 */
 	public void addCards(List<Card> cards) {
@@ -97,7 +99,7 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * Get the next Card in the Deck (starting with top Card [0]). Move card to
+	 * Get the next Card in the Deck (starting with top Card [0]), move card to
 	 * inUse pile and remove from Deck
 	 * @return the next Card from the Deck
 	 */
@@ -157,7 +159,8 @@ public class StdDeck implements Deck {
 	
 	/** 
 	 * (Does not remove cards from the Deck (or move to inUse or discards)
-	 * @return a List of Cards in the Deck
+	 * returns the Deck as a List of Cards
+	 * @return the Deck as a List of Cards
 	 */
 	public List<Card> getDeck() {
 		return deck;
@@ -209,8 +212,8 @@ public class StdDeck implements Deck {
 	 * @param card the specific Card to discard
 	 */
 	public void discard(Card card) {
-		discards.add(card);
 		if (deck.contains(card) || inUse.contains(card)) {
+		discards.add(card);
 			if (deck.contains(card)) {
 				deck.remove(card);
 			} else {
@@ -236,13 +239,17 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * shuffle the Deck
+	 * add Card(s) to Deck from discards pile, shuffle the Deck
 	 */
 	public void shuffle() {
+		for (Card c : discards) {
+			deck.add(c);
+		}
 		Collections.shuffle(deck);
 	}
 	
 	/**
+	 * returns the number of Cards in the Deck
 	 * @return the number of Cards in the Deck
 	 */
 	public int size() {
@@ -250,7 +257,7 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * remove all Cards from discard and inUse piles and add back to the Deck, shuffle
+	 * remove all Cards from discard and inUse piles and add back to the Deck, shuffle the Deck
 	 */
 	public void reInitialize() {
 		for (Card c : inUse) {
@@ -264,12 +271,56 @@ public class StdDeck implements Deck {
 		Collections.shuffle(deck);
 	}
 
+	// for testing only
+//	public List<Card> getDiscards() {
+//		return discards;
+//	}
+	
+//	public List<Card> getInUse() {
+//		return inUse;
+//	}
+	
 	/**
-	 * Override toString() method to print the Deck's String values instead of hashcode
+	 * Override toString() method to print the Deck's String value instead of hashcode
 	 */
 	@Override
 	public String toString() {
 		String printDeck = "" + deck;
 		return printDeck;
 	}
+	
+	// unit test
+//	public static void main (String[] args) {
+//		StdDeck testDeck = new StdDeck();
+//		Card c1 = (new Card("Spades", "Ace", 1));
+//		Card c2 = (new Card("Spades", "2", 2));	
+//		Card c3 = (new Card("Spades", "3", 3));	
+//		testDeck.addCard(c1);
+//		testDeck.addCard(c2);		
+//		testDeck.addCard(c3);
+//		System.out.println(testDeck);
+//		System.out.println(testDeck.size());
+//		Card c4 = testDeck.getCard();
+//		Card c5 = testDeck.getCard();	
+//		System.out.println("c4: " + c4);
+//		System.out.println("c5: " + c5);	
+//		System.out.println(testDeck.size());
+//		testDeck.shuffle();
+//		System.out.println(testDeck.size());	
+//		System.out.println(testDeck);	
+//		testDeck.discard(c1);
+//		System.out.println(testDeck.size());	
+//		System.out.println(testDeck);			
+//		testDeck.discard(c2);	
+//		testDeck.discard(c3);
+//		testDeck.discard(c4);
+//		testDeck.discard(c5);	
+//		System.out.println("inUse: " + testDeck.getInUse());
+//		System.out.println("discards: " + testDeck.getDiscards());	
+//		System.out.println(testDeck.size());	
+//		System.out.println(testDeck);			
+//		testDeck.shuffle();
+//		System.out.println(testDeck.size());	
+//		System.out.println(testDeck);
+//	}
 }

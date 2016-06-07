@@ -112,11 +112,11 @@ public class Hand {
 	}
 	
 	/**
-	 * Does not remove Card from Hand - returns Card if it exists in Hand
-	 * @param c a Card to get from the Hand if it exists in Hand
-	 * @return the Card to get from the Hand
+	 * Does not remove Card from Hand - returns(shows) Card if it exists in Hand
+	 * @param c the Card to show if it exists in Hand
+	 * @return the Card to show if it exists in Hand
 	 */
-	public Card getCard(Card c) {
+	public Card showCard(Card c) {
 		Card result = null;
 		for (Card card : hand) {
 			if ((card == c) || (card.toString().equalsIgnoreCase(c.toString()))) {

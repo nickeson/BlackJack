@@ -68,6 +68,12 @@ public interface Deck {
 	public void removeCard(Card card);
 	
 	/**
+	 * remove a specific Card from the Deck or inUse pile and add to discards pile
+	 * @param card the card to put in the discards pile
+	 */
+	public void discard(Card card);
+
+	/**
 	 * add all Cards from discard pile to the Deck
 	 */
 	public void addDiscards();
