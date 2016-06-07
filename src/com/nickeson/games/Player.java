@@ -1,6 +1,8 @@
 package com.nickeson.games;
 
 import java.util.List;
+import java.util.Scanner;
+
 import com.nickeson.Person;
 
 //JDK 1.8.0
@@ -141,11 +143,13 @@ public class Player extends Person {
 	}
 
 	/**
-	 * players have the option to Hit (get another Card from Dealer) or 
-	 * Stand (no more Cards, run HandCalculator)
+	 * players have the option to (H)it (get another Card from Dealer) or 
+	 * (S)tand (no more Cards)
+	 * @return (H)it = true, (S)tand = false
 	 */
-	public void hitOrStand() {
-
+	public boolean hitOrStand() {
+		boolean hosResult = false;
+		return hosResult;
 	}
 	
 	/**
@@ -167,5 +171,10 @@ public class Player extends Person {
 			result += "$" + getAcctBalance() + "\n";
 		}
 		return result;
+	}
+	
+	public static void main(String[] args) {
+		Player player = new Player("Kris", "Nickeson");
+		player.hitOrStand();
 	}
 }

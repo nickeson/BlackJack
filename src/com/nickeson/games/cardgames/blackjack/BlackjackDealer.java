@@ -24,9 +24,7 @@ import com.nickeson.games.cardgames.Shoe;
 public class BlackjackDealer extends Player implements Dealer {
 
 	private List<Player> players = new ArrayList<Player>();
-	private Shoe shoe = new Shoe();
-	private Card nextCard = null;
-	private String screenName = null;
+	private Shoe shoe = new Shoe(); // builds a standard 6 deck Shoe, no Jokers
 	
 	/**
 	 * default constructor sets Dealer's name to PC (assumes the Dealer role is
@@ -94,20 +92,21 @@ public class BlackjackDealer extends Player implements Dealer {
 	 */
 	public BlackjackDealer(String firstName, String lastName, String dob, 
 			String genderIdentity, List<String> nickNames, String screenName) {
-		super(firstName, lastName, dob, genderIdentity, nickNames);
-		this.screenName = screenName;
+		super(firstName, lastName, dob, genderIdentity, nickNames, screenName);
 	}
 	
 	public void dealHand() {
 	}
 	
 	public void dealCard(Player player, boolean faceUp) {
-		nextCard = shoe.getCard();
+//		nextCard = shoe.getCard();
 	}
 	
 	// contains special logic that the BlackjackDealer has to follow that other Players don't have to follow
 	@Override
-	public void hitOrStand() {
+	public boolean hitOrStand() {
+		boolean result = false;
+		return result;
 	}
 	
 	/**
@@ -133,6 +132,7 @@ public class BlackjackDealer extends Player implements Dealer {
 	public static void main(String[] args) {
 		BlackjackDealer dealer = new BlackjackDealer();
 		System.out.println(dealer);
+		System.out.println(dealer.shoe);
 		
 		Player kn = new Player("Kris", "Nickeson");
 		dealer.dealCard(kn, false);

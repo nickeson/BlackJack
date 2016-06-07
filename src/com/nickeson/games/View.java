@@ -1,4 +1,4 @@
-package com.nickeson;
+package com.nickeson.games;
 
 //JDK 1.8.0
 

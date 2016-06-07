@@ -1,4 +1,4 @@
-package com.nickeson;
+package com.nickeson.games;
 
 //JDK 1.8.0
 
@@ -16,5 +16,5 @@ package com.nickeson;
 
 public interface Controller {
 
-	public void getInput();
+	public Object getInput();
 }

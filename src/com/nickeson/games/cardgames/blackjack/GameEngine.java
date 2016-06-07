@@ -15,6 +15,8 @@ package com.nickeson.games.cardgames.blackjack;
  ****************************************************************************/
 
 public class GameEngine {
+	
+	private String gameType = null;
 
 	// default constructor
 	public GameEngine() {
