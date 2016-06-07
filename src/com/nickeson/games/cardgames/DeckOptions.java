@@ -22,7 +22,7 @@ public class DeckOptions {
 	private Map<String, Object> deckOpt = new HashMap<String, Object>();
 
 	/**
-	 * default constructor defines Deck options
+	 * default constructor defines Deck Options
 	 */
 	public DeckOptions() {
 		// a standard Deck has 2 Jokers
@@ -30,6 +30,7 @@ public class DeckOptions {
 	}
 	
 	/**
+	 * returns the options from DeckOptions as a Map object
 	 * @return the options from DeckOptions as a Map object
 	 */
 	public Map<String, Object> getDeckOptions() {
