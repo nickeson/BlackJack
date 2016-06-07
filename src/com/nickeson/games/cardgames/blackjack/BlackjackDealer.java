@@ -1,9 +1,8 @@
 package com.nickeson.games.cardgames.blackjack;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 import com.nickeson.games.Player;
-import com.nickeson.games.cardgames.Card;
 import com.nickeson.games.cardgames.Dealer;
 import com.nickeson.games.cardgames.Shoe;
 
@@ -23,7 +22,7 @@ import com.nickeson.games.cardgames.Shoe;
 
 public class BlackjackDealer extends Player implements Dealer {
 
-	private List<Player> players = new ArrayList<Player>();
+//	private List<Player> players = new ArrayList<Player>();
 	private Shoe shoe = new Shoe(); // builds a standard 6 deck Shoe, no Jokers
 	
 	/**

@@ -1,8 +1,6 @@
 package com.nickeson.games;
 
 import java.util.List;
-import java.util.Scanner;
-
 import com.nickeson.Person;
 
 //JDK 1.8.0
