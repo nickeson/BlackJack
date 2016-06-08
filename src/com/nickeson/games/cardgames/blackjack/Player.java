@@ -1,4 +1,4 @@
-package com.nickeson.games;
+package com.nickeson.games.cardgames.blackjack;
 
 import java.util.List;
 import com.nickeson.Person;
@@ -7,8 +7,8 @@ import com.nickeson.Person;
 
 /****************************************************************************
  * <b>Title</b>: Player.java <p/>
- * <b>Project</b>: Games <p/>
- * <b>Description: </b> A subclass of Person for use in game play<p/>
+ * <b>Project</b>: Blackjack <p/>
+ * <b>Description: </b> A subclass of Person for use in Blackjack game play<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -86,6 +86,7 @@ public class Player extends Person {
 	 * @param dob the DateOfBirth to set (2016-12-03 is proper format)
 	 * @param genderIdentity the gender identity to set
 	 * @param nickNames the nickname(s) to set
+	 * @param screenName the screen name to set
 	 */
 	public Player(String firstName, String lastName, String dob, 
 			String genderIdentity, List<String> nickNames, String screenName) {
@@ -96,12 +97,14 @@ public class Player extends Person {
 	/**
 	 * convenience constructor allows firstName and lastName fields, dob,
 	 * genderIdentity, nickName(s), screenName and acctBalance to be set upon 
-	 * instantiation of Player
+	 * Player instantiation
 	 * @param firstName the first name to set
 	 * @param lastName the last name to set
 	 * @param dob the DateOfBirth to set (2016-12-03 is proper format)
 	 * @param genderIdentity the gender identity to set
 	 * @param nickNames the nickname(s) to set
+	 * @param screenName the screen name to set
+	 * @param acctBalance the account Balance to set
 	 */
 	public Player(String firstName, String lastName, String dob, 
 			String genderIdentity, List<String> nickNames, 
@@ -173,6 +176,7 @@ public class Player extends Person {
 	
 	public static void main(String[] args) {
 		Player player = new Player("Kris", "Nickeson");
+		System.out.println(player);
 		player.hitOrStand();
 	}
 }

@@ -1,6 +1,6 @@
 package com.nickeson.games.cardgames;
 
-import com.nickeson.games.Player;
+import com.nickeson.games.cardgames.blackjack.Player;
 
 //JDK 1.8.0
 

@@ -2,7 +2,7 @@ package com.nickeson.games.cardgames.blackjack;
 
 //import java.util.ArrayList;
 import java.util.List;
-import com.nickeson.games.Player;
+
 import com.nickeson.games.cardgames.Dealer;
 import com.nickeson.games.cardgames.Shoe;
 

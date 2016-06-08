@@ -1,0 +1,10 @@
+- assign 1st and 2nd cards in hand to c and c1
+- compare first card to all other cards in hand, one at a time, checking ordering by suit, then by value
+- comparison: ((if 2nd suit > first suit) or (suits are equal)), order by value (assign value of card2 to card1 if 2nd card value is larger than 1st)
+- move highest card of those compared to 1st position in tmpHand (remove from hand, add to tmpHand)
+- move to positon 2/3 and re-run comparison of card 2 to all remaining cards in hand
+- move the highest card of those compared to position 2 in tmpHand
+- move to position 3/4 and re-run comparison of card 3 to all remaining cards in hand
+- move the highest card of those compared to position 3 in tmpHand
+- repeat for all cards in hand
+- assign tmpHand to hand when complete

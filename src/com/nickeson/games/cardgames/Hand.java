@@ -215,6 +215,7 @@ public class Hand {
 //	public static void main(String[] args) {
 //		Hand hand = new Hand();
 //		StdDeck stdDeck = new StdDeck(new DeckOptions().getDeckOptions());
+//		System.out.println("StdDeck: " + stdDeck);
 //		stdDeck.shuffle();
 		
 		// add all cards in Deck to hand, casting List<Card> from Deck to ArrayList<Card> for hand
