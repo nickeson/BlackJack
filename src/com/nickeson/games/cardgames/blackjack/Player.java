@@ -150,36 +150,7 @@ public class Player extends Person {
 	 * @return (H)it = true, (S)tand = false
 	 */
 	public boolean hitOrStand() {
-		String outStr = "Player (" + getFirstName() + " " + getLastName() + ")";
-		String prompt = "(H)it or (S)tand?: ";
-		String inStr = null;
-		String hosStr = "";
 		boolean hosResult = false;
-		boolean breakout = false;
-
-		Console console = new Console();
-		console.setOutText(outStr);
-		console.displayOutput();
-
-		console.setPrompt(prompt);
-		inStr = (String)console.getInput(); // get console input, prompting first
-
-		hosStr = inStr.substring(0).toUpperCase(); // first letter only, uppercase
-
-//		while (!hosStr.equals("H") && !hosStr.equals("S")) {
-		while (breakout != true) {
-			// once we know hosStr is set to 'H' or 'S'
-			if (hosStr.equals("H")) {
-				hosResult = true;
-				breakout = true;
-			} else {
-				if (hosStr.equals("S")) {
-					hosResult = false;
-					breakout = true;
-				}
-			}
-		}
-		System.out.println(hosStr);
 		return hosResult;
 	}
 	
