@@ -85,7 +85,8 @@ public class Console implements View, Controller {
 					scanner.close();
 				}
 			}
-		} return inText;
+		} 
+		return inText;
 	}
 
 	/**
