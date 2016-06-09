@@ -1,4 +1,4 @@
 com.nickeson
-com.nickeson.games
-com.nickeson.games.cardgames
-com.nickeson.games.cardgames.blackjack
+com.nickeson.game
+com.nickeson.game.cardgame
+com.nickeson.game.cardgame.blackjack
