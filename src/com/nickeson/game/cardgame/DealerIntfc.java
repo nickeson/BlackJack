@@ -1,5 +1,7 @@
 package com.nickeson.game.cardgame;
 
+import com.nickeson.game.cardgame.blackjack.Player;
+
 //JDK 1.8.0
 
 /****************************************************************************
@@ -20,11 +22,11 @@ public interface DealerIntfc {
 	 * deal a single Card by removing it from the Card collection (deck/shoe), 
 	 * then adding it to a Player's Hand and inUse pile - Card has a boolean value faceUp
 	 */
-	public void dealCard();
+	public void dealCard(Player player, int numCards);
 	
 	/**
 	 * deal a Hand of Cards by removing the Cards from the Card collection, 
 	 * (deck/shoe), then adding them to the Player's Hand and inUse pile
 	 */
-	public void dealHand();
+	public void dealHand(Player player);
 }

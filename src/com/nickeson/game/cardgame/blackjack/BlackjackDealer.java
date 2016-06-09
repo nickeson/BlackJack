@@ -1,6 +1,8 @@
 package com.nickeson.game.cardgame.blackjack;
 
 import java.util.List;
+import java.util.ArrayList;
+import com.nickeson.game.cardgame.Card;
 import com.nickeson.game.cardgame.DealerIntfc;
 
 //JDK 1.8.0
@@ -19,6 +21,8 @@ import com.nickeson.game.cardgame.DealerIntfc;
 
 public class BlackjackDealer extends Player implements DealerIntfc {
 
+	private List<Card> dealerHand = new ArrayList<Card>();
+	
 	/**
 	 * default constructor assumes the BlackjackDealer role is played by the PC
 	 */
@@ -47,17 +51,25 @@ public class BlackjackDealer extends Player implements DealerIntfc {
 	 * @param acctBalance the Account Balance to set
 	 */
 	public BlackjackDealer(String firstName, String lastName, String dob, 
-			String genderIdentity, List<String> nickNames, String screenName, int acctBalance) {
+			String genderIdentity, List<String> nickNames, String screenName, double acctBalance) {
 		super(firstName, lastName, dob, genderIdentity, 
 				nickNames, screenName, acctBalance);
 	}
 	
-	public void dealHand() {
+	public void dealCard(Player player, int numCards) {
 	}
 	
-	public void dealCard() {
+	public void dealHand(Player player) {
 	}
 	
+	public boolean checkBlackjack() {
+		return false;
+	}
+	
+	public boolean checkBust() {
+		return false;
+	}
+
 	// contains game logic that the BlackjackDealer must follow that other
 	// Players don't have to follow
 	@Override

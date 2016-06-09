@@ -5,7 +5,7 @@ package com.nickeson.game;
 /****************************************************************************
  * <b>Title</b>: Configurator.java <p/>
  * <b>Project</b>: Games <p/>
- * <b>Description: </b> Utilities to configure game parameters via config file<p/>
+ * <b>Description: </b>Configure game parameters via config file<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -16,8 +16,6 @@ package com.nickeson.game;
 
 public class Configurator {
 
-	// config file variable goes here
-	
 	public Configurator() {
 	}
 	
@@ -26,8 +24,4 @@ public class Configurator {
 	
 	public void exportConfigValues() {
 	}
-	
-	public void updateBank() {
-	}
-
 }

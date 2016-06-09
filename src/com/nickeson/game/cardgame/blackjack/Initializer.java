@@ -1,5 +1,11 @@
 package com.nickeson.game.cardgame.blackjack;
 
+import java.util.Map;
+
+import com.nickeson.game.cardgame.StdDeck;
+
+import java.util.HashMap;
+
 //JDK 1.8.0
 
 /****************************************************************************
@@ -16,7 +22,12 @@ package com.nickeson.game.cardgame.blackjack;
 
 public class Initializer {
 
+	Map<String, Object> deckOpt = new HashMap<String, Object>();
+
 	public Initializer() {
+	}
+
+	public void runInitializer() {
 	}
 
 	public void runConfigurator() {
@@ -26,5 +37,17 @@ public class Initializer {
 	}
 
 	public void buildShoe() {
+		deckOpt.put("stdDeckNumJokers", new Integer(2));
+		StdDeck gameDeck = new StdDeck(deckOpt);
+	}
+
+	// for testing only
+	public Map<String, Object> getDeckOpt() {
+		return deckOpt;
+	}
+
+	public static void main(String[] args) {
+		Initializer init = new Initializer();
+		init.runInitializer();
 	}
 }

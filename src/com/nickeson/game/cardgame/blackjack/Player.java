@@ -1,10 +1,9 @@
 package com.nickeson.game.cardgame.blackjack;
 
 import java.util.List;
-import java.util.Scanner;
-
+import java.util.ArrayList;
 import com.nickeson.Person;
-//import com.nickeson.game.Console;
+import com.nickeson.game.cardgame.Card;
 
 //JDK 1.8.0
 
@@ -21,9 +20,10 @@ import com.nickeson.Person;
  ****************************************************************************/
 
 public class Player extends Person {
-	
+
 	private String screenName = null;
-	private int acctBalance = 0; // whole dollar values only for our game(s)
+	private double acctBalance = 0;
+	private List<Card> hand = new ArrayList<Card>();
 
 	/**
 	 * primary constructor requires firstName and lastName at minimum
@@ -49,7 +49,7 @@ public class Player extends Person {
 	 */
 	public Player(String firstName, String lastName, String dob, 
 			String genderIdentity, List<String> nickNames, 
-			String screenName, int acctBalance) 
+			String screenName, double acctBalance) 
 	{
 		super(firstName, lastName, dob, genderIdentity, nickNames);
 		this.screenName = screenName;
@@ -73,61 +73,28 @@ public class Player extends Person {
 	/**
 	 * @return the Player's acctBalance
 	 */
-	public int getAcctBalance() {
+	public double getAcctBalance() {
 		return acctBalance;
 	}
 
 	/**
 	 * @param acctBalance the acctBalance to set
 	 */
-	public void setAcctBalance(int acctBalance) {
+	public void setAcctBalance(double acctBalance) {
 		this.acctBalance = acctBalance;
 	}
 
 	/**
-	 * players have the option to (H)it (get another Card from DealerIntfc) or 
-	 * (S)tand (no more Cards)
+	 * players have the option to (H)it (get another Card from Blackjack Dealer) 
+	 * or (S)tand (no more Cards, Player's turn is finished)
 	 * @return (H)it = true, (S)tand = false
 	 */
 	public boolean hitOrStand() {
-		Scanner scanner = null;
-		String inStr = null; // text input from Console
-		String hosStr = null;
-		boolean hosResult = false;
-		boolean breakout = false;
-		String outStr = "Player (" + getFirstName() + " " + getLastName() + ")";
-		String prompt = "(H)it or (S)tand?: ";
-
-//		while (!hosStr.equals("H") && !hosStr.equals("S"))
-		System.out.println(outStr);
-		while (!breakout)
-			System.out.println(prompt);
-
-			if (inStr == null) {
-				try {
-					scanner = new Scanner(System.in);
-					inStr = scanner.nextLine();
-				} finally {
-					scanner.close();
-				}
-			} 
-
-		
-			hosStr = inStr.substring(0).toUpperCase();
-			if (hosStr.equals("H")) {
-				hosResult = true;
-				breakout = true;
-			} else {
-				if (hosStr.equals("S")) {
-					hosResult = false;
-					breakout = true;
-				}
-			}
-		return hosResult;
+		return false;
 	}
 	
 	/**
-	 * Override toString() to print Person's field values, rather than hashcode
+	 * Override toString() to print Player's field values, rather than hashcode
 	 */
 	@Override
 	public String toString() {

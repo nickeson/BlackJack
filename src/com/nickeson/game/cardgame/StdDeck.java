@@ -11,11 +11,12 @@ import java.util.Random;
 /****************************************************************************
  * <b>Title</b>: StdDeck.java <p/>
  * <b>Project</b>: Blackjack <p/>
- * <b>Description: </b> A Standard Playing Card DeckIntfc using options from DeckOptions<p/>
+ * <b>Description: </b> A Standard Playing Card Deck built with options from
+ * an options Map<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
- * @version 2.0
+ * @version 3.0
  * @since May 17, 2016<p/>
  * updates:
  ****************************************************************************/
@@ -28,14 +29,14 @@ public class StdDeck implements DeckIntfc {
 	public static final String OPT_NUM_JOKERS = "stdDeckNumJokers";
 
 	/**
-	 * default constructor builds a Standard DeckIntfc with 0 Jokers
+	 * default constructor builds a Standard Deck with no Jokers
 	 */
 	public StdDeck() {
 		build(0);
 	}
-	
+
 	/**
-	 * convenience constructor allows us to pass an options Map and build DeckIntfc
+	 * convenience constructor allows us to pass an options Map and build Deck
 	 * using options from the Map
 	 */
 	public StdDeck(Map<String, Object> options) {
@@ -46,10 +47,10 @@ public class StdDeck implements DeckIntfc {
 	}
 	
 	/**
-	 * build a Standard DeckIntfc of cards
+	 * build a Standard Deck of cards
 	 */
 	protected void build(int numJokers) {
-		// add specific number of joker(s) so they're on the top of the DeckIntfc
+		// add specific number of joker(s) so they're on the top of the Deck
 		for (int i=0; i < numJokers; i++) {
 			deck.add(new Card("", "Joker", 0));
 		}

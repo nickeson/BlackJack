@@ -15,6 +15,8 @@ package com.nickeson.game;
  ****************************************************************************/
 
 public class Bank {
+	
+	// entry here for config file on filesystem
 
 	public Bank() {
 	}
