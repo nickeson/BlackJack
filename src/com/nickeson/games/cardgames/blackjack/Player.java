@@ -1,8 +1,10 @@
 package com.nickeson.games.cardgames.blackjack;
 
 import java.util.List;
+import java.util.Scanner;
+
 import com.nickeson.Person;
-import com.nickeson.games.Console;
+//import com.nickeson.games.Console;
 
 //JDK 1.8.0
 
@@ -150,7 +152,39 @@ public class Player extends Person {
 	 * @return (H)it = true, (S)tand = false
 	 */
 	public boolean hitOrStand() {
+		Scanner scanner = null;
+		String inStr = null; // text input from Console
+		String hosStr = null;
 		boolean hosResult = false;
+		boolean breakout = false;
+		String outStr = "Player (" + getFirstName() + " " + getLastName() + ")";
+		String prompt = "(H)it or (S)tand?: ";
+
+//		while (!hosStr.equals("H") && !hosStr.equals("S"))
+		System.out.println(outStr);
+		while (!breakout)
+			System.out.println(prompt);
+
+			if (inStr == null) {
+				try {
+					scanner = new Scanner(System.in);
+					inStr = scanner.nextLine();
+				} finally {
+					scanner.close();
+				}
+			} 
+
+		
+			hosStr = inStr.substring(0).toUpperCase();
+			if (hosStr.equals("H")) {
+				hosResult = true;
+				breakout = true;
+			} else {
+				if (hosStr.equals("S")) {
+					hosResult = false;
+					breakout = true;
+				}
+			}
 		return hosResult;
 	}
 	
@@ -177,6 +211,13 @@ public class Player extends Person {
 	
 	public static void main(String[] args) {
 		Player player = new Player("Kris", "Nickeson");
+//		Console c = System.console();
+//		String msg = "Test2";
+//		System.out.println(msg);
+//		console.printf("%s",  msg);
+//		String username = c.readLine("User Name? ");
+//		System.out.println(username);
+		
 //		System.out.println(player);
 		System.out.println(player.hitOrStand());
 	}

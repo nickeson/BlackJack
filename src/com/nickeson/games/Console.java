@@ -20,7 +20,6 @@ import java.util.Scanner;
 public class Console implements View, Controller {
 
 	private String outText = null; // text to output to Console
-	private String inText = null; // text input from Console
 	private String prompt = null; // text to prompt for input from Console
 	
 	/**
@@ -68,8 +67,9 @@ public class Console implements View, Controller {
 	 * returns the text input at the Console to the caller
 	 * @return the text input at the Console to the caller
 	 */
-	private String getTextInput() {
+	public String getTextInput() {
 		Scanner scanner = null;
+		String inText = null; // text input from Console
 		if (prompt == null) {
 			System.out.println("Please enter input: ");
 		} else {
@@ -81,11 +81,10 @@ public class Console implements View, Controller {
 				scanner = new Scanner(System.in);
 				inText = scanner.nextLine();
 			} finally {
-				if (scanner != null) {
-					scanner.close();
-				}
+				scanner.close();
 			}
 		} 
+		System.out.println(inText);
 		return inText;
 	}
 
@@ -123,6 +122,5 @@ public class Console implements View, Controller {
 
 		c.setPrompt("Prompt: ");
 		c.getTextInput();
-		System.out.println(c.inText);
 	}
 }
