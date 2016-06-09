@@ -25,16 +25,6 @@ public class Person {
 	List<String> nickNames = null;
 
 	/**
-	 * default no-arg constructor warns against creating a null Person
-	 */
-	public Person() {
-		System.out.print("You have created an anonymous Person with null values " +
-				"that can be populated later.\n");
-		System.out.println("However, you should always instantiate a Person with (at minimum): " +
-				"firstName, lastName.");
-	}
-	
-	/**
 	 * minimal constructor requires first & last name
 	 */
 	public Person(String firstName, String lastName) {
@@ -42,37 +32,6 @@ public class Person {
 		this.lastName = lastName;
 		this.dob = null;
 		this.genderIdentity = null;
-		this.nickNames = null;
-	}
-	
-	/**
-	 * convenience constructor allows first and last name & dob fields to be set
-	 * upon instantiation
-	 * @param firstName the first name to set
-	 * @param lastName the last name to set
-	 * @param dob the DateOfBirth to set (2016-12-03 is proper format)
-	 */
-	public Person(String firstName, String lastName, String dob) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dob = LocalDate.parse(dob);
-		this.genderIdentity = null;
-		this.nickNames = null;
-	}
-	
-	/**
-	 * convenience constructor allows first & last names, dob and genderIdentity
-	 * fields to be set upon instantiation
-	 * @param firstName the first name to set
-	 * @param lastName the last name to set
-	 * @param dob the DateOfBirth to set (2016-12-03 is proper format)
-	 * @param genderIdentity the gender identity to set
-	 */
-	public Person(String firstName, String lastName, String dob, String genderIdentity) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dob = LocalDate.parse(dob);
-		this.genderIdentity = genderIdentity;
 		this.nickNames = null;
 	}
 	
@@ -122,7 +81,7 @@ public class Person {
 	}
 
 	/**
-	 * @return the Person's DateOfBirth (dob) as a LocalDate object
+	 * @return the Person's DateOfBirth (dob) as a LocalDate object (2016-12-03 format)
 	 */
 	public LocalDate getDOB() {
 		return dob;

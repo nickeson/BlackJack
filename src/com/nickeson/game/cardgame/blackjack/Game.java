@@ -1,13 +1,11 @@
 package com.nickeson.game.cardgame.blackjack;
 
-import com.nickeson.game.cardgame.CardGameInitializer;
-
 //JDK 1.8.0
 
 /****************************************************************************
- * <b>Title</b>: BlackjackInitializer.java <p/>
+ * <b>Title</b>: Game.java <p/>
  * <b>Project</b>: Blackjack <p/>
- * <b>Description: </b> Blackjack setup routines<p/>
+ * <b>Description: </b> The main game engine for Blackjack<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -16,17 +14,15 @@ import com.nickeson.game.cardgame.CardGameInitializer;
  * updates:
  ****************************************************************************/
 
-public class BlackjackInitializer extends CardGameInitializer {
+public class Game {
+	
+	private String gameType = null;
 
-	public BlackjackInitializer() {
-	}
-
-	public void runConfigurator() {
+	// default constructor
+	public Game() {
 	}
 	
-	public void setupPlayers() {
-	}
-
-	public void buildShoe() {
+	// contains all main game logic
+	public static void main(String[] args) {
 	}
 }

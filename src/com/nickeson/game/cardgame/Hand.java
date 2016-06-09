@@ -218,7 +218,7 @@ public class Hand {
 //		System.out.println("StdDeck: " + stdDeck);
 //		stdDeck.shuffle();
 		
-		// add all cards in Deck to hand, casting List<Card> from Deck to ArrayList<Card> for hand
+		// add all cards in DeckIntfc to hand, casting List<Card> from DeckIntfc to ArrayList<Card> for hand
 //		hand.addCard((ArrayList<Card>)stdDeck.getDeck());
 //		Card testCard = new Card("Clubs", "Ace", 1);
 //		hand.addCard(testCard);

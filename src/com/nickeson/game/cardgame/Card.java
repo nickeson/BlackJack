@@ -19,7 +19,6 @@ public class Card {
     private String suit = null;
     private String rank = null;
     private int value = 0;
-    boolean faceUp = false;
     
     /**
      * constructor requires Card suit, rank, value to be passed (at minimum)
@@ -33,20 +32,6 @@ public class Card {
         this.value = value;
     }
     
-    /**
-     * constructor allows Card suit, rank, value and faceUp to be passed
-     * @param suit the Card's suit
-     * @param rank the Card's rank
-     * @param value the Card's value
-     * @param faceUp the Card's faceUp value (true = Face Up, false = Face Down)
-     */
-    public Card(String suit, String rank, int value, boolean faceUp) {
-    	this.suit = suit;
-    	this.rank = rank;
-    	this.value = value;
-    	this.faceUp = faceUp;
-    }
-
 	/**
 	 * @return Card - the Card's suit
 	 */
@@ -87,53 +72,6 @@ public class Card {
 	 */
 	public void setValue(int value) {
 		this.value = value;
-	}
-	
-	/**
-	 * faceUp value: true = Face Up, false = Face Down
-	 * @return the faceUp value
-	 */
-	public boolean isFaceUp() {
-		return faceUp;
-	}
-
-	/**
-	 * faceUp value: true = Face Up, false = Face Down
-	 * @param faceUp the faceUp value to set
-	 */
-	public void setFaceUp(boolean faceUp) {
-		this.faceUp = faceUp;
-	}
-
-	/**
-	 * @return boolean - a Card suit comparison
-	 */
-	public boolean isSuit(String suit) {
-		if (this.suit == null || this.suit.length() == 0) return false;
-		return this.suit.equalsIgnoreCase(suit);
-	}
-	
-	/**
-	 * @return boolean - a Card rank comparison
-	 */
-	public boolean isRank(String rank) {
-		if (this.rank == null || this.rank.length() == 0) return false;
-		return this.rank.equalsIgnoreCase(rank);
-	}
-	
-	/**
-	 * @return boolean - a Card value comparison
-	 */
-	public boolean isValue(int value) {
-		if (this.value == 0) {
-			return false;
-		} else {
-			if (this.value == value) {
-				return true;
-			} else {
-				return false;
-			}
-		}
 	}
 	
 	/**

@@ -11,7 +11,7 @@ import java.util.Random;
 /****************************************************************************
  * <b>Title</b>: StdDeck.java <p/>
  * <b>Project</b>: Blackjack <p/>
- * <b>Description: </b> A Standard Playing Card Deck using options from DeckOptions<p/>
+ * <b>Description: </b> A Standard Playing Card DeckIntfc using options from DeckOptions<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -20,7 +20,7 @@ import java.util.Random;
  * updates:
  ****************************************************************************/
 
-public class StdDeck implements Deck {
+public class StdDeck implements DeckIntfc {
 	private List<Card> deck = new ArrayList<Card>();	
 	private List<Card> discards = new ArrayList<>();
 	private List<Card> inUse = new ArrayList<>();
@@ -28,14 +28,14 @@ public class StdDeck implements Deck {
 	public static final String OPT_NUM_JOKERS = "stdDeckNumJokers";
 
 	/**
-	 * default constructor builds a Standard Deck with 0 Jokers
+	 * default constructor builds a Standard DeckIntfc with 0 Jokers
 	 */
 	public StdDeck() {
 		build(0);
 	}
 	
 	/**
-	 * convenience constructor allows us to pass an options Map and build Deck
+	 * convenience constructor allows us to pass an options Map and build DeckIntfc
 	 * using options from the Map
 	 */
 	public StdDeck(Map<String, Object> options) {
@@ -46,10 +46,10 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * build a Standard Deck of cards
+	 * build a Standard DeckIntfc of cards
 	 */
 	protected void build(int numJokers) {
-		// add specific number of joker(s) so they're on the top of the Deck
+		// add specific number of joker(s) so they're on the top of the DeckIntfc
 		for (int i=0; i < numJokers; i++) {
 			deck.add(new Card("", "Joker", 0));
 		}
@@ -81,16 +81,16 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * add a specific Card to the Deck
-	 * @param card a Card to add to the Deck
+	 * add a specific Card to the DeckIntfc
+	 * @param card a Card to add to the DeckIntfc
 	 */
 	public void addCard(Card card) {
 		deck.add(card);
 	}
 	
 	/**
-	 * add a List of Cards to the Deck
-	 * @param cards a List of one or more Cards to add to the Deck
+	 * add a List of Cards to the DeckIntfc
+	 * @param cards a List of one or more Cards to add to the DeckIntfc
 	 */
 	public void addCards(List<Card> cards) {
 		for (Card card : cards) {
@@ -99,9 +99,9 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * Get the next Card in the Deck (starting with top Card [0]), move card to
-	 * inUse pile and remove from Deck
-	 * @return the next Card from the Deck
+	 * Get the next Card in the DeckIntfc (starting with top Card [0]), move card to
+	 * inUse pile and remove from DeckIntfc
+	 * @return the next Card from the DeckIntfc
 	 */
 	public Card getCard() {
 		Card nextCard = null;
@@ -111,15 +111,15 @@ public class StdDeck implements Deck {
 			inUse.add(nextCard);
 			return nextCard;
 		} else {
-			System.out.println("The Deck is empty, therefore Card is null");
+			System.out.println("The DeckIntfc is empty, therefore Card is null");
 			return nextCard;
 		}
 	}
 	
 	/**
-	 * remove Card from Deck at 'deckLoc' and add to inUse pile
-	 * @param deckLoc the location in the Deck from which to remove the Card
-	 * @return the Card from the Deck at 'deckLoc'
+	 * remove Card from DeckIntfc at 'deckLoc' and add to inUse pile
+	 * @param deckLoc the location in the DeckIntfc from which to remove the Card
+	 * @return the Card from the DeckIntfc at 'deckLoc'
 	 */
 	public Card getCard(int deckLoc) {
 		Card card = null;
@@ -129,15 +129,15 @@ public class StdDeck implements Deck {
 			inUse.add(card);
 			return card;
 		} else {
-			System.out.println("The Deck is empty, therefore Card is null");
+			System.out.println("The DeckIntfc is empty, therefore Card is null");
 			return card;
 		}
 	}
 	
 	/**
-	 * return the specific Card, remove Card from Deck and add to inUse pile
-	 * @param card the specific Card to get from the Deck
-	 * @return a specific Card from the Deck
+	 * return the specific Card, remove Card from DeckIntfc and add to inUse pile
+	 * @param card the specific Card to get from the DeckIntfc
+	 * @return a specific Card from the DeckIntfc
 	 */
 	public Card getCard(Card card) {
 		if (!deck.isEmpty()) {
@@ -147,29 +147,29 @@ public class StdDeck implements Deck {
 				return card;
 			} else {
 				card = null;
-				System.out.println("The Deck does not contain your Card");
+				System.out.println("The DeckIntfc does not contain your Card");
 				return card;
 			}
 		} else {
 			card = null;
-			System.out.println("The Deck is empty, therefore Card is null");
+			System.out.println("The DeckIntfc is empty, therefore Card is null");
 			return card;
 		}
 	}
 	
 	/** 
-	 * (Does not remove cards from the Deck (or move to inUse or discards)
-	 * returns the Deck as a List of Cards
-	 * @return the Deck as a List of Cards
+	 * (Does not remove cards from the DeckIntfc (or move to inUse or discards)
+	 * returns the DeckIntfc as a List of Cards
+	 * @return the DeckIntfc as a List of Cards
 	 */
 	public List<Card> getDeck() {
 		return deck;
 	}
 	
 	/**
-	 * return a Card from a random location in the Deck, remove from the Deck and 
+	 * return a Card from a random location in the DeckIntfc, remove from the DeckIntfc and 
 	 * add to inUse pile
-	 * @return a randomly drawn Card from the Deck
+	 * @return a randomly drawn Card from the DeckIntfc
 	 */
 	public Card getRandom() {
 		Card card = null;
@@ -181,14 +181,14 @@ public class StdDeck implements Deck {
 			inUse.add(card);
 			return card;
 		} else {
-			System.out.println("You cannot get a random Card from an empty Deck");
+			System.out.println("You cannot get a random Card from an empty DeckIntfc");
 			return card;
 		}
 	}
 	
 	/**
-	 * remove a specific Card from the Deck (remove from Deck, inUse and discards)
-	 * @param card the specific Card to remove from the Deck
+	 * remove a specific Card from the DeckIntfc (remove from DeckIntfc, inUse and discards)
+	 * @param card the specific Card to remove from the DeckIntfc
 	 */
 	public void removeCard(Card card) {
 		if (deck.contains(card) || inUse.contains(card) || discards.contains(card)) {
@@ -202,13 +202,13 @@ public class StdDeck implements Deck {
 				discards.remove(card);
 			}
 		} else {
-			System.out.println("The Deck does not contain your Card");
+			System.out.println("The DeckIntfc does not contain your Card");
 		}
 	}
 
 
 	/**
-	 * remove specified Card from the Deck or inUse pile to the discards pile
+	 * remove specified Card from the DeckIntfc or inUse pile to the discards pile
 	 * @param card the specific Card to discard
 	 */
 	public void discard(Card card) {
@@ -220,12 +220,12 @@ public class StdDeck implements Deck {
 				inUse.remove(card);
 			}
 		} else {
-			System.out.println("The Deck does not contain your Card");
+			System.out.println("The DeckIntfc does not contain your Card");
 		}
 	}
 	
 	/**
-	 * move all Cards from discard pile back to the Deck
+	 * move all Cards from discard pile back to the DeckIntfc
 	 */
 	public void addDiscards() {
 		if (!discards.isEmpty()) {
@@ -239,7 +239,7 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * add Card(s) to Deck from discards pile, shuffle the Deck
+	 * add Card(s) to DeckIntfc from discards pile, shuffle the DeckIntfc
 	 */
 	public void shuffle() {
 		for (Card c : discards) {
@@ -249,15 +249,15 @@ public class StdDeck implements Deck {
 	}
 	
 	/**
-	 * returns the number of Cards in the Deck
-	 * @return the number of Cards in the Deck
+	 * returns the number of Cards in the DeckIntfc
+	 * @return the number of Cards in the DeckIntfc
 	 */
 	public int size() {
 		return deck.size();
 	}
 	
 	/**
-	 * remove all Cards from discard and inUse piles and add back to the Deck, shuffle the Deck
+	 * remove all Cards from discard and inUse piles and add back to the DeckIntfc, shuffle the DeckIntfc
 	 */
 	public void reInitialize() {
 		for (Card c : inUse) {
@@ -281,7 +281,7 @@ public class StdDeck implements Deck {
 //	}
 	
 	/**
-	 * Override toString() method to print the Deck's String value instead of hashcode
+	 * Override toString() method to print the DeckIntfc's String value instead of hashcode
 	 */
 	@Override
 	public String toString() {

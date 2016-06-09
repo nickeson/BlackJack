@@ -29,7 +29,7 @@ public class Shoe {
 	private static final int MAX_DECKS = 8;
 	
 	/**
-	 * default constructor builds a 6-Deck Shoe
+	 * default constructor builds a 6-DeckIntfc Shoe
 	 */
 	public Shoe(){
 		build(6);
@@ -92,9 +92,9 @@ public class Shoe {
 	}
 	
 	/**
-	 * Get the next Card in the Deck (starting with top Card [0]), add card to
-	 * inUse pile and remove from Deck
-	 * @return the next Card from the Deck
+	 * Get the next Card in the DeckIntfc (starting with top Card [0]), add card to
+	 * inUse pile and remove from DeckIntfc
+	 * @return the next Card from the DeckIntfc
 	 */
 	public Card getCard() {
 		Card nextCard = null;
@@ -137,9 +137,9 @@ public class Shoe {
 	}
 	
 	/**
-	 * return a Card from a random location in the Deck, remove from the Deck and 
+	 * return a Card from a random location in the DeckIntfc, remove from the DeckIntfc and 
 	 * add to inUse pile
-	 * @return a randomly drawn Card from the Deck
+	 * @return a randomly drawn Card from the DeckIntfc
 	 */
 	public Card getRandom() {
 		Card card = null;
@@ -151,7 +151,7 @@ public class Shoe {
 			inUse.add(card);
 			return card;
 		} else {
-			System.out.println("You cannot get a random Card from an empty Deck");
+			System.out.println("You cannot get a random Card from an empty DeckIntfc");
 			return card;
 		}
 	}

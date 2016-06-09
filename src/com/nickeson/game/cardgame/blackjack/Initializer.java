@@ -1,13 +1,11 @@
-package com.nickeson.game.cardgame;
-
-import com.nickeson.game.BetManager;
+package com.nickeson.game.cardgame.blackjack;
 
 //JDK 1.8.0
 
 /****************************************************************************
- * <b>Title</b>: CardGameBetMgr.java <p/>
- * <b>Project</b>: Card Games <p/>
- * <b>Description: </b> A generic bet manager utility for card games<p/>
+ * <b>Title</b>: Initializer.java <p/>
+ * <b>Project</b>: Blackjack <p/>
+ * <b>Description: </b> Blackjack setup routines<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
@@ -16,8 +14,17 @@ import com.nickeson.game.BetManager;
  * updates:
  ****************************************************************************/
 
-public abstract class CardGameBetMgr implements BetManager {
+public class Initializer {
 
-	public CardGameBetMgr() {
+	public Initializer() {
+	}
+
+	public void runConfigurator() {
+	}
+	
+	public void setupPlayers() {
+	}
+
+	public void buildShoe() {
 	}
 }

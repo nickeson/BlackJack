@@ -26,14 +26,6 @@ public class Player extends Person {
 	private int acctBalance = 0; // whole dollar values only for our game(s)
 
 	/**
-	 * default no-arg constructor issues message that a minimum of firstName and
-	 * lastName is required to instantiate a Player
-	 */
-	public Player() {
-		super();
-	}
-		
-	/**
 	 * primary constructor requires firstName and lastName at minimum
 	 * to instantiate a Player
 	 * @param firstName the first name to set
@@ -43,60 +35,6 @@ public class Player extends Person {
 		super(firstName, lastName);
 	}
 	
-	/**
-	 * convenience constructor allows firstName and lastName fields and dob
-	 * to be set upon instantiation of Player
-	 * @param firstName the first name to set
-	 * @param lastName the last name to set
-	 * @param dob the DateOfBirth to set (2016-12-03 is proper format)
-	 */
-	public Player(String firstName, String lastName, String dob) {
-		super(firstName, lastName, dob);
-	}
-	
-	/**
-	 * convenience constructor allows firstName and lastName fields, dob, 
-	 * and genderIdentity to be set upon instantiation of Player
-	 * @param firstName the first name to set
-	 * @param lastName the last name to set
-	 * @param dob the DateOfBirth to set (2016-12-03 is proper format)
-	 * @param genderIdentity the gender identity to set
-	 */
-	public Player(String firstName, String lastName, String dob, 
-			String genderIdentity) {
-		super(firstName, lastName, dob, genderIdentity);
-	}
-	
-	/**
-	 * convenience constructor allows firstName and lastName fields, dob, 
-	 * genderIdentity, and nickName(s) to be set upon instantiation of Player
-	 * @param firstName the first name to set
-	 * @param lastName the last name to set
-	 * @param dob the DateOfBirth to set (2016-12-03 is proper format)
-	 * @param genderIdentity the gender identity to set
-	 * @param nickNames the nickname(s) to set
-	 */
-	public Player(String firstName, String lastName, String dob, 
-			String genderIdentity, List<String> nickNames) {
-		super(firstName, lastName, dob, genderIdentity, nickNames);
-	}
-	
-	/**
-	 * convenience constructor allows firstName and lastName fields, dob,
-	 * genderIdentity, nickName(s), and screenName to be set upon Player instantiation
-	 * @param firstName the first name to set
-	 * @param lastName the last name to set
-	 * @param dob the DateOfBirth to set (2016-12-03 is proper format)
-	 * @param genderIdentity the gender identity to set
-	 * @param nickNames the nickname(s) to set
-	 * @param screenName the screen name to set
-	 */
-	public Player(String firstName, String lastName, String dob, 
-			String genderIdentity, List<String> nickNames, String screenName) {
-		super(firstName, lastName, dob, genderIdentity, nickNames);
-		this.screenName = screenName;
-	}
-
 	/**
 	 * convenience constructor allows firstName and lastName fields, dob,
 	 * genderIdentity, nickName(s), screenName and acctBalance to be set upon 
@@ -147,7 +85,7 @@ public class Player extends Person {
 	}
 
 	/**
-	 * players have the option to (H)it (get another Card from Dealer) or 
+	 * players have the option to (H)it (get another Card from DealerIntfc) or 
 	 * (S)tand (no more Cards)
 	 * @return (H)it = true, (S)tand = false
 	 */
