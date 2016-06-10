@@ -1,6 +1,7 @@
 package com.nickeson.game.cardgame;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 import java.util.HashMap;
@@ -21,12 +22,18 @@ import java.util.HashMap;
 
 public class Shoe {
 
-	private StdDeck gameDeck = new StdDeck();
+	private DeckIntfc gameDeck = null;
+	public static final String DECKTYPE = "typeOfDeck";
 	
 	/**
-	 * default constructor
+	 * default constructor builds a single Deck Shoe using Decks of type 'deckType'
 	 */
-	public Shoe() {
+	public Shoe(Map<String, DeckIntfc> deckType) {
+//	public Shoe() {
+//		gameDeck = new StdDeck();
+		if (deckType.containsKey(DECKTYPE) && deckType.get(DECKTYPE) != null) {
+			gameDeck = deckType.get(DECKTYPE);
+		}
 	}
 	
 	/**
@@ -38,10 +45,10 @@ public class Shoe {
 	}
 
 	/**
-	 * adds a StdDeck of Cards to the Shoe
+	 * add a Deck of Cards to the Shoe
 	 * @param deck the Deck of Cards to add to the Shoe
 	 */
-	public void addDeck(StdDeck deck) {
+	public void addDeck(DeckIntfc deck) {
 		gameDeck.addCards(deck.getDeck());
 	}
 
@@ -50,7 +57,11 @@ public class Shoe {
 	 * @return the number of Cards in the Shoe
 	 */
 	public int size() {
-		return gameDeck.size();
+		if (gameDeck == null) {
+			return 0;
+		} else {
+			return gameDeck.size();
+		}
 	}
 	
 	/**
@@ -62,16 +73,25 @@ public class Shoe {
 	}
 
 	// unit test method
-//	public static void main(String[] args) {
-//		Shoe shoe = new Shoe();
-//		Map<String, Object> deckOpt = new HashMap<String, Object>();
-//		deckOpt.put("stdDeckNumJokers", new Integer(0));
-//		StdDeck testDeck = new StdDeck(deckOpt);
-//		shoe.addDeck(testDeck);	
-//		shoe.addDeck(testDeck);		
-//		System.out.println(shoe);
-//		System.out.println(shoe.size());
-//		Collections.shuffle(shoe.getShoe());
-//		System.out.println(shoe);	
-//	}
+	public static void main(String[] args) {
+		// we specify Deck type by passing it a Map during construction
+		Map<String, DeckIntfc> deckType = new HashMap<>();
+		deckType.put("typeOfDeck", (new TestDeck())); 
+		
+		// builds first Deck in Shoe using Deck of deckType	
+		Shoe gameShoe = new Shoe(deckType); 
+		System.out.println(gameShoe);
+
+		Map<String, Object> deckOpt = new HashMap<String, Object>();
+		deckOpt.put("stdDeckNumJokers", new Integer(0));
+		StdDeck stdDeck = new StdDeck(deckOpt);
+		System.out.println(stdDeck);
+
+		gameShoe.addDeck(stdDeck);
+//		gameShoe.addDeck(testDeck);		
+///		System.out.println(gameShoe);
+		System.out.println(gameShoe.size());
+		Collections.shuffle(gameShoe.getShoe());
+		System.out.println(gameShoe);	
+	}
 }

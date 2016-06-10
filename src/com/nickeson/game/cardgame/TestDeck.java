@@ -9,7 +9,7 @@ import java.util.Random;
 //JDK 1.8.0
 
 /****************************************************************************
- * <b>Title</b>: StdDeck.java <p/>
+ * <b>Title</b>: TestDeck.java <p/>
  * <b>Project</b>: Blackjack <p/>
  * <b>Description: </b> A Standard Playing Card Deck built with options from
  * an options Map<p/>
@@ -21,17 +21,17 @@ import java.util.Random;
  * updates:
  ****************************************************************************/
 
-public class StdDeck implements DeckIntfc {
+public class TestDeck implements DeckIntfc {
 	private List<Card> deck = new ArrayList<Card>();	
 	private List<Card> discards = new ArrayList<>();
 	private List<Card> inUse = new ArrayList<>();
-	private static final String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs" };
+	private static final String[] suits = {"GardenSpades", "BlackHearts", "BloodDiamonds", "ClubSandwiches" };
 	public static final String OPT_NUM_JOKERS = "stdDeckNumJokers";
 
 	/**
-	 * default constructor builds a StdDeck with no Jokers
+	 * default constructor builds a TestDeck with no Jokers
 	 */
-	public StdDeck() {
+	public TestDeck() {
 		build(0);
 	}
 	
@@ -39,7 +39,7 @@ public class StdDeck implements DeckIntfc {
 	 * convenience constructor allows us to pass an options Map and build Deck
 	 * using options from the Map
 	 */
-	public StdDeck(Map<String, Object> options) {
+	public TestDeck(Map<String, Object> options) {
 		int numJokers = 0;
 		if (options.containsKey(OPT_NUM_JOKERS) && options.get(OPT_NUM_JOKERS) != null) 
 			numJokers = Integer.valueOf(options.get(OPT_NUM_JOKERS) + "");
@@ -120,8 +120,6 @@ public class StdDeck implements DeckIntfc {
 	 */
 	public Card getCard() throws EmptyDeckException {
 		Card nextCard = null;
-		if (deck.isEmpty()) throw new EmptyDeckException("The Deck is Empty "
-				+ "- you cannot get a Card");
 		nextCard = deck.get(0);
 		deck.remove(nextCard);
 		inUse.add(nextCard);
@@ -292,26 +290,7 @@ public class StdDeck implements DeckIntfc {
 	
 	// unit test
 	public static void main (String[] args) {
-		StdDeck testDeck = new StdDeck();
-		System.out.println(testDeck);
-		System.out.println(testDeck.size());
-		int origDeckSize = testDeck.size();
-
-		for (int i = 0; i < (origDeckSize); i++) {
-			try {
-				testDeck.getCard();
-			} catch (EmptyDeckException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		try {
-			testDeck.getCard();
-		} catch (EmptyDeckException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println(testDeck.size());		
+		TestDeck testDeck = new TestDeck();
 		System.out.println(testDeck);
 		
 //		Card c1 = (new Card("Spades", "Ace", 1));

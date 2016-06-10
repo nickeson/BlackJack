@@ -18,18 +18,18 @@ public class Card {
 
     private String suit = null;
     private String rank = null;
-    private int value = 0;
+    private int indexValue = 0;
     
     /**
-     * constructor requires Card suit, rank, value to be passed (at minimum)
+     * constructor requires Card suit, rank, indexValue to be passed (at minimum)
      * @param suit the Card's suit
      * @param rank the Card's rank
-     * @param value the Card's value
+     * @param indexValue the Card's indexValue
      */
-    public Card(String suit, String rank, int value) {
+    public Card(String suit, String rank, int indexValue) {
         this.suit = suit; 
         this.rank = rank;
-        this.value = value;
+        this.indexValue = indexValue;
     }
     
 	/**
@@ -61,17 +61,17 @@ public class Card {
 	}
 	
 	/**
-	 * @return Card - the Card's value
+	 * @return Card - the Card's indexValue
 	 */
-	public int getValue() {
-		return value;
+	public int getIndexValue() {
+		return indexValue;
 	}
 
 	/**
-	 * @param value the Card value to set
+	 * @param indexValue the Card indexValue to set
 	 */
-	public void setValue(int value) {
-		this.value = value;
+	public void setIndexValue(int indexValue) {
+		this.indexValue = indexValue;
 	}
 	
 	/**

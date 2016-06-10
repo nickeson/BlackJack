@@ -27,7 +27,7 @@ public class BlackjackDealer extends Player implements DealerIntfc {
 	 * default constructor assumes the BlackjackDealer role is played by the PC
 	 */
 	public BlackjackDealer() {
-		super("DealerIntfc", "(PC)");
+		super("Dealer", "(PC)");
 	}
 	
 	/**
@@ -67,6 +67,9 @@ public class BlackjackDealer extends Player implements DealerIntfc {
 	}
 	
 	public boolean checkBust() {
+//		if (dealerHand > 21) {
+//			return true;
+//		} else
 		return false;
 	}
 
@@ -79,14 +82,14 @@ public class BlackjackDealer extends Player implements DealerIntfc {
 	}
 	
 	/**
-	 * Override the toString() method to print specific String when the 
-	 * Blackjack Dealer is the PC and not a human Player, otherwise printer
-	 * Blackjack Dealer's value as String rather than hashcode
+	 * Override the toString() method to print specific String when 
+	 * BlackjackDealer is the PC and not a human Player, otherwise print
+	 * BlackjackDealer's value as String rather than hashcode
 	 */
 	@Override
 	public String toString() {
 		String result = "";
-		if ((getFirstName().equals("DealerIntfc")) && (getLastName().equals("(PC)"))){
+		if ((getFirstName().equals("Dealer")) && (getLastName().equals("(PC)"))){
 			result = "The PC is the Blackjack Dealer";
 		} else {
 			result = getFirstName() + " " + getLastName() + " is " + getDOB() + 

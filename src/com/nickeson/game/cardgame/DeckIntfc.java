@@ -7,7 +7,7 @@ import java.util.List;
 /****************************************************************************
  * <b>Title</b>: DeckIntfc.java <p/>
  * <b>Project</b>: Blackjack <p/>
- * <b>Description: </b> An interface for a collection of Playing Cards (DeckIntfc)
+ * <b>Description: </b> An interface for a collection of Playing Cards (Deck)
  * for use in various card games.<p/>
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
@@ -20,76 +20,69 @@ import java.util.List;
 public interface DeckIntfc {
 
 	/**
-	 * @param card a Card to add to the DeckIntfc
+	 * @param card a Card to add to the Deck
 	 */
 	public void addCard(Card card);
 	
 	/**
-	 * @param cards a List of one or more Cards to add to the DeckIntfc
+	 * @param cards a List of one or more Cards to add to the Deck
 	 */
 	public void addCards(List<Card> cards);
 	
 	/**
-	 * remove next Card from the DeckIntfc and add to inUse pile
-	 * @return the next Card in the DeckIntfc
+	 * remove next Card from the Deck and add to inUse pile
+	 * @return the next Card in the Deck
 	 */
-	public Card getCard();
+	public Card getCard() throws EmptyDeckException;
 	
 	/**
-	 * remove Card from the DeckIntfc at 'deckLoc' and add to inUse pile
-	 * @param deckLoc the location in the DeckIntfc from which to remove the Card
-	 * @return the Card from the DeckIntfc at 'deckLoc'
+	 * remove Card from the Deck at 'deckLoc' and add to inUse pile
+	 * @param deckLoc the location in the Deck from which to remove the Card
+	 * @return the Card from the Deck at 'deckLoc'
 	 */
 	public Card getCard(int deckLoc);
 	
 	/**
-	 * remove a specific Card from the DeckIntfc and add to inUse pile
-	 * @param card the specific Card to get from the DeckIntfc
-	 * @return the specific Card from the DeckIntfc
-	 */
-	public Card getCard(Card card);
-	
-	/**
-	 * (Does not remove cards from the DeckIntfc or move to inUse or discards)
-	 * @return a List of Cards in the DeckIntfc
+	 * (Does not remove cards from the Deck or move to inUse or discards)
+	 * @return a List of Cards in the Deck
 	 */
 	public List<Card> getDeck();
 	
 	/**
-	 * remove Card at random from the DeckIntfc and add to inUse pile
-	 * @return a randomly drawn Card from the DeckIntfc
+	 * remove Card at random from the Deck and add to inUse pile
+	 * @return a randomly drawn Card from the Deck
 	 */
-	public Card getRandom();
+	public Card getRandomCard();
 	
 	/**
-	 * remove a specific Card from the DeckIntfc, inUse and discards piles 
-	 * @param card the specific Card to remove from the DeckIntfc
+	 * remove a specific Card from the Deck, inUse and discards piles 
+	 * @param card the specific Card to remove from the Deck
 	 */
 	public void removeCard(Card card);
 	
 	/**
-	 * remove a specific Card from the DeckIntfc or inUse pile and add to discards pile
+	 * remove a specific Card from the Deck or inUse pile and add to discards pile
 	 * @param card the card to put in the discards pile
 	 */
 	public void discard(Card card);
 
 	/**
-	 * add all Cards from discard pile to the DeckIntfc
+	 * add all Cards from discard pile to the Deck
 	 */
 	public void addDiscards();
 	
 	/**
-	 * shuffle the DeckIntfc
+	 * shuffle the Deck
 	 */
 	public void shuffle();
 	
 	/**
-	 * @return the number of Cards in the DeckIntfc
+	 * @return the number of Cards in the Deck
 	 */
 	public int size();
 	
 	/**
-	 * remove all Cards from discard and inUse piles and add to the DeckIntfc, shuffle
+	 * remove all Cards from discard and inUse piles and add to the Deck, shuffle
 	 */
 	public void reInitialize();
 }

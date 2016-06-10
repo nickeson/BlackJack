@@ -1,7 +1,9 @@
-package com.nickeson.game.cardgame;
+package com.nickeson.game.cardgame.blackjack;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.nickeson.game.cardgame.Card;
+//import com.nickeson.game.cardgame.StdDeck;
 
 //JDK 1.8.0
 
@@ -57,7 +59,7 @@ public class Hand {
 	 * Remove a specific Card from the Hand
 	 * @param c the Card to remove from the Hand
 	 */
-	public void discard(Card c) {
+	public void removeCard(Card c) {
 		String c1 = c.toString();
 		String c2 = null;
 		for (Card card : hand) {
@@ -74,7 +76,7 @@ public class Hand {
 	 * Remove multiple Cards from the Hand
 	 * @param cards a List of Cards to remove from the Hand
 	 */
-	public void discard(List<Card> cards) {
+	public void removeCard(List<Card> cards) {
 		String c2 = null;
 		for (Card c : cards) {
 		String c1 = c.toString();
@@ -112,21 +114,6 @@ public class Hand {
 	}
 	
 	/**
-	 * Does not remove Card from Hand - returns(shows) Card if it exists in Hand
-	 * @param c the Card to show if it exists in Hand
-	 * @return the Card to show if it exists in Hand
-	 */
-	public Card showCard(Card c) {
-		Card result = null;
-		for (Card card : hand) {
-			if ((card == c) || (card.toString().equalsIgnoreCase(c.toString()))) {
-				result = card;
-				break;
-			}
-		} return result;
-	}
-	
-	/**
 	 * returns the Hand as a List of Cards
 	 * @return the Hand as a List of Cards
 	 */
@@ -147,7 +134,7 @@ public class Hand {
 	         Card c1 = (Card)hand.get(i);
 	         if ((c1.getSuit().compareToIgnoreCase(c.getSuit()) > 0) 
 	        		 || ((c1.getSuit() == c.getSuit()) 
-					 && (c1.getValue() < c.getValue())))
+					 && (c1.getIndexValue() < c.getIndexValue())))
 	         {
 	             pos = i;
 	             c = c1;
@@ -160,19 +147,19 @@ public class Hand {
 	}
 	
 	/**
-	 * Sorts the cards in the Hand so that cards of the same value are grouped
-	 * together, and within a value the Cards are sorted by suit - values proceed
-	 * in an ascending fashion
+	 * Sorts the cards in the Hand so that cards of the same indexValue are
+	 * grouped together, and within an indexValue the Cards are sorted by suit 
+	 * - indexValues proceed in an ascending fashion
 	 */
-	public void sortByValue() {
+	public void sortByIndexValue() {
 	   List<Card> tmpHand = new ArrayList<>();
 	   while (hand.size() > 0) {
 	      int pos = 0;  // first card's position
 	      Card c = (Card)hand.get(0);  // first card
 	      for (int i = 1; i < hand.size(); i++) {
 	         Card c1 = (Card)hand.get(i);
-	         if (c1.getValue() < c.getValue() ||
-	                 ((c1.getValue() == c.getValue()) && 
+	         if (c1.getIndexValue() < c.getIndexValue() ||
+	                 ((c1.getIndexValue() == c.getIndexValue()) && 
 					 (c1.getSuit().compareToIgnoreCase(c.getSuit()) > 0)))
 	         {
 	             pos = i;
@@ -186,9 +173,41 @@ public class Hand {
 	}
 	
 	/**
+	 * calculate the Blackjack Hand's point value
+	 * @param the boolean value to determine if Aces should be counted as 
+	 * 1(true) or 11(false)
+	 * @return the Blackjack Hand's point value
+	 */
+	public int calcValue(boolean isSoft) {
+		int result = 0;
+		for (Card c : hand) {
+			switch (c.getIndexValue()) { // Blackjack Card indexValues run from 1 to 13
+				case 1: // Ace Card's indexValue is 1
+						if (isSoft) {
+							result += 1; // Ace's Blackjack point value for 'Soft' Hand
+						} else {
+							result += 11; // Ace's Blackjack point value for 'Hard' Hand 
+						}
+						break;
+				case 11:
+						result += 10; // Jack's Blackjack point value is 10
+						break;
+				case 12:
+						result += 10; // Queen's Blackjack point value is 10 
+						break;
+				case 13:
+						result += 10; // King's Blackjack point value is 10 
+						break;
+				default: result += c.getIndexValue(); // all non-face Cards
+			}
+		}
+		return result;
+	}
+	
+	/**
 	 * Remove all Cards from the Hand instance
 	 */
-	public void clearHand() {
+	public void clear() {
 		hand.clear();
 	}
 	
@@ -197,9 +216,7 @@ public class Hand {
 	 * @return the number of Cards in the Hand
 	 */
 	public int size() {
-		int result = 0; // print 0 if Hand has no cards (rather than 'null')
-		result = hand.size();
-		return result;
+		return hand.size();
 	}
 	
 	/**
@@ -214,24 +231,32 @@ public class Hand {
 	// unit test method
 //	public static void main(String[] args) {
 //		Hand hand = new Hand();
-//		StdDeck stdDeck = new StdDeck(new DeckOptions().getDeckOptions());
+//		StdDeck stdDeck = new StdDeck();
 //		System.out.println("StdDeck: " + stdDeck);
 //		stdDeck.shuffle();
 		
 		// add all cards in DeckIntfc to hand, casting List<Card> from DeckIntfc to ArrayList<Card> for hand
 //		hand.addCard((ArrayList<Card>)stdDeck.getDeck());
-//		Card testCard = new Card("Clubs", "Ace", 1);
-//		hand.addCard(testCard);
-
+//		hand.addCard(stdDeck.getCard());
+//		hand.addCard(stdDeck.getCard());	
+//		hand.addCard(stdDeck.getCard());		
+//		hand.addCard(stdDeck.getCard());	
+//		hand.addCard(stdDeck.getCard());	
+		
+//		System.out.println(hand);
+//		System.out.println(stdDeck);
+//		System.out.println(hand.calcValue(true));
+//		System.out.println(hand.calcValue(false));
+		
 //		System.out.println("Hand before sorting: " + hand);
 //		hand.sortBySuit();
-//		hand.sortByValue();
+//		hand.sortByIndexValue();
 //		System.out.println("Hand after sorting: " + hand);	
 		
 		// testing inHand()
 //		System.out.println(hand.inHand(new Card("Clubs", "3", 3)));
 
-		// testing discard()
+		// testing removeCard()
 //		Card testCard2 = new Card("Clubs", "Ace", 1);
 //		Card testCard3 = new Card("Clubs", "Ace", 1);	
 //		Card testCard4 = new Card("Spades1", "Ace", 1);	
@@ -239,12 +264,13 @@ public class Hand {
 //		testArrayList.add(testCard2);
 //		testArrayList.add(testCard3);		
 //		testArrayList.add(testCard4);
-//		System.out.println("Hand before discards: " + hand);
+//		System.out.println("Hand before removeCard: " + hand);
 //		System.out.println(testArrayList);
-//		hand.discard(testArrayList);
-//		hand.discard(testCard2);
-//		hand.discard(testCard2);
+//		hand.removeCard(testArrayList);
+//		hand.removeCard(testCard2);
+//		hand.removeCard(testCard2);
 //		System.out.println(hand);
+//		System.out.println(hand.size());
 
 		// testing getCard()
 //		Card testCard5 = new Card("Clubs", "Ace", 1);
