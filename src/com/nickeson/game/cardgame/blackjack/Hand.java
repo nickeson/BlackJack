@@ -1,7 +1,10 @@
 package com.nickeson.game.cardgame.blackjack;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+//import java.util.HashMap;
+//import java.util.Map;
+
 import com.nickeson.game.cardgame.Card;
 //import com.nickeson.game.cardgame.StdDeck;
 
@@ -111,14 +114,6 @@ public class Hand {
 					}
 			}
 		} return result;
-	}
-	
-	/**
-	 * returns the Hand as a List of Cards
-	 * @return the Hand as a List of Cards
-	 */
-	public List<Card> getHand() {
-		return hand;
 	}
 	
 	/**

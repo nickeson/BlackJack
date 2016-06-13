@@ -2,6 +2,8 @@ package com.nickeson.game.cardgame.blackjack;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import com.nickeson.game.cardgame.DeckIntfc;
 import com.nickeson.game.cardgame.Shoe;
 import com.nickeson.game.cardgame.StdDeck;
@@ -23,41 +25,53 @@ import com.nickeson.game.cardgame.StdDeck;
 public class Initializer {
 
 	private Shoe gameShoe = null;
-	private int shoeSize;
-	private int numPlayers;
-	private int winLimit;
-	private int minBet;
-	private int maxBet;
-	private int shuffleMarker;
-	private Map<String, Object> acctBalances = null; // this will serve as Bank for now
+	int shoeSize;
+	private List<Player> playerArray = new ArrayList<>();
+	private Map<String, Object> acctBalanceMap = new HashMap<>();
+	private	Map<String, Object> configParamsMap = new HashMap<>();
 
 	/**
 	 * default constructor builds shoe of size 'shoeSize' and then sets up Player(s)
 	 */
 	public Initializer() {
 		runConfigurator();
-		buildShoe();
+		setupShoe();
 		setupPlayers();
 	}
 
-	private void runConfigurator() {
-		shoeSize = 6; // modify these to pull their values from config file
-		winLimit = 500;
-		minBet = 5;
-		maxBet = 100;
-		shuffleMarker = 220;
+	// modify to allow pulling values from config file
+	protected void runConfigurator() {
+		// setup config params
+		shoeSize = 6;
+		configParamsMap.put("winLimit", 500);
+		configParamsMap.put("minBet",  5);
+		configParamsMap.put("maxBet",  100);
+		configParamsMap.put("shuffleMarker",  220);
+
+		// setup initial acct balances
+		acctBalanceMap.put("Kris Nickeson",  200);
+		acctBalanceMap.put("Niya Nolting",  200);	
 	}
 	
+	// needs modification to allow pulling number of players from command line
 	private void setupPlayers() {
-		numPlayers = 1; // modify this to pull from command line / user input
+		Player dealer = new BlackjackDealer(getGameShoe());
+		String dealerName = dealer.toString();
+		Player player = new Player("Kris", "Nickeson");
+		String playerName = player.getFirstName() + " " + player.getLastName();
+		playerArray.add(dealer);
+		playerArray.add(player);
+		
+		acctBalanceMap.put(playerName, 200);
+		acctBalanceMap.put(dealerName, "Balance N/A");
 	}
-
+	
 	// modify this to pull Deck type as an option, number of jokers as an option, number of Decks
 	// as an option from config file
 	/**
 	 * builds a Shoe of Decks of size 'shoeSize', with type specified by HashMap options
 	 */
-	private void buildShoe() {
+	private void setupShoe() {
 		Map<String, Object> deckOpt = new HashMap<>();
 		deckOpt.put("typeOfDeck", (new StdDeck())); // modify to pull values from config file
 		deckOpt.put("stdDeckNumJoker", (new StdDeck(deckOpt))); // modify to pull values from config file
@@ -83,43 +97,24 @@ public class Initializer {
 	 * returns the number of Players in the game
 	 * @return the number of Players in the game
 	 */
-	public int getNumPlayers() {
-		return numPlayers;
+	public List<Player> getPlayers() {
+		return playerArray;
 	}
 
 	/**
-	 * @return the winLimit
+	 * returns the acctBalanceMap
+	 * @return the acctBalanceMap
 	 */
-	public int getWinLimit() {
-		return winLimit;
+	public Map<String, Object> getAcctBalanceMap() {
+		return acctBalanceMap;
 	}
-
+	
 	/**
-	 * @return the minBet
+	 * returns the configParamsMap
+	 * @return the configParamsMap
 	 */
-	public int getMinBet() {
-		return minBet;
-	}
-
-	/**
-	 * @return the maxBet
-	 */
-	public int getMaxBet() {
-		return maxBet;
-	}
-
-	/**
-	 * @return the shuffleMarker
-	 */
-	public int getShuffleMarker() {
-		return shuffleMarker;
-	}
-
-	/**
-	 * @return the acctBalances
-	 */
-	public Map<String, Object> getAcctBalances() {
-		return acctBalances;
+	public Map<String, Object> getConfig() {
+		return configParamsMap;
 	}
 
 //	public static void main(String[] args) {

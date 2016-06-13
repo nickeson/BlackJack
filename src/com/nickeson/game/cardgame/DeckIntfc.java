@@ -49,6 +49,18 @@ public interface DeckIntfc {
 	public List<Card> getDeck();
 	
 	/**
+	 * Does not remove Cards from the discards pile
+	 * @return the Cards in the discards pile
+	 */
+	public List<Card> getDiscards();
+	
+	/**
+	 * Does not remove Cards from inUse pile
+	 * @return the Cards in the inUse pile
+	 */
+	public List<Card> getInUse();
+	
+	/**
 	 * remove Card at random from the Deck and add to inUse pile
 	 * @return a randomly drawn Card from the Deck
 	 */

@@ -291,29 +291,29 @@ public class StdDeck implements DeckIntfc {
 	}
 	
 	// unit test
-	public static void main (String[] args) {
-		StdDeck testDeck = new StdDeck();
-		System.out.println(testDeck);
-		System.out.println(testDeck.size());
-		int origDeckSize = testDeck.size();
-
-		for (int i = 0; i < (origDeckSize); i++) {
-			try {
-				testDeck.getCard();
-			} catch (EmptyDeckException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		try {
-			testDeck.getCard();
-		} catch (EmptyDeckException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println(testDeck.size());		
-		System.out.println(testDeck);
-		
+//	public static void main (String[] args) {
+//		StdDeck testDeck = new StdDeck();
+//		System.out.println(testDeck);
+//		System.out.println(testDeck.size());
+//		int origDeckSize = testDeck.size();
+//
+//		for (int i = 0; i < (origDeckSize); i++) {
+//			try {
+//				testDeck.getCard();
+//			} catch (EmptyDeckException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		
+//		try {
+//			testDeck.getCard();
+//		} catch (EmptyDeckException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		System.out.println(testDeck.size());		
+//		System.out.println(testDeck);
+//		
 //		Card c1 = (new Card("Spades", "Ace", 1));
 //		Card c2 = (new Card("Spades", "2", 2));	
 //		Card c3 = (new Card("Spades", "3", 3));	
@@ -346,5 +346,5 @@ public class StdDeck implements DeckIntfc {
 //		System.out.println(testDeck.size());	
 //		System.out.println(testDeck);
 //		System.out.println(testDeck.peek(12));
-	}
+//	}
 }

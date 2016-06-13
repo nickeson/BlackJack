@@ -1,15 +1,10 @@
 package com.nickeson.game.cardgame.blackjack;
 
+import java.util.List;
 import java.util.Map;
 import com.nickeson.game.cardgame.DeckIntfc;
-//import java.util.List;
-//import com.nickeson.game.cardgame.Card;
-//import com.nickeson.game.cardgame.Shoe;
-//import com.nickeson.game.cardgame.StdDeck;
-//import com.nickeson.game.cardgame.TestDeck;
-//import java.util.ArrayList;
-//import java.util.Collections;
-//import java.util.HashMap;
+import com.nickeson.game.cardgame.EmptyDeckException;
+import com.nickeson.game.cardgame.blackjack.BlackjackDealer;
 
 //JDK 1.8.0
 
@@ -27,29 +22,70 @@ import com.nickeson.game.cardgame.DeckIntfc;
 
 public class Game {
 	
+	private BlackjackDealer dealer = null;
+	private	List<Player> playerArray = null;
+	private DeckIntfc gameDeck = null;
+	private Map<String, Object> acctBalanceMap = null;
+	private Map<String, Object> configParamsMap = null;	
+
 	/**
-	 * default constructor calls initializer to get all game params
+	 * default constructor calls initializer and then gets all game params
 	 */
 	public Game() {
 		Initializer init = new Initializer();
-		DeckIntfc gameDeck = init.getGameShoe();
-		int numPlayers = init.getNumPlayers();
-		int winLimit = init.getWinLimit();
-		int minBet = init.getMinBet();
-		int maxBet = init.getMaxBet();
-		int shuffleMarker = init.getShuffleMarker();
-		Map<String, Object> acctBalances = init.getAcctBalances();
-//		System.out.println(gameDeck);
-//		System.out.println(gameDeck.size());
-//		System.out.println(numPlayers);
-//		System.out.println(winLimit);
-//		System.out.println(minBet);
-//		System.out.println(maxBet);
-//		System.out.println(shuffleMarker);
-//		System.out.println(acctBalances);
+		playerArray = init.getPlayers();
+		gameDeck = init.getGameShoe();
+		dealer = new BlackjackDealer(gameDeck);
+		acctBalanceMap = init.getAcctBalanceMap();
+		configParamsMap = init.getConfig();
 	}
-	
-	private void runGameLoop() {
+
+	/**
+	 * deal a starting Hand of Cards to each Player
+	 */
+	private void initialDeal() {
+		for (Player p : playerArray) {
+			try {
+				dealer.dealHand(p);
+//				p.getHand().sortBySuit();
+//				int handValueSoft = p.getHand().calcValue(true);
+//				int handValueHard = p.getHand().calcValue(false);	
+//				System.out.println("Hand's soft value: " + p.getHand().calcValue(true));
+//				System.out.println("Hand's hard value: " + p.getHand().calcValue(false));	
+//				System.out.println("Blackjack Check: " + dealer.checkBlackjack(p.getHand()));
+//				System.out.println("Bust Check: " + dealer.checkBust(p.getHand()));
+				String playerName = p.getFirstName() + " " + p.getLastName();
+				System.out.println(playerName + "'s Hand: " + p.getHand());
+			} catch (EmptyDeckException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/**
+	 * main Game loop runs through game play for all players setup by Initializer
+	 * @throws EmptyDeckException 
+	 */
+	private void runGameLoop() throws EmptyDeckException {
+		for (Player p : playerArray) {
+			boolean bj = dealer.checkBlackjack(p.getHand());
+			boolean bust = dealer.checkBust(p.getHand());
+			
+			if (bj == true) {
+				System.out.println("Congratulations " + p.getFirstName() + " "
+						+ p.getLastName() + "- You have won!");
+			} else {
+				if (bust == true) {
+						System.out.println(p.getFirstName() + " " + p.getLastName()
+						+ " has Bust.  Please Play Again.");
+				}
+			}
+
+			if (p.hitOrStand() == true) {
+				dealer.dealCard(p, 1);
+			}
+			System.out.println(p.getHand());
+		}
 	}
 
 	private void getPlayerBet() {
@@ -68,9 +104,14 @@ public class Game {
 	// contains all main game logic
 	public static void main(String[] args) {
 		Game blackjack = new Game();
-		blackjack.runGameLoop();
 		blackjack.getPlayerBet();
+		blackjack.initialDeal();
+		try {
+			blackjack.runGameLoop();
+		} catch (EmptyDeckException e) {
+			e.printStackTrace();
+		}
 		blackjack.updateBank(50);
-		blackjack.end();
+//		blackjack.end();
 	}
 }
