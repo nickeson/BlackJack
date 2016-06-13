@@ -1,7 +1,15 @@
 package com.nickeson.game.cardgame.blackjack;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Map;
+import com.nickeson.game.cardgame.DeckIntfc;
+//import java.util.List;
+//import com.nickeson.game.cardgame.Card;
+//import com.nickeson.game.cardgame.Shoe;
+//import com.nickeson.game.cardgame.StdDeck;
+//import com.nickeson.game.cardgame.TestDeck;
+//import java.util.ArrayList;
+//import java.util.Collections;
+//import java.util.HashMap;
 
 //JDK 1.8.0
 
@@ -19,29 +27,50 @@ import java.util.ArrayList;
 
 public class Game {
 	
-	private List<Player> players = new ArrayList<Player>();
-	private double playerBet;
-	private int shuffleMarker;
-	
+	/**
+	 * default constructor calls initializer to get all game params
+	 */
 	public Game() {
+		Initializer init = new Initializer();
+		DeckIntfc gameDeck = init.getGameShoe();
+		int numPlayers = init.getNumPlayers();
+		int winLimit = init.getWinLimit();
+		int minBet = init.getMinBet();
+		int maxBet = init.getMaxBet();
+		int shuffleMarker = init.getShuffleMarker();
+		Map<String, Object> acctBalances = init.getAcctBalances();
+//		System.out.println(gameDeck);
+//		System.out.println(gameDeck.size());
+//		System.out.println(numPlayers);
+//		System.out.println(winLimit);
+//		System.out.println(minBet);
+//		System.out.println(maxBet);
+//		System.out.println(shuffleMarker);
+//		System.out.println(acctBalances);
 	}
 	
-	public void runInitializer() {
-	}
-	
-	public void runGameLoop() {
+	private void runGameLoop() {
 	}
 
-	public void getPlayerBet() {
+	private void getPlayerBet() {
 	}
 	
-	public void updateBank(double amount) {
+	private void updateBank(int amount) {
 	}
 	
-	public void end() {
+	/**
+	 * display any game closing messages to the view
+	 */
+	private void end() {
+		System.out.println("Thanks for Playing!");
 	}
 	
 	// contains all main game logic
 	public static void main(String[] args) {
+		Game blackjack = new Game();
+		blackjack.runGameLoop();
+		blackjack.getPlayerBet();
+		blackjack.updateBank(50);
+		blackjack.end();
 	}
 }
