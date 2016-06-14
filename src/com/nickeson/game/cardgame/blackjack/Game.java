@@ -90,14 +90,10 @@ public class Game {
 					System.out.println("Player has a Natural Blackjack!");
 				} else {
 					if (isDealer != true) { // for everyone BUT the Dealer
-
-						// continue hOs loop until Bust or Stand (hOs = false) ** BROKEN - only allows H/S once! **
 						while ((handValue < 21) && (hitOrStand == true)) {
 							System.out.println("handValue: " + p.getHand().calcValue());
 							System.out.println("(H)it or (S)tand?: ");
-//							System.out.println("hos: " + hitOrStand); // for testing
 							hitOrStand = p.hitOrStand();
-//							System.out.println("hosAfter: " + hitOrStand); // for testing							
 							if (hitOrStand == true) {
 								dealer.dealCard(p, 1);
 								hitOrStand = true; // reset hitOrStand to True
@@ -106,7 +102,7 @@ public class Game {
 							}
 						}
 
-						// final win/bust evaluation
+						// final win/bust evaluation (FIX CALC FOR MULTIPLE ACES IN HAND!)
 						if (handValue == 21) {
 							System.out.println("Player has Won with Blackjack!");
 						} else {

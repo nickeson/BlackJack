@@ -177,6 +177,8 @@ public class Hand {
 		int softResult = 0;
 		int hardResult = 0;
 		int result = 0;
+		
+		// fix logic for when there are 2 or more Aces in the Hand
 		for (Card c : hand) {
 			switch (c.getIndexValue()) { // Blackjack Card indexValues run from 1 to 13
 				case 1: // Ace Card's indexValue is 1
@@ -199,15 +201,15 @@ public class Hand {
 						softResult += c.getIndexValue(); // all non-face Cards
 						hardResult += c.getIndexValue(); // all non-face Cards	
 			}
-		}
+			if ((hardResult > 21) && (softResult < 21)) {
+				result = softResult;
+			} else {
+				result = hardResult;
+			}
+		} // end for
+
 //		System.out.println("Soft Result: " + softResult); // for testing
 //		System.out.println("Hard Result: " + hardResult); // for testing
-		
-		if ((hardResult > 21) && (softResult < 21)) {
-			result = softResult;
-		} else {
-			result = hardResult;
-			}
 		return result;
 	}
 	

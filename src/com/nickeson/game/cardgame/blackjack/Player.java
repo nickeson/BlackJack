@@ -96,13 +96,13 @@ public class Player extends Person {
      * or (S)tand (no more Cards, Player's turn is finished)
      * @return (H)it = true, (S)tand = false
      */
-    public boolean hitOrStand() {
+	public boolean hitOrStand() {
         Scanner scanner = new Scanner(System.in);
         String inStr = null;
         boolean hosResult = false;
 
         // if we hit enter it closes the scanner - FIX THIS!!
-        while (scanner.hasNextLine() && inStr != null) {
+        while (scanner.hasNextLine()) {
             inStr = scanner.nextLine();
             if(inStr.equalsIgnoreCase("h")) {
                 hosResult = true;
@@ -138,17 +138,4 @@ public class Player extends Person {
 		}
 		return result;
 	}
-	
-//	public static void main(String[] args) {
-//		Player player = new Player("Kris", "Nickeson");
-//		Console c = System.console();
-//		String msg = "Test2";
-//		System.out.println(msg);
-//		console.printf("%s",  msg);
-//		String username = c.readLine("User Name? ");
-//		System.out.println(username);
-		
-//		System.out.println(player);
-//		System.out.println(player.hitOrStand());
-//	}
 }
