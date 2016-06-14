@@ -27,6 +27,8 @@ public class Game {
 	private DeckIntfc gameDeck = null;
 	private Map<String, Object> acctBalanceMap = null;
 	private Map<String, Object> configParamsMap = null;	
+	private int dealerHandValue = 0;
+	private int betAmount;
 
 	/**
 	 * default constructor calls initializer and then gets all game params
@@ -47,15 +49,9 @@ public class Game {
 		for (Player p : playerArray) {
 			try {
 				dealer.dealHand(p);
-//				p.getHand().sortBySuit();
-//				int handValueSoft = p.getHand().calcValue(true);
-//				int handValueHard = p.getHand().calcValue(false);	
-//				System.out.println("Hand's soft value: " + p.getHand().calcValue(true));
-//				System.out.println("Hand's hard value: " + p.getHand().calcValue(false));	
-//				System.out.println("Blackjack Check: " + dealer.checkBlackjack(p.getHand()));
-//				System.out.println("Bust Check: " + dealer.checkBust(p.getHand()));
-				String playerName = p.getFirstName() + " " + p.getLastName();
-				System.out.println(playerName + "'s Hand: " + p.getHand());
+				if (p.getFirstName().equalsIgnoreCase("Dealer")) {
+					dealerHandValue = p.getHand().calcValue();
+				}
 			} catch (EmptyDeckException e) {
 				e.printStackTrace();
 			}
@@ -67,28 +63,79 @@ public class Game {
 	 * @throws EmptyDeckException 
 	 */
 	private void runGameLoop() throws EmptyDeckException {
+		boolean hitOrStand = true;
+		boolean isDealer;
+		int handValue = 0;
+		String playerName;
+
+		// play each player's Hand (not including Dealer)
 		for (Player p : playerArray) {
-			boolean bj = dealer.checkBlackjack(p.getHand());
-			boolean bust = dealer.checkBust(p.getHand());
-			
-			if (bj == true) {
-				System.out.println("Congratulations " + p.getFirstName() + " "
-						+ p.getLastName() + "- You have won!");
-			} else {
-				if (bust == true) {
-						System.out.println(p.getFirstName() + " " + p.getLastName()
-						+ " has Bust.  Please Play Again.");
-				}
+			isDealer = p.getFirstName().equalsIgnoreCase("Dealer");
+			playerName = p.getFirstName() + " " + p.getLastName();
+			if (isDealer != true) { // set handValue for all Players, not Dealer
+				handValue = p.getHand().calcValue();
 			}
 
-			if (p.hitOrStand() == true) {
-				dealer.dealCard(p, 1);
+			// change this to only show first card until Dealer's turn
+			if (isDealer == true) {
+				System.out.println("Dealer's handValue: " + p.getHand().calcValue());
 			}
-			System.out.println(p.getHand());
-		}
-	}
+			System.out.println(playerName + "'s Hand: " + p.getHand()); 
+			
+			// run initial checks for Push / Natural Blackjack / Bust
+			if (handValue == 21 && dealerHandValue == 21) {
+				System.out.println("Player and Dealer have tied at 21 (Push)");
+			} else {
+				if (handValue == 21 && dealerHandValue != 21) {
+					System.out.println("Player has a Natural Blackjack!");
+				} else {
+					if (isDealer != true) { // for everyone BUT the Dealer
+
+						// continue hOs loop until Bust or Stand (hOs = false) ** BROKEN - only allows H/S once! **
+						while ((handValue < 21) && (hitOrStand == true)) {
+							System.out.println("handValue: " + p.getHand().calcValue());
+							System.out.println("(H)it or (S)tand?: ");
+//							System.out.println("hos: " + hitOrStand); // for testing
+							hitOrStand = p.hitOrStand();
+//							System.out.println("hosAfter: " + hitOrStand); // for testing							
+							if (hitOrStand == true) {
+								dealer.dealCard(p, 1);
+								hitOrStand = true; // reset hitOrStand to True
+								System.out.println("Hand: " + p.getHand());
+								handValue = p.getHand().calcValue(); // re-calculate handValue
+							}
+						}
+
+						// final win/bust evaluation
+						if (handValue == 21) {
+							System.out.println("Player has Won with Blackjack!");
+						} else {
+							if ((handValue > dealerHandValue) && handValue < 21) {
+								System.out.println("Player Wins!");
+							} else {
+									if ((handValue < dealerHandValue) && dealerHandValue <= 21) {
+										System.out.println("Dealer Wins!");
+									} else {
+										if (handValue == dealerHandValue) {
+											System.out.println("Player and Dealer"
+													+ " have tied (Push)");
+										} else {
+											System.out.println("Player has Busted!");
+										}
+									}
+							}
+//							System.out.println("\n<<Next Player>>\n");
+						} // end win/bust evaluation
+					} // end if isDealer loop
+				} // end non-Natural Blackjack loop
+			} // end Natural Blackjack loop
+		} // end Player loop
+	} // end method
 
 	private void getPlayerBet() {
+//		for (Player p : playerArray) {
+		// set player's bet amount = map?	
+//		}
 	}
 	
 	private void updateBank(int amount) {
@@ -104,14 +151,16 @@ public class Game {
 	// contains all main game logic
 	public static void main(String[] args) {
 		Game blackjack = new Game();
-		blackjack.getPlayerBet();
-		blackjack.initialDeal();
+		blackjack.getPlayerBet(); // currently does nothing
+		blackjack.initialDeal(); // working
+
 		try {
-			blackjack.runGameLoop();
+			blackjack.runGameLoop(); // in progress
 		} catch (EmptyDeckException e) {
 			e.printStackTrace();
 		}
-		blackjack.updateBank(50);
+
+		blackjack.updateBank(50); // stub
 //		blackjack.end();
 	}
 }

@@ -98,38 +98,14 @@ public class BlackjackDealer extends Player implements DealerIntfc {
 	}
 	
 	/**
-	 * checks whether a Player's hand == 21 (Blackjack)
-	 * @param hand the Hand to check for Blackjack
-	 * @return true if Player's Hand == 21 (Blackjack)
+	 * Dealer must hit when handValue is <= 17, returns true until handValue > 17
 	 */
-	public boolean checkBlackjack(Hand hand) {
-		int softHandValue = hand.calcValue(true);
-		int hardHandValue = hand.calcValue(false);	
-		if (softHandValue == 21 || hardHandValue == 21) {
-			return true;
-		} else return false;
-	}
-	
-	/**
-	 * checks whether a Player's Hand > 21 (Bust)
-	 * @param hand the Hand to check for a Bust
-	 * @return true if Player's Hand > 21 (Bust)
-	 */
-	public boolean checkBust(Hand hand) {
-		int softHandValue = hand.calcValue(true);
-		int hardHandValue = hand.calcValue(false);	
-		if ((softHandValue > 21) && (hardHandValue > 21)) {
-			return true;
-		} else
-		return false;
-	}
-
-	// contains game logic that the BlackjackDealer must follow that other
-	// Players don't have to follow
 	@Override
 	public boolean hitOrStand() {
-		boolean result = false;
-		return result;
+		if (getHand().calcValue() <= 17) {
+			return true;
+		}
+		return false;
 	}
 	
 	/**

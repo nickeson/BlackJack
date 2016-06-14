@@ -1,11 +1,7 @@
 package com.nickeson.game.cardgame.blackjack;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Scanner;
-
 import com.nickeson.Person;
 
 //JDK 1.8.0
@@ -86,47 +82,6 @@ public class Player extends Person {
 	public void setAcctBalance(int acctBalance) {
 		this.acctBalance = acctBalance;
 	}
-
-	// need to fix this so that it repeats the prompts until given a proper value
-	/**
-	 * players have the option to (H)it (get another Card from Blackjack Dealer) 
-	 * or (S)tand (no more Cards, Player's turn is finished)
-	 * @return (H)it = true, (S)tand = false
-	 */
-	public boolean hitOrStand() {
-		Scanner scanner = null;
-		String inStr = null;
-		String hosStr = null;
-		boolean hosResult = false;
-
-		String outStr = "Player (" + getFirstName() + " " + getLastName() + ")";
-		System.out.println(outStr);
-		System.out.println("(H)it or (S)tand?: ");
-
-		if (inStr == null) {
-			try {
-				scanner = new Scanner(System.in);
-				inStr = scanner.nextLine();
-				hosStr = inStr.substring(0).toUpperCase();
-			} finally {
-				scanner.close();
-			}
-		} 
-		
-//		System.out.println(hosStr);
-		
-		if (!hosStr.equals("H") || !hosStr.equals("S")) {
-			if (hosStr.equals("H")) {
-				hosResult = true;
-			} else {
-				if (hosStr.equals("S")) {
-					hosResult = false;
-				}
-			}
-		}
-//		System.out.println(hosResult);
-		return hosResult;
-	}
 	
 	/**
 	 * returns the Player's hand
@@ -135,6 +90,33 @@ public class Player extends Person {
 	public Hand getHand() {
 		return hand;
 	}
+
+	 /**
+     * players have the option to (H)it (get another Card from Blackjack Dealer)
+     * or (S)tand (no more Cards, Player's turn is finished)
+     * @return (H)it = true, (S)tand = false
+     */
+    public boolean hitOrStand() {
+        Scanner scanner = new Scanner(System.in);
+        String inStr = null;
+        boolean hosResult = false;
+
+        // if we hit enter it closes the scanner - FIX THIS!!
+        while (scanner.hasNextLine() && inStr != null) {
+            inStr = scanner.nextLine();
+            if(inStr.equalsIgnoreCase("h")) {
+                hosResult = true;
+                break;
+            } else {
+                if (inStr.equalsIgnoreCase("s")) {
+                    hosResult = false;
+                    break;
+                    }
+            }
+			scanner.close();
+        }
+		return hosResult;
+    }
 
 	/**
 	 * Override toString() to print Player's field values, rather than hashcode
@@ -150,9 +132,9 @@ public class Player extends Person {
 		}
 		result += "acctBalance: ";
 		if (getAcctBalance() == 0) {
-			result += "unavailable\n";
+			result += "unavailable";
 		} else {
-			result += "$" + getAcctBalance() + "\n";
+			result += "$" + getAcctBalance();
 		}
 		return result;
 	}

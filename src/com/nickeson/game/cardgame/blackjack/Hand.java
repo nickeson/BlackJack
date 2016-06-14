@@ -168,34 +168,46 @@ public class Hand {
 	}
 	
 	/**
-	 * calculate the Blackjack Hand's point value
-	 * @param the boolean value to determine if Aces should be counted as 
-	 * 1(true) or 11(false)
-	 * @return the Blackjack Hand's point value
+	 * calculate the Blackjack Hand's point value (uses Ace as point value of 1
+	 *  to avoid 'Busting', when possible
+	 * @return the Blackjack Hand's point value (uses Ace as point vlaue of 1
+	 *  to avoid 'Busting', when possible
 	 */
-	public int calcValue(boolean isSoft) {
+	public int calcValue() {
+		int softResult = 0;
+		int hardResult = 0;
 		int result = 0;
 		for (Card c : hand) {
 			switch (c.getIndexValue()) { // Blackjack Card indexValues run from 1 to 13
 				case 1: // Ace Card's indexValue is 1
-						if (isSoft) {
-							result += 1; // Ace's Blackjack point value for 'Soft' Hand
-						} else {
-							result += 11; // Ace's Blackjack point value for 'Hard' Hand 
-						}
+						softResult += 1; // Ace's Blackjack point value for 'Soft' Hand 
+						hardResult += 11; // Ace's Blackjack point value for 'Hard' Hand
 						break;
 				case 11:
-						result += 10; // Jack's Blackjack point value is 10
+						softResult += 10; // Jack's Blackjack point value is 10
+						hardResult += 10; // Jack's Blackjack point value is 10	
 						break;
 				case 12:
-						result += 10; // Queen's Blackjack point value is 10 
+						softResult += 10; // Queen's Blackjack point value is 10 
+						hardResult += 10; // Queen's Blackjack point value is 10 
 						break;
 				case 13:
-						result += 10; // King's Blackjack point value is 10 
+						softResult += 10; // King's Blackjack point value is 10 
+						hardResult += 10; // King's Blackjack point value is 10 
 						break;
-				default: result += c.getIndexValue(); // all non-face Cards
+				default: 
+						softResult += c.getIndexValue(); // all non-face Cards
+						hardResult += c.getIndexValue(); // all non-face Cards	
 			}
 		}
+//		System.out.println("Soft Result: " + softResult); // for testing
+//		System.out.println("Hard Result: " + hardResult); // for testing
+		
+		if ((hardResult > 21) && (softResult < 21)) {
+			result = softResult;
+		} else {
+			result = hardResult;
+			}
 		return result;
 	}
 	

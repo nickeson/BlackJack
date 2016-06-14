@@ -47,10 +47,6 @@ public class Initializer {
 		configParamsMap.put("minBet",  5);
 		configParamsMap.put("maxBet",  100);
 		configParamsMap.put("shuffleMarker",  220);
-
-		// setup initial acct balances
-		acctBalanceMap.put("Kris Nickeson",  200);
-		acctBalanceMap.put("Niya Nolting",  200);	
 	}
 	
 	// needs modification to allow pulling number of players from command line
@@ -58,11 +54,14 @@ public class Initializer {
 		Player dealer = new BlackjackDealer(getGameShoe());
 		String dealerName = dealer.toString();
 		Player player = new Player("Kris", "Nickeson");
+//		Player player2 = new Player("Niya", "Nolting");	
 		String playerName = player.getFirstName() + " " + player.getLastName();
+//		String playerName2 = player2.getFirstName() + " " + player2.getLastName();	
 		playerArray.add(dealer);
 		playerArray.add(player);
-		
+//		playerArray.add(player2);
 		acctBalanceMap.put(playerName, 200);
+//		acctBalanceMap.put(playerName2,  200);
 		acctBalanceMap.put(dealerName, "Balance N/A");
 	}
 	
