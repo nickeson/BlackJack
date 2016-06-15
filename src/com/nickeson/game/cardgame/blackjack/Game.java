@@ -2,11 +2,10 @@ package com.nickeson.game.cardgame.blackjack;
 
 import java.util.List;
 import java.util.Map;
-
-//import com.nickeson.game.cardgame.Card;
 import com.nickeson.game.cardgame.DeckIntfc;
 import com.nickeson.game.cardgame.EmptyDeckException;
 import com.nickeson.game.cardgame.blackjack.BlackjackDealer;
+//import com.nickeson.game.cardgame.Card;
 
 //JDK 1.8.0
 
@@ -84,7 +83,7 @@ public class Game {
 						String[] newString = tmpString.split(",");
 						dealerHand = newString[0] + ", Face Down Card";
 						dealerHandValue = q.getHand().calcValue();
-						System.out.println("Dealer's Hand: [" + dealerHand + "]\n");
+						System.out.println("Dealer's Hand: [" + dealerHand + "]");
 					}
 				}
 				// set initial, 'post-deal/pre-play' handValue for Player (not Dealer)
@@ -104,28 +103,28 @@ public class Game {
 					}
 				} else {
 					if (!isDealer) { // non-Dealer block
+						System.out.print("\n");
 						while ((handValue < 21) && (hitOrStand == true)) {
-							System.out.println("(H)it or (S)tand?: ");
+							System.out.print("(H)it or (S)tand?: ");
 							hitOrStand = p.hitOrStand();
 							if (hitOrStand == true) {
 								dealer.dealCard(p, 1);
-								hitOrStand = true; // reset hitOrStand to True = NECESSARY???
-								System.out.println(playerName + "'s Hand: " + p.getHand());
-								handValue = p.getHand().calcValue(); // re-calculate handValue
+								System.out.println("\n" + playerName + "'s Hand: " + p.getHand());
+								handValue = p.getHand().calcValue();
 							}
 						}
-						//  win/bust evaluation
+						p.scanner.close(); // necessary?
 						if (handValue == 21 && dealerHandValue != 21) {
 							System.out.println("Player has Won: Blackjack!");
 						} else {
 							if (handValue > 21) {
-								System.out.println(playerName + " has gone Bust!\n");
+								System.out.println(playerName + " has gone Bust!");
 							}
 						}
 					} // end non-Dealer block
 
 					if (isDealer) { // Dealer block
-						System.out.println("Dealer's Hand: " + p.getHand());
+						System.out.println("\nDealer's Hand: " + p.getHand());
 						while (p.hitOrStand()) {
 							System.out.println("Dealer hits...");
 							dealer.dealCard(p, 1);
@@ -154,7 +153,7 @@ public class Game {
 				}
 			}
 		}
-		System.out.println("\n<<Next Player>>\n");
+//		System.out.println("\n<<Next Player>>\n"); // uncomment for multi-player setup
 	} // end runGameLoop()
 
 	private void getPlayerBet() {
@@ -170,7 +169,7 @@ public class Game {
 	 * display any game closing messages to the view
 	 */
 	private void end() {
-		System.out.println("Thanks for Playing!");
+		System.out.println("\nThanks for Playing...");
 	}
 	
 	// contains all main game logic

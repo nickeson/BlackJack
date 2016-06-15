@@ -23,6 +23,7 @@ public class Player extends Person {
 	private String screenName = null;
 	private int acctBalance = 0;
 	private Hand hand = new Hand();
+	protected Scanner scanner = null;
 
 	/**
 	 * primary constructor requires firstName and lastName at minimum
@@ -97,24 +98,30 @@ public class Player extends Person {
      * @return (H)it = true, (S)tand = false
      */
 	public boolean hitOrStand() {
-        Scanner scanner = new Scanner(System.in);
         String inStr = null;
         boolean hosResult = false;
+        scanner = new Scanner(System.in);
 
-        // if we hit enter or anything but h or s, it closes the scanner - FIX THIS!!
         while (scanner.hasNextLine()) {
-            inStr = scanner.nextLine();
-            if(inStr.equalsIgnoreCase("h")) {
-                hosResult = true;
-                break;
-            } else {
-                if (inStr.equalsIgnoreCase("s")) {
-                    hosResult = false;
-                    break;
-                    }
-            }
-			scanner.close();
-        }
+			inStr = scanner.nextLine();
+			if(inStr.equalsIgnoreCase("h")) {
+				hosResult = true;
+				break;
+			} else {
+				if (inStr.equalsIgnoreCase("s")) {
+					hosResult = false;
+					scanner.close();
+					break;
+				} else {
+					if (!inStr.isEmpty()) {
+						System.out.print("(H)it or (S)tand?: ");
+					}
+				}
+			}
+			if (inStr.isEmpty()) {
+				System.out.print("(H)it or (S)tand?: ");
+			}
+		}
 		return hosResult;
     }
 
@@ -137,5 +144,11 @@ public class Player extends Person {
 			result += "$" + getAcctBalance();
 		}
 		return result;
+	}
+	public static void main(String[] args) {
+		Player testPlayer = new Player("Kris", "Nickeson");
+//		System.out.println(testPlayer);
+		System.out.println("(H)it or (S)tand?: ");
+		testPlayer.hitOrStand();
 	}
 }
