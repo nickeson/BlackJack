@@ -82,7 +82,7 @@ public class Card {
     	String currCard = null;
     	
     	if (suit != null && suit != "") {
-			currCard = rank + " of " + suit;
+			currCard = rank + " of " + suit; 
     	} else {
     		// don't print suit if it doesn't exist (i.e., Jokers)
     		currCard = rank;

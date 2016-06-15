@@ -1,11 +1,15 @@
 package com.nickeson.game.cardgame.blackjack;
 
 import java.util.List;
-//import java.util.ArrayList;
 import com.nickeson.game.cardgame.Card;
 import com.nickeson.game.cardgame.DealerIntfc;
 import com.nickeson.game.cardgame.DeckIntfc;
 import com.nickeson.game.cardgame.EmptyDeckException;
+//import java.util.Map;
+//import java.util.HashMap;
+//import java.util.ArrayList;
+//import com.nickeson.game.cardgame.Shoe;
+//import com.nickeson.game.cardgame.StdDeck;
 
 //JDK 1.8.0
 
@@ -119,15 +123,20 @@ public class BlackjackDealer extends Player implements DealerIntfc {
 		if ((getFirstName().equals("Dealer")) && (getLastName().equals("(PC)"))){
 			result = "Dealer (PC)";
 		} else {
-			result = getFirstName() + " " + getLastName() + " is " + getDOB() + 
-					" years old, " + getGenderIdentity() + 
-					", and is also known as: " + getNickNames() +
-					".  Account Balance: $" + getAcctBalance();
+			result = super.toString();
 		}
 		return result;
 	}
 	
 	// unit test
 //	public static void main(String[] args) {
+//		Shoe gameShoe = null;
+//		Map<String, Object> deckOpt = new HashMap<>();
+//		deckOpt.put("typeOfDeck", (new StdDeck())); // modify to pull values from config file
+//		deckOpt.put("stdDeckNumJoker", (new StdDeck(deckOpt))); // modify to pull values from config file
+//		gameShoe = new Shoe(deckOpt); // builds first Deck of type specified in deckOpt
+//		BlackjackDealer testDealer = new BlackjackDealer(gameShoe.getShoe());
+//		BlackjackDealer testDealer = new BlackjackDealer("Kris", "Nickeson", gameShoe.getShoe());
+//		System.out.println(testDealer);
 //	}
 }

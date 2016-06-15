@@ -2,6 +2,8 @@ package com.nickeson.game.cardgame.blackjack;
 
 import java.util.List;
 import java.util.Map;
+
+//import com.nickeson.game.cardgame.Card;
 import com.nickeson.game.cardgame.DeckIntfc;
 import com.nickeson.game.cardgame.EmptyDeckException;
 import com.nickeson.game.cardgame.blackjack.BlackjackDealer;
@@ -72,61 +74,88 @@ public class Game {
 		for (Player p : playerArray) {
 			isDealer = p.getFirstName().equalsIgnoreCase("Dealer");
 			playerName = p.getFirstName() + " " + p.getLastName();
-			if (isDealer != true) { // set handValue for all Players, not Dealer
+
+			// show Dealer's Hand with 2nd Card face-down before each Player's turn (not Dealer's)
+			if (!isDealer) {
+				for (Player q : playerArray) {
+					if (q.getFirstName().equalsIgnoreCase("Dealer")) {
+						String dealerHand = "" + q.getHand();
+						String tmpString = dealerHand.replace("[", "");
+						String[] newString = tmpString.split(",");
+						dealerHand = newString[0] + ", Face Down Card";
+						dealerHandValue = q.getHand().calcValue();
+						System.out.println("Dealer's Hand: [" + dealerHand + "]\n");
+					}
+				}
+				// set initial, 'post-deal/pre-play' handValue for Player (not Dealer)
+				System.out.println(playerName + "'s Hand: " + p.getHand()); 
 				handValue = p.getHand().calcValue();
 			}
-
-			// change this to only show first card until Dealer's turn
-			if (isDealer == true) {
-				System.out.println("Dealer's handValue: " + p.getHand().calcValue());
-			}
-			System.out.println(playerName + "'s Hand: " + p.getHand()); 
 			
 			// run initial checks for Push / Natural Blackjack / Bust
 			if (handValue == 21 && dealerHandValue == 21) {
-				System.out.println("Player and Dealer have tied at 21 (Push)");
+				if (!isDealer) {
+					System.out.println("\nPlayer and Dealer have tied at 21 (Push)");
+				}
 			} else {
 				if (handValue == 21 && dealerHandValue != 21) {
-					System.out.println("Player has a Natural Blackjack!");
+					if (!isDealer) {
+						System.out.println("\nPlayer has Won: Natural Blackjack!");
+					}
 				} else {
-					if (isDealer != true) { // for everyone BUT the Dealer
+					if (!isDealer) { // non-Dealer block
 						while ((handValue < 21) && (hitOrStand == true)) {
-							System.out.println("handValue: " + p.getHand().calcValue());
 							System.out.println("(H)it or (S)tand?: ");
 							hitOrStand = p.hitOrStand();
 							if (hitOrStand == true) {
 								dealer.dealCard(p, 1);
-								hitOrStand = true; // reset hitOrStand to True
-								System.out.println("Hand: " + p.getHand());
+								hitOrStand = true; // reset hitOrStand to True = NECESSARY???
+								System.out.println(playerName + "'s Hand: " + p.getHand());
 								handValue = p.getHand().calcValue(); // re-calculate handValue
 							}
 						}
-
-						// final win/bust evaluation (FIX CALC FOR MULTIPLE ACES IN HAND!)
-						if (handValue == 21) {
-							System.out.println("Player has Won with Blackjack!");
+						//  win/bust evaluation
+						if (handValue == 21 && dealerHandValue != 21) {
+							System.out.println("Player has Won: Blackjack!");
 						} else {
-							if ((handValue > dealerHandValue) && handValue < 21) {
-								System.out.println("Player Wins!");
-							} else {
-									if ((handValue < dealerHandValue) && dealerHandValue <= 21) {
-										System.out.println("Dealer Wins!");
-									} else {
-										if (handValue == dealerHandValue) {
-											System.out.println("Player and Dealer"
-													+ " have tied (Push)");
-										} else {
-											System.out.println("Player has Busted!");
-										}
-									}
+							if (handValue > 21) {
+								System.out.println(playerName + " has gone Bust!\n");
 							}
-//							System.out.println("\n<<Next Player>>\n");
-						} // end win/bust evaluation
-					} // end if isDealer loop
-				} // end non-Natural Blackjack loop
-			} // end Natural Blackjack loop
+						}
+					} // end non-Dealer block
+
+					if (isDealer) { // Dealer block
+						System.out.println("Dealer's Hand: " + p.getHand());
+						while (p.hitOrStand()) {
+							System.out.println("Dealer hits...");
+							dealer.dealCard(p, 1);
+							System.out.println("Dealer's Hand: " + p.getHand());	
+						}
+						dealerHandValue = p.getHand().calcValue();
+						if (dealerHandValue > 21) {
+							System.out.println("Dealer has gone Bust!");
+						}
+					} // end dealer block
+				} // end Natural Blackjack 'else' clause
+			} // end Player/Dealer Push 'else' clause
 		} // end Player loop
-	} // end method
+
+		// after all players & dealer have taken their turns, do win/bust/push eval
+		if ((handValue > dealerHandValue && handValue < 21) || 
+				(handValue < 21 && dealerHandValue > 21)) {
+			System.out.println("\nPlayer Wins!");
+		} else {
+			if (((handValue < dealerHandValue) && dealerHandValue <= 21) ||
+					(handValue > 21 && dealerHandValue <= 21)) {
+				System.out.println("\nDealer Wins!");
+			} else {
+				if ((handValue == dealerHandValue) && (handValue < 21)) {
+					System.out.println("\nPlayer and Dealer have tied (Push)");
+				}
+			}
+		}
+		System.out.println("\n<<Next Player>>\n");
+	} // end runGameLoop()
 
 	private void getPlayerBet() {
 //		for (Player p : playerArray) {
@@ -157,6 +186,6 @@ public class Game {
 		}
 
 		blackjack.updateBank(50); // stub
-//		blackjack.end();
+		blackjack.end();
 	}
 }

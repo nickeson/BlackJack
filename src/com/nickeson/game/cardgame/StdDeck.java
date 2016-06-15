@@ -52,7 +52,7 @@ public class StdDeck implements DeckIntfc {
 	protected void build(int numJokers) {
 		// add specific number of joker(s) so they're on the top of the Deck
 		for (int i=0; i < numJokers; i++) {
-			deck.add(new Card("", "Joker", 0)); // Joker indexValue = 0
+			deck.add(new Card("", "Joker", 0)); // Joker indexValue = 0 
 		}
 
 		// add the rest of the Cards

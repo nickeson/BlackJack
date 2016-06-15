@@ -49,20 +49,24 @@ public class Initializer {
 		configParamsMap.put("shuffleMarker",  220);
 	}
 	
-	// needs modification to allow pulling number of players from command line
+	// needs modification to allow pulling number of players from command line & acctBalances from config file
 	private void setupPlayers() {
-		Player dealer = new BlackjackDealer(getGameShoe());
-		String dealerName = dealer.toString();
-		Player player = new Player("Kris", "Nickeson");
-//		Player player2 = new Player("Niya", "Nolting");	
+		Player player = new Player("Player", "1");
+//		Player player2 = new Player("Player", "2");	
 		String playerName = player.getFirstName() + " " + player.getLastName();
 //		String playerName2 = player2.getFirstName() + " " + player2.getLastName();	
-		playerArray.add(dealer);
 		playerArray.add(player);
 //		playerArray.add(player2);
+
+		Player dealer = new BlackjackDealer(getGameShoe());
+		String dealerName = dealer.toString();
+		playerArray.add(dealer);
+
 		acctBalanceMap.put(playerName, 200);
 //		acctBalanceMap.put(playerName2,  200);
 		acctBalanceMap.put(dealerName, "Balance N/A");
+		
+//		System.out.println("Player Array: " + playerArray);
 	}
 	
 	// modify this to pull Deck type as an option, number of jokers as an option, number of Decks

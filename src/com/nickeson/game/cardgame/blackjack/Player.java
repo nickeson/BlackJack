@@ -101,7 +101,7 @@ public class Player extends Person {
         String inStr = null;
         boolean hosResult = false;
 
-        // if we hit enter it closes the scanner - FIX THIS!!
+        // if we hit enter or anything but h or s, it closes the scanner - FIX THIS!!
         while (scanner.hasNextLine()) {
             inStr = scanner.nextLine();
             if(inStr.equalsIgnoreCase("h")) {
