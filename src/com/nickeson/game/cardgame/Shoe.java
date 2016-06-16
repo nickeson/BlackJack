@@ -1,8 +1,7 @@
 package com.nickeson.game.cardgame;
 
-import java.util.Map;
-
 //JDK 1.8.0
+import java.util.Map;
 
 /****************************************************************************
  * <b>Title</b>: Shoe.java <p/>
@@ -17,12 +16,12 @@ import java.util.Map;
  ****************************************************************************/
 
 public class Shoe {
-
 	private DeckIntfc shoe = null;
 	public static final String DECKTYPE = "typeOfDeck";
 	
 	/**
 	 * default constructor builds a single Deck Shoe using Decks of type 'deckType'
+	 * @param options the Map of options used to build the Shoe
 	 */
 	public Shoe(Map<String, Object> options) {
 		if (options.containsKey(DECKTYPE) && options.get(DECKTYPE) != null) {
@@ -60,13 +59,10 @@ public class Shoe {
 	
 	/**
 	 * Override toString() method to print the Shoe's String value instead of hashcode
+	 * @return the String value of the Shoe
 	 */
 	@Override
 	public String toString() {
 		return "" + shoe;
 	}
-
-	// unit test method
-//	public static void main(String[] args) {
-//	}
 }

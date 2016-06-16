@@ -1,9 +1,8 @@
 package com.nickeson;
 
+//JDK 1.8.0
 import java.time.LocalDate;
 import java.util.List;
-
-//JDK 1.8.0
 
 /****************************************************************************
  * <b>Title</b>: Person.java <p/>
@@ -26,6 +25,8 @@ public class Person {
 
 	/**
 	 * minimal constructor requires first & last name
+	 * @param firstName the firstName to set upon instantiation
+	 * @param lastName the lastName to set upon instantiation
 	 */
 	public Person(String firstName, String lastName) {
 		this.firstName = firstName;
@@ -88,7 +89,7 @@ public class Person {
 	}
 
 	/**
-	 * @param dob set the Person's DateOfBirth (2016-12-03 is proper format)
+	 * @param dob set the Person's DateOfBirth (2016-12-03 format)
 	 */
 	public void setDOB(String dob) {
 		this.dob = LocalDate.parse(dob);
@@ -124,6 +125,7 @@ public class Person {
 	
 	/**
 	 * Override toString() to print Person's field values, rather than hashcode
+	 * @return the String value of the Person
 	 */
 	@Override
 	public String toString() {

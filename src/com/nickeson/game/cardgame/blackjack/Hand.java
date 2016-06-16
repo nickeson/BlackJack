@@ -1,15 +1,9 @@
 package com.nickeson.game.cardgame.blackjack;
 
+//JDK 1.8.0
 import java.util.List;
 import java.util.ArrayList;
 import com.nickeson.game.cardgame.Card;
-//import java.util.HashMap;
-//import java.util.Map;
-//import com.nickeson.game.cardgame.EmptyDeckException;
-//import com.nickeson.game.cardgame.StdDeck;
-//import com.nickeson.game.cardgame.StdDeck;
-
-//JDK 1.8.0
 
 /****************************************************************************
  * <b>Title</b>: Hand.java <p/>
@@ -24,7 +18,6 @@ import com.nickeson.game.cardgame.Card;
  ****************************************************************************/
 
 public class Hand {
-
 	private List<Card> hand = new ArrayList<Card>();
 	
 	/**
@@ -178,16 +171,13 @@ public class Hand {
 		int softResult = 0;
 		int hardResult = 0;
 		int result = 0;
-		int numAces = 0; // counter for number of Aces in Hand
+		int numAces = 0;
 		
 		sortByIndexValue(); // sort cards first so Aces get processed last
-		
 		for (Card c : hand) {
-			switch (c.getIndexValue()) { // Blackjack Card indexValues run from 1 to 13
-				case 1: // Ace Card's indexValue is 1
+			switch (c.getIndexValue()) {
+				case 1: 
 						softResult += 1;
-
-						// set first Ace in Hand to 11 unless bust/win, then set to 1
 						if (numAces == 0) {
 							hardResult += 11;
 							if (hardResult == 21) {
@@ -196,29 +186,28 @@ public class Hand {
 								if (hardResult > 21) hardResult = softResult; 
 							}
 						} else {
-							if (numAces > 0) { // if this is the 2nd (or 3rd, 4th, etc.) 
-								hardResult += 1; // Ace in the hand it's automatically a 1
+							if (numAces > 0) {
+								hardResult += 1;
 							}
 						}
 						numAces++;
 						break;
 				case 11:
-						softResult += 10; // Jack's Blackjack point value is 10
-						hardResult += 10; // Jack's Blackjack point value is 10	
+						softResult += 10; // Jack
+						hardResult += 10;
 						break;
 				case 12:
-						softResult += 10; // Queen's Blackjack point value is 10 
-						hardResult += 10; // Queen's Blackjack point value is 10 
+						softResult += 10; // Queen
+						hardResult += 10;
 						break;
 				case 13:
-						softResult += 10; // King's Blackjack point value is 10 
-						hardResult += 10; // King's Blackjack point value is 10 
+						softResult += 10; // King
+						hardResult += 10;
 						break;
 				default: 
 						softResult += c.getIndexValue(); // all non-face Cards
-						hardResult += c.getIndexValue(); // all non-face Cards	
+						hardResult += c.getIndexValue();
 			}
-
 			if (hardResult == 21 || softResult == 21) {
 				result = 21;
 			} else {
@@ -229,9 +218,6 @@ public class Hand {
 				}
 			}
 		}
-
-//		System.out.println("Soft Result: " + softResult); // for testing
-//		System.out.println("Hard Result: " + hardResult); // for testing
 		return result;
 	}
 	
@@ -252,64 +238,11 @@ public class Hand {
 	
 	/**
 	 * print value of Hand as String instead of hashcode
+	 * @return the String value of the Hand
 	 */
 	@Override
 	public String toString() {
 		String result = "" + hand;
 		return result;
 	}
-	
-	// unit test method
-//	public static void main(String[] args) {
-//		Hand hand = new Hand();
-//		StdDeck stdDeck = new StdDeck();
-//		System.out.println("StdDeck: " + stdDeck);
-//		stdDeck.shuffle();
-		
-		// add all cards in DeckIntfc to hand, casting List<Card> from DeckIntfc to ArrayList<Card> for hand
-//		hand.addCard((ArrayList<Card>)stdDeck.getDeck());
-//		try {
-//			hand.addCard(new Card("Spades", "7", 7));
-//			hand.addCard(new Card("Spades", "Ace", 1));	
-//			hand.addCard(new Card("Spades", "Ace", 1));		
-//			hand.addCard(new Card("Hearts", "Ace", 1));	
-//			hand.addCard(new Card("Spades", "Ace", 1));
-//			hand.addCard(new Card("Diamonds", "Ace", 1));			
-//			hand.addCard(new Card("Hearts", "7", 7));	
-//			hand.addCard(new Card("Clubs", "2", 2));	
-//			hand.addCard(stdDeck.getCard());	
-//		} catch (EmptyDeckException e) {
-//			e.printStackTrace();
-//		}
-//		System.out.println(hand);
-		
-//		System.out.println("Hand before sorting: " + hand);
-//		hand.sortBySuit();
-//		hand.sortByIndexValue();
-//		System.out.println("Hand after sorting: " + hand);	
-//		System.out.println("handValue: " + hand.calcValue());
-		
-		// testing inHand()
-//		System.out.println(hand.inHand(new Card("Clubs", "3", 3)));
-
-		// testing removeCard()
-//		Card testCard2 = new Card("Clubs", "Ace", 1);
-//		Card testCard3 = new Card("Clubs", "Ace", 1);	
-//		Card testCard4 = new Card("Spades1", "Ace", 1);	
-//		List<Card> testArrayList = new ArrayList<Card>();
-//		testArrayList.add(testCard2);
-//		testArrayList.add(testCard3);		
-//		testArrayList.add(testCard4);
-//		System.out.println("Hand before removeCard: " + hand);
-//		System.out.println(testArrayList);
-//		hand.removeCard(testArrayList);
-//		hand.removeCard(testCard2);
-//		hand.removeCard(testCard2);
-//		System.out.println(hand);
-//		System.out.println(hand.size());
-
-		// testing getCard()
-//		Card testCard5 = new Card("Clubs", "Ace", 1);
-//		System.out.println(hand.getCard(testCard5));
-//	}
 }

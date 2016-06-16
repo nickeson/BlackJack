@@ -16,11 +16,12 @@ package com.nickeson.game.cardgame;
  ****************************************************************************/
 
 public class EmptyDeckException extends Exception {
-
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * default constructor provides default Exception message
+	 * default constructor allows us to pass a specific EmptyDeckException 
+	 * message when it is thrown
+	 * @param message the message to display when this exception is thrown
 	 */
 	public EmptyDeckException(String message) {
 		super(message);

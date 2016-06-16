@@ -1,6 +1,8 @@
 package com.nickeson.game;
 
 //JDK 1.8.0
+import java.util.HashMap;
+import java.util.Map;
 
 /****************************************************************************
  * <b>Title</b>: Bank.java <p/>
@@ -15,9 +17,35 @@ package com.nickeson.game;
  ****************************************************************************/
 
 public class Bank {
-	
-	// entry here for config file on filesystem
+	private Map<String, Object> acctBalanceMap = new HashMap<>(); // String = playerName, Object = acctBalance
+	// entry here for config file location on filesystem
 
+	/**
+	 * default constructor uses values from config file for acctBalanceMap
+	 */
 	public Bank() {
+		// entry to pull acctBalanceMap values from config file on filesystem
+	}
+	
+	/**
+	 * convenience constructor allows us to pass an acctBalanceMap to the Bank
+	 * @param acctBalanceMap
+	 */
+	public Bank(Map<String, Object> acctBalanceMap) {
+		this.acctBalanceMap = acctBalanceMap;
+	}
+
+	/**
+	 * @return the acctBalanceMap
+	 */
+	public Map<String, Object> getAcctBalanceMap() {
+		return acctBalanceMap;
+	}
+
+	/**
+	 * @param acctBalanceMap the acctBalanceMap to set
+	 */
+	public void setAcctBalanceMap(Map<String, Object> acctBalanceMap) {
+		this.acctBalanceMap = acctBalanceMap;
 	}
 }

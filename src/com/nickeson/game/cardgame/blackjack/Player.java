@@ -1,10 +1,9 @@
 package com.nickeson.game.cardgame.blackjack;
 
+//JDK 1.8.0
 import java.util.List;
 import java.util.Scanner;
 import com.nickeson.Person;
-
-//JDK 1.8.0
 
 /****************************************************************************
  * <b>Title</b>: Player.java <p/>
@@ -19,11 +18,10 @@ import com.nickeson.Person;
  ****************************************************************************/
 
 public class Player extends Person {
-
 	private String screenName = null;
 	private int acctBalance = 0;
 	private Hand hand = new Hand();
-	protected Scanner scanner = null;
+	private Scanner scanner = null;
 
 	/**
 	 * primary constructor requires firstName and lastName at minimum
@@ -110,7 +108,6 @@ public class Player extends Person {
 			} else {
 				if (inStr.equalsIgnoreCase("s")) {
 					hosResult = false;
-					scanner.close();
 					break;
 				} else {
 					if (!inStr.isEmpty()) {
@@ -127,6 +124,7 @@ public class Player extends Person {
 
 	/**
 	 * Override toString() to print Player's field values, rather than hashcode
+	 * @return the String value of the Player
 	 */
 	@Override
 	public String toString() {
@@ -144,11 +142,5 @@ public class Player extends Person {
 			result += "$" + getAcctBalance();
 		}
 		return result;
-	}
-	public static void main(String[] args) {
-		Player testPlayer = new Player("Kris", "Nickeson");
-//		System.out.println(testPlayer);
-		System.out.println("(H)it or (S)tand?: ");
-		testPlayer.hitOrStand();
 	}
 }

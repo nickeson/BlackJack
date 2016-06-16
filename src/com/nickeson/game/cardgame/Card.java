@@ -9,13 +9,12 @@ package com.nickeson.game.cardgame;
  * <b>Copyright:</b> Copyright (c) 2016<p/>
  * <b>Company:</b> Silicon Mountain Technologies<p/>
  * @author nickeson
- * @version 1.0
+ * @version 2.0
  * @since May 17, 2016<p/>
  * updates:
  ****************************************************************************/
 
 public class Card {
-
     private String suit = null;
     private String rank = null;
     private int indexValue = 0;
@@ -75,7 +74,8 @@ public class Card {
 	}
 	
 	/**
-     * print Card suit and rank, rather than hashcode
+     * print Card suit and rank (if it exists), rather than hashcode
+     * @return the String value of the Card
      */
     @Override
     public String toString() {
@@ -84,7 +84,6 @@ public class Card {
     	if (suit != null && suit != "") {
 			currCard = rank + " of " + suit; 
     	} else {
-    		// don't print suit if it doesn't exist (i.e., Jokers)
     		currCard = rank;
     	}
         return currCard;

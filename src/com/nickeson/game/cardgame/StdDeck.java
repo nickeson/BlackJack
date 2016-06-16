@@ -1,12 +1,11 @@
 package com.nickeson.game.cardgame;
 
+//JDK 1.8.0
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-
-//JDK 1.8.0
 
 /****************************************************************************
  * <b>Title</b>: StdDeck.java <p/>
@@ -38,6 +37,7 @@ public class StdDeck implements DeckIntfc {
 	/**
 	 * convenience constructor allows us to pass an options Map and build Deck
 	 * using options from the Map
+	 * @param options the Map of options to use when building the Deck
 	 */
 	public StdDeck(Map<String, Object> options) {
 		int numJokers = 0;
@@ -48,13 +48,13 @@ public class StdDeck implements DeckIntfc {
 	
 	/**
 	 * build a Standard Deck of cards
+	 * @param numJokers the number of Jokers to use when building the StdDeck
 	 */
-	protected void build(int numJokers) {
+	private void build(int numJokers) {
 		// add specific number of joker(s) so they're on the top of the Deck
 		for (int i=0; i < numJokers; i++) {
 			deck.add(new Card("", "Joker", 0)); // Joker indexValue = 0 
 		}
-
 		// add the rest of the Cards
 		for(int i=0; i < 4; i++) {
 			for (int j = 0; j < 13; j++) {
@@ -75,8 +75,7 @@ public class StdDeck implements DeckIntfc {
 					default:
 						rank = "" + (j+1);
 				}
-				// add Card with suit, rank, indexValue
-				deck.add(new Card(suits[i], rank, j+1));
+				deck.add(new Card(suits[i], rank, j+1)); // suit, rank, indexValue 
 			}
 		}
 	}
@@ -117,6 +116,7 @@ public class StdDeck implements DeckIntfc {
 	 * Get the next Card in the Deck (starting with top Card [0]), move card to
 	 * inUse pile and remove from Deck
 	 * @return the next Card from the Deck
+	 * @throws EmptyDeckException
 	 */
 	public Card getCard() throws EmptyDeckException {
 		Card nextCard = null;
@@ -132,90 +132,99 @@ public class StdDeck implements DeckIntfc {
 	 * remove Card from Deck at 'deckLoc' and add to inUse pile
 	 * @param deckLoc the location in the Deck from which to remove the Card
 	 * @return the Card from the Deck at 'deckLoc'
+	 * @throws EmptyDeckException
 	 */
-	public Card getCard(int deckLoc) {
+	public Card getCard(int deckLoc) throws EmptyDeckException {
 		Card card = null;
-		if (!deck.isEmpty()) {
-			card = deck.get(deckLoc);
-			deck.remove(card);
-			inUse.add(card);
-			return card;
-		} else {
-			System.out.println("The Deck is empty, therefore Card is null");
-			return card;
-		}
+		if (deck.isEmpty()) throw new EmptyDeckException("The Deck is Empty "
+				+ "- you cannot get a Card");
+		card = deck.get(deckLoc);
+		deck.remove(card);
+		inUse.add(card);
+		return card;
 	}
 	
 	/**
 	 * return a Card from a random location in the Deck, remove from the Deck and 
 	 * add to inUse pile
 	 * @return a randomly drawn Card from the Deck
+	 * @throws EmptyDeckException
 	 */
-	public Card getRandomCard() {
+	public Card getRandomCard() throws EmptyDeckException {
 		Card card = null;
-		if (!deck.isEmpty()) {
-			Random rand = new Random();
-			int rNum = rand.nextInt(deck.size());
-			card = deck.get(rNum);
-			deck.remove(card);
-			inUse.add(card);
-			return card;
-		} else {
-			System.out.println("You cannot get a random Card from an empty Deck");
-			return card;
-		}
+		if (deck.isEmpty()) throw new EmptyDeckException("The Deck is Empty "
+				+ "- you cannot get a Card");
+		Random rand = new Random();
+		int rNum = rand.nextInt(deck.size());
+		card = deck.get(rNum);
+		deck.remove(card);
+		inUse.add(card);
+		return card;
 	}
 	
 	/**
 	 * remove a specific Card from the Deck (remove from Deck, inUse and discards)
 	 * @param card the specific Card to remove from the Deck
+	 * @throws EmptyDeckException
 	 */
-	public void removeCard(Card card) {
-		if (deck.contains(card) || inUse.contains(card) || discards.contains(card)) {
-			if (deck.contains(card)) {
-				deck.remove(card);
-			}
-			if (inUse.contains(card)) {
-				inUse.remove(card);
-			}
-			if (discards.contains(card)) {
-				discards.remove(card);
-			}
+	public void removeCard(Card card) throws EmptyDeckException {
+		if (deck.isEmpty()) { throw new EmptyDeckException("The Deck is Empty "
+				+ "- you cannot check for a Card to remove");
 		} else {
-			System.out.println("The Deck does not contain your Card");
+			if (deck.contains(card) || inUse.contains(card) || discards.contains(card)) {
+				if (deck.contains(card)) {
+					deck.remove(card);
+				}
+				if (inUse.contains(card)) {
+					inUse.remove(card);
+				}
+				if (discards.contains(card)) {
+					discards.remove(card);
+				}
+			} else {
+				System.out.println("The Deck does not contain your Card");
+			}
 		}
 	}
-
 
 	/**
 	 * discard the specified 'qty' of Cards, starting from 'pos' position of Deck
 	 * @param qty the number of Cards to discard
 	 * @param pos the position in the Deck from which to discard (top of Deck = 0)
+	 * @throws EmptyDeckException
 	 */
-	public void burnCard(int qty, int pos) {
-		for (int i = 0; i < qty; i++) {
-			discards.add(deck.get(pos));
-			deck.remove(pos);
+	public void burnCard(int qty, int pos) throws EmptyDeckException {
+		if (deck.isEmpty()) { throw new EmptyDeckException("The Deck is Empty "
+				+ "- you cannot burn Cards");
+		} else {
+			for (int i = 0; i < qty; i++) {
+				discards.add(deck.get(pos));
+				deck.remove(pos);
+			}
 		}
 	}
 
 	/**
 	 * remove specified Card from the Deck or inUse pile to the discards pile
 	 * @param card the specific Card to discard
+	 * @throws EmptyDeckException
 	 */
-	public void discard(Card card) {
-		if (deck.contains(card) || inUse.contains(card)) {
-		discards.add(card);
-			if (deck.contains(card)) {
-				deck.remove(card);
-			} else {
-				inUse.remove(card);
-			}
+	public void discard(Card card) throws EmptyDeckException {
+		if (deck.isEmpty()) { throw new EmptyDeckException("The Deck is Empty "
+				+ "- you cannot discard");
 		} else {
-			System.out.println("The Deck does not contain your Card");
+			if (deck.contains(card) || inUse.contains(card)) {
+			discards.add(card);
+				if (deck.contains(card)) {
+					deck.remove(card);
+				} else {
+					inUse.remove(card);
+				}
+			} else {
+				System.out.println("The Deck does not contain your Card");
+			}
 		}
-	}
-	
+	}	
 	/** 
 	 * Does not remove Cards from the Deck (or move to inUse or discards)
 	 * returns the Deck as a List of Cards
@@ -268,8 +277,9 @@ public class StdDeck implements DeckIntfc {
 	
 	/**
 	 * remove all Cards from discard and inUse piles and add back to the Deck, shuffle the Deck
+	 * @throws EmptyDeckException
 	 */
-	public void reInitialize() {
+	public void reInitialize() throws EmptyDeckException {
 		for (Card c : inUse) {
 			deck.add(c);
 		}
@@ -283,68 +293,11 @@ public class StdDeck implements DeckIntfc {
 
 	/**
 	 * Override toString() method to print the Deck's String value instead of hashcode
+	 * @return the String value of the StdDeck
 	 */
 	@Override
 	public String toString() {
 		String printDeck = "" + deck;
 		return printDeck;
 	}
-	
-	// unit test
-//	public static void main (String[] args) {
-//		StdDeck testDeck = new StdDeck();
-//		System.out.println(testDeck);
-//		System.out.println(testDeck.size());
-//		int origDeckSize = testDeck.size();
-//
-//		for (int i = 0; i < (origDeckSize); i++) {
-//			try {
-//				testDeck.getCard();
-//			} catch (EmptyDeckException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		
-//		try {
-//			testDeck.getCard();
-//		} catch (EmptyDeckException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		System.out.println(testDeck.size());		
-//		System.out.println(testDeck);
-//		
-//		Card c1 = (new Card("Spades", "Ace", 1));
-//		Card c2 = (new Card("Spades", "2", 2));	
-//		Card c3 = (new Card("Spades", "3", 3));	
-//		testDeck.addCard(c1);
-//		testDeck.addCard(c2);		
-//		testDeck.addCard(c3);
-//		System.out.println(testDeck);
-//		System.out.println(testDeck.size());
-//		Card c4 = testDeck.getCard();
-//		Card c5 = testDeck.getCard();	
-//		System.out.println("c4: " + c4);
-//		System.out.println("c5: " + c5);	
-//		System.out.println(testDeck.size());
-//		testDeck.shuffle();
-//		System.out.println(testDeck.size());	
-//		System.out.println(testDeck);	
-//		testDeck.discard(c1);
-//		System.out.println(testDeck.size());	
-//		System.out.println(testDeck);			
-//		testDeck.discard(c2);	
-//		testDeck.discard(c3);
-//		testDeck.discard(c4);
-//		testDeck.discard(c5);	
-//		System.out.println("inUse: " + testDeck.getInUse());
-//		System.out.println("discards: " + testDeck.getDiscards());	
-//		System.out.println(testDeck.size());	
-//		System.out.println(testDeck);			
-//		testDeck.shuffle();
-//		testDeck.burnCard(3, 49);
-//		System.out.println(testDeck.size());	
-//		System.out.println(testDeck);
-//		System.out.println(testDeck.peek(12));
-//	}
 }
