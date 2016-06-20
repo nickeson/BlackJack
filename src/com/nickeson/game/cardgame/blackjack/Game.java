@@ -302,7 +302,7 @@ public class Game {
 		do {
 			blackjack.initialDeal();
 			try {
-				blackjack.runGameLoop(); // needs multiPlayer and betting capabilities added
+				blackjack.runGameLoop(); // needs multiPlayer, Shoe shuffle marker and betting capabilities added
 			} catch (EmptyDeckException e) {
 				e.printStackTrace();
 			}
